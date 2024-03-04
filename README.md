@@ -68,12 +68,13 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 **EXTENSION:**
 - User can set lists to private or public
 - Edit a user’s information
-- Display average rating of movie
-- Filter movies by rating
+- Give movies an average rating property
+- Filter movies by average rating
 - Display lists containing a specific film
 - Allow movies to have multiple genres
 - Automatically add current date to review (refactor to LocalDate)
 - Allow users to leave comments and likes on reviews
+
 
 ### Class Diagram for CinemaMavericks
 ![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/5c99d09f-2a65-4b2a-aeb1-3062a65e8f87)
