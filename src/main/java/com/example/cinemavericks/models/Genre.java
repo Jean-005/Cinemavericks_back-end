@@ -10,10 +10,8 @@ public enum Genre {
     HORROR,
     SCIFI,
     HISTORICAL,
-    ANIME
-    ;
+    ANIME;
 
 
-    Genre() {
-    }
+    Genre() {}
 }

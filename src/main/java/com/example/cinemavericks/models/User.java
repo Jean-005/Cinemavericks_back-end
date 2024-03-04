@@ -2,8 +2,10 @@ package com.example.cinemavericks.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table
+@Table(name = "users")
 public class User {
 
     @Id
@@ -14,7 +16,10 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user")
-    private Review reviews;
+    private List<Review> reviews;
+
+    @OneToMany(mappedBy = "user")
+    private List<MovieList> movieLists;
 
     public User(String name) {
         this.name = name;
@@ -37,5 +42,21 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public List<MovieList> getMovieLists() {
+        return movieLists;
+    }
+
+    public void setMovieLists(List<MovieList> movieLists) {
+        this.movieLists = movieLists;
     }
 }
