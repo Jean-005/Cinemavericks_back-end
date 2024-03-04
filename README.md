@@ -73,12 +73,12 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 - Allow users to leave comments and likes on reviews
 
 ### Class Diagram for CinemaMavericks
-![Class Diagram for CinemaMavericks]( ![Class Diagram](https://github.com/GJaradat/cinemavericks/assets/99983599/5c99d09f-2a65-4b2a-aeb1-3062a65e8f87)
-)
+![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/5c99d09f-2a65-4b2a-aeb1-3062a65e8f87)
+
 
 ### ERD Diagram for CinemaMavericks
-![ERD Diagram for CinemaMavericks](![ERD Diagram](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
-)
+![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
+
 
 ### Data Dictionary for CinemaMavericks
 #### Movie Table
