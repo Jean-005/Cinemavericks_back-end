@@ -73,3 +73,50 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 - Allow users to leave comments and likes on reviews
 
 
+### Data Dictionary for CinemaMavericks
+#### Movie Table
+
+| Column Name | Description                 | Data Type    | Permitted Values |
+|-------------|-----------------------------|--------------|------------------|
+| id          | Unique identifier           | SERIAL       | numbers >= 1     |
+| title       | Title of the movie          | VARCHAR(255) |                  |
+| year        | Year of movie release       | INT          |                  |
+| genre       | Genre of the movie          | VARCHAR(255) |                  |
+| director    | Director of the movie       | VARCHAR(255) |                  |
+
+#### User Table
+
+| Column Name | Description               | Data Type    | Permitted Values |
+|-------------|---------------------------|--------------|------------------|
+| id          | Unique identifier         | SERIAL       | numbers >= 1     |
+| name        | Name of the user          | VARCHAR(255) |                  |
+
+#### Review Table
+
+| Column Name | Description                         | Data Type    | Permitted Values                |
+|-------------|-------------------------------------|--------------|---------------------------------|
+| id          | Unique identifier                   | SERIAL       | numbers >= 1                    |
+| title       | Title of the review                 | VARCHAR(255) |                                 |
+| content     | Content of the review               | TEXT         |                                 |
+| rating      | Rating given to the movie           | INT          | 1 <= value <= 5                 |
+| movie_id    | ID referencing movie in Movie table | INT          | Foreign Key (Movie.id)          |
+| user_id     | ID referencing user in User table   | INT          | Foreign Key (User.id)           |
+
+
+#### Movie List Table
+
+| Column Name | Description                       | Data Type    | Permitted Values      | 
+|-------------|-----------------------------------|--------------|-----------------------|
+| id          | Unique identifier                 | SERIAL       | numbers >= 1          |
+| title       | Title of the movie list           | VARCHAR(255) |                       |
+| user_id     | ID referencing user in User table | INT          | Foreign Key (User.id) |
+
+
+#### Movie Movie Lists Table
+
+| Column Name | Description                                          | Data Type    | Permitted Values                  |
+|-------------|------------------------------------------------------|--------------|-----------------------------------|
+| id          | Unique identifier                                    | SERIAL       | numbers >= 1                      |
+| movielist_id | ID referencing movie list in Movie Lists table     | INT          | Foreign Key (MovieList.id)      |
+| movie_id    | ID referencing movie in Movie table                  | INT          | Foreign Key (Movie.id)            |
+
