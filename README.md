@@ -4,7 +4,7 @@
 
 This project is an API for a film review aggregation application. Users can leave reviews with star ratings on films they have seen and curate lists of films based around any theme of their choosing. They can also search movies by genre, director etc.
 
-**Tech Stack**
+**Tech Stack:**
 - Java
 - SpringBoot
 - PostgreSQL Database
