@@ -1,5 +1,6 @@
 package com.example.cinemavericks.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class Movie {
     private String director;
 
     @OneToMany(mappedBy = "movie")
+    @JsonIgnoreProperties({"movie"})
     private List<Review> reviews;
 
     @ManyToMany

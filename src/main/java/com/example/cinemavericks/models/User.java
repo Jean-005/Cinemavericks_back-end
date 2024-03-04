@@ -1,5 +1,6 @@
 package com.example.cinemavericks.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,9 +17,11 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties({"user"})
     private List<Review> reviews;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties({"user"})
     private List<MovieList> movieLists;
 
     public User(String name) {

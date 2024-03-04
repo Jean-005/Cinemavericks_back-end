@@ -21,8 +21,14 @@ public class MovieList {
 
     @JsonIgnoreProperties("movie_lists")
     @ManyToMany
-    @JoinColumn(name = "movie")
+    @JoinTable(
+        name = "movie_lists_movies",
+        joinColumns = @JoinColumn(name = "movie_list_id"),
+        inverseJoinColumns = @JoinColumn(name = "movie_list_id")
+    )
     ArrayList<Movie> movies;
+
+    public MovieList(){}
 
     public MovieList(User user, String title){
         this.user = user;
@@ -31,9 +37,36 @@ public class MovieList {
 
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public ArrayList<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(ArrayList<Movie> movies) {
+        this.movies = movies;
+    }
     
-
-
-
-
 }
