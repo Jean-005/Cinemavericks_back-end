@@ -39,26 +39,29 @@ The Review table will have columns for:
 
 The API must include routes enabling user to:
 
-Create a list of movies
-- Add movie
-- Edit movie
 - View all movies
 - Get movie by id
+- Add movie
+- Edit movie
 - Get all the reviews of a movie
+
+- Create review
+- Edit review
+- Delete review
+
+- Get all users
+- Get specific user
+- Get all reviews by a specific user
+- Get all movie lists by specific user
+- Create a user
+- Delete a user
+  
 - Get all movie lists
 - Get specific movie list by id
 - Create movie list
 - Update movie list
 - Delete movie list
-- Create review
-- Edit review
-- Delete review
-- Get all users
-- Get specific user
-- Get all reviews by a specific user
-- Get all lists by specific user
-- Create a user
-- Delete a user
+
 
 Create a DataLoader to seed the database with Users, Movies and Reviews.
 
