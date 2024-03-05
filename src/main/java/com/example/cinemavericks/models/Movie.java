@@ -27,8 +27,8 @@ public class Movie {
     @JsonIgnoreProperties({"movie"})
     private List<Review> reviews;
 
-    @ManyToMany
-    private List<MovieList> movieList;
+    @ManyToMany(mappedBy = "movies")
+    private List<MovieList> movieLists;
 
     public Movie(){}
 
@@ -37,7 +37,7 @@ public class Movie {
         this.year = year;
         this.director = director;
         this.reviews = new ArrayList<>();
-        this.movieList = new ArrayList<>();
+        this.movieLists = new ArrayList<>();
     }
 
     public long getId() {
@@ -88,11 +88,11 @@ public class Movie {
         this.reviews = reviews;
     }
 
-    public List<MovieList> getMovieList() {
-        return this.movieList;
+    public List<MovieList> getMovieLists() {
+        return this.movieLists;
     }
 
-    public void setMovieList(List<MovieList> movieList) {
-        this.movieList = movieList;
+    public void setMovieLists(List<MovieList> movieLists) {
+        this.movieLists = movieLists;
     }
 }
