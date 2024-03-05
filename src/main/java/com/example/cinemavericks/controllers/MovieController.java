@@ -5,10 +5,7 @@ import com.example.cinemavericks.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +26,14 @@ MovieController {
     }
 
     //Display movie by id
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Movie> getMovieById(@RequestParam long movieId){
-        Optional<Movie> movie = movieService.getMovieById(movieId).get();
+    @GetMapping(value = "/{movieId}")
+    public ResponseEntity<Movie> getMovieById(@PathVariable long movieId){
+        Optional<Movie> movie = movieService.getMovieById(movieId);
+        if (movie.isPresent()){
+            return new ResponseEntity<>(movie.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null,  HttpStatus.NOT_FOUND);
     }
-
 
     //Add new movie
 
