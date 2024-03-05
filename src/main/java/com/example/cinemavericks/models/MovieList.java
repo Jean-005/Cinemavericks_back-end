@@ -2,8 +2,10 @@ package com.example.cinemavericks.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import org.springframework.web.servlet.mvc.method.annotation.ModelAndViewMethodReturnValueHandler;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "movie_lists")
@@ -27,7 +29,7 @@ public class MovieList {
         joinColumns = @JoinColumn(name = "movie_list_id"),
         inverseJoinColumns = @JoinColumn(name = "movie_id")
     )
-    private ArrayList<Movie> movies;
+    private List<Movie> movies;
 
     public MovieList(){}
 
@@ -62,12 +64,20 @@ public class MovieList {
         this.title = title;
     }
 
-    public ArrayList<Movie> getMovies() {
+    public List<Movie> getMovies() {
         return movies;
     }
 
-    public void setMovies(ArrayList<Movie> movies) {
+    public void setMovies(List<Movie> movies) {
         this.movies = movies;
+    }
+
+    public void addMovie(Movie movie){
+        this.movies.add(movie);
+    }
+
+    public void removeMovie(Movie movie){
+        this.movies.remove(movie);
     }
     
 }
