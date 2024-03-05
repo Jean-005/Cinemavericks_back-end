@@ -10,6 +10,7 @@ import com.example.cinemavericks.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,27 +58,25 @@ public class MovieListService {
         return null;
     }
 
-//    public MovieList removeMovieInMovieList(Long id, MovieListDTO movieListDTO) {
-//        //find MovieList
-//        Optional<MovieList> movieList = movieListRepository.findById(id);
-//        if (movieList.isPresent()) {
-//            for (Long movieId : movieListDTO.getMovieIds()) {
-//                for (Movie movie : movieList.get().getMovies()) {
-//                    if (movieId == movie.getId()) {
-//                        movieList.get().removeMovie(movie);
-//                    }
-//                }
-//            }
-//            //save movieList
-//            return movieListRepository.save(movieList.get());
-//        }
-//        //movieList id is not valid
-//        return null;
-//    }
-//
-//    // public List<Movie> updateMovieList(MovieListDTO movieListDTO, long id){
-//
-//    for(long id, movieListDTO.getMovieIds)
+    public MovieList removeMovieInMovieList(Long id, MovieListDTO movieListDTO) {
+        MovieList movieList = movieListRepository.findById(id).get();
+        List<Movie> removeList = new ArrayList<>();
+
+        //Add the movie to be deleted IN removeList
+        for (Long movieId : movieListDTO.getMovieIds()){
+            Movie movie = movieRepository.findById(movieId).get();
+            removeList.add(movie);
+        }
+
+        //REMOVE movie from movieList using removeList
+        for (Movie movie : removeList){
+            //CHECK if specified movie is on the movieList
+            if(movieList.getMovies().contains(movie)){
+                movieList.removeMovie(movie);
+            }
+        }
+        return movieListRepository.save(movieList);
+    }
 
     public void removeMovieList(Long id) {
         movieListRepository.deleteById(id);
