@@ -61,20 +61,24 @@ public class DataLoader implements ApplicationRunner {
         Movie movie9 = new Movie("Inception", 2010, Genre.COMEDY,"Christopher Nolan");
         Movie movie10 = new Movie("The Matrix", 1999, Genre.COMEDY,"Wachowskis");
 
+        movieRepository.save(hoodWinked);
+        movieRepository.save(whipLash);
+        movieRepository.save(thisIsMeNow);
+        movieRepository.save(scottPilgrimVsTheWorld);
+        movieRepository.save(movie1);
+        movieRepository.save(movie2);
+        movieRepository.save(movie3);
+        movieRepository.save(movie4);
+        movieRepository.save(movie5);
+        movieRepository.save(movie6);
+        movieRepository.save(movie7);
+        movieRepository.save(movie8);
+        movieRepository.save(movie9);
+        movieRepository.save(movie10);
 
-
-        Review review1 = new Review("Great","01/01/2004","FILM SO GOOD WOW WOOOOOOO!", 5);
-        Review review2 = new Review("Not Great","01/01/2012","Hmmm, it was okay. Not the best but not bad.", 2.5);
-        Review review3 = new Review("Don't even","01/01/1995","Don't.", 1);
-
-
-//        movie1.addReview(review1);
-//        movie2.addReview(review2);
-//        movie1.addReview(review3);
-
-        review1.setMovie(movie1);
-        review2.setMovie(movie2);
-        review3.setMovie(movie1);
+        Review review1 = new Review(user3, scottPilgrimVsTheWorld, "wow so cool","01/01/2004","FILM SO GOOD WOW WOOOOOOO!", 5);
+        Review review2 = new Review(user5, movie2, "Not Great","01/01/2012","Hmmm, it was okay. Not the best but not bad.", 2.5);
+        Review review3 = new Review(user6, movie2, "Don't even","01/01/1995","Don't.", 1);
 
         reviewRepository.save(review1);
         reviewRepository.save(review2);
@@ -92,22 +96,6 @@ public class DataLoader implements ApplicationRunner {
         movieList1.addMovie(whipLash);
         movieList1.addMovie(thisIsMeNow);
         movieList1.addMovie(hoodWinked);
-
-
-        movieRepository.save(hoodWinked);
-        movieRepository.save(whipLash);
-        movieRepository.save(thisIsMeNow);
-        movieRepository.save(scottPilgrimVsTheWorld);
-        movieRepository.save(movie1);
-        movieRepository.save(movie2);
-        movieRepository.save(movie3);
-        movieRepository.save(movie4);
-        movieRepository.save(movie5);
-        movieRepository.save(movie6);
-        movieRepository.save(movie7);
-        movieRepository.save(movie8);
-        movieRepository.save(movie9);
-        movieRepository.save(movie10);
 
         movieListRepository.save(movieList1);
         movieListRepository.save(movieList2);

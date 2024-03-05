@@ -32,7 +32,9 @@ public class Review {
     @JsonIgnoreProperties({"reviews"})
     private User user;
 
-    public Review(String title, String date, String content, double rating){
+    public Review(User user, Movie movie, String title, String date, String content, double rating){
+        this.user = user;
+        this.movie = movie;
         this.title = title;
         this.date = date;
         this.content = content;
