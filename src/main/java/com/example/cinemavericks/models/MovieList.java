@@ -15,14 +15,14 @@ public class MovieList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @JsonIgnoreProperties("movie_lists")
+    @JsonIgnoreProperties({"movieLists"})
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     private String title;
 
-    @JsonIgnoreProperties("movie_lists")
+    @JsonIgnoreProperties({"movieLists"})
     @ManyToMany
     @JoinTable(
         name = "movies_movie_lists",

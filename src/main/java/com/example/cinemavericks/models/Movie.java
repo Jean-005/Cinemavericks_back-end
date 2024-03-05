@@ -23,10 +23,11 @@ public class Movie {
     @Column
     private String director;
 
+    @JsonIgnoreProperties({"movies"})
     @OneToMany(mappedBy = "movie")
-    @JsonIgnoreProperties({"movie"})
     private List<Review> reviews;
 
+    @JsonIgnoreProperties({"movies"})
     @ManyToMany(mappedBy = "movies")
     private List<MovieList> movieLists;
 

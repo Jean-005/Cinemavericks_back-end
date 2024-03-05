@@ -42,6 +42,8 @@ public class Review {
 
     }
 
+    public Review() {}
+
     public long getId() {
         return id;
     }

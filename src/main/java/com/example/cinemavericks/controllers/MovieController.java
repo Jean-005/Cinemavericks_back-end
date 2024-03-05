@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("movies")
-public class MovieController {
+public class
+MovieController {
 
     @Autowired
     MovieService movieService;
@@ -27,10 +29,10 @@ public class MovieController {
     }
 
     //Display movie by id
-//    @GetMapping(value = "/{id}")
-//    public ResponseEntity<Movie> getMovieById(@RequestParam long movieId){
-//
-//    }
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Movie> getMovieById(@RequestParam long movieId){
+        Optional<Movie> movie = movieService.getMovieById(movieId).get();
+    }
 
 
     //Add new movie
