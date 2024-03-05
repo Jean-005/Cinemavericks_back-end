@@ -1,6 +1,7 @@
 package com.example.cinemavericks.controllers;
 
 import com.example.cinemavericks.models.Movie;
+import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,6 +52,13 @@ MovieController {
     }
 
     //Show all reviews for a specific movie
+    @GetMapping(value = "/{movieId}/reviews")
+    public ResponseEntity<List<Review>> seeReviewsOfMovie(@PathVariable long movieId){
+        List<Review> reviews = movieService.getReviews(movieId);
+        return new ResponseEntity<>(reviews, HttpStatus.OK);
+
+    }
+
 
 
     //Ex:Show all movie lists that contain a movie
