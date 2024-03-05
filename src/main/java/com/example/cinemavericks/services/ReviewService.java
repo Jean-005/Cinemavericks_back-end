@@ -1,8 +1,9 @@
 package com.example.cinemavericks.services;
 
-import com.example.cinemavericks.models.Review;
-import com.example.cinemavericks.models.ReviewDTO;
+import com.example.cinemavericks.models.*;
+import com.example.cinemavericks.repositories.MovieRepository;
 import com.example.cinemavericks.repositories.ReviewRepository;
+import com.example.cinemavericks.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +12,20 @@ public class ReviewService {
     @Autowired
     ReviewRepository reviewRepository;
 
-    public Review createReview(Review review){
-        return reviewRepository.save(review);
+    @Autowired
+    MovieRepository movieRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
+    public Review createReview(PostReviewDTO postReviewDTO){
+        Movie targetMovie = movieRepository.findById(postReviewDTO.getMovieId()).get();
+        User targetUser = userRepository.findById(postReviewDTO.getUserId()).get();
+
+        Review newReview = new Review(targetUser,targetMovie, postReviewDTO.getTitle(), postReviewDTO.getDate(),
+                postReviewDTO.getContent(), postReviewDTO.getRating());
+
+        return reviewRepository.save(newReview);
     }
 
     public Review editReview(ReviewDTO reviewDTO){

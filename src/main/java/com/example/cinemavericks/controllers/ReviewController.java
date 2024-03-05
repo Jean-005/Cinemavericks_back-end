@@ -1,5 +1,6 @@
 package com.example.cinemavericks.controllers;
 
+import com.example.cinemavericks.models.PostReviewDTO;
 import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.models.ReviewDTO;
 import com.example.cinemavericks.repositories.ReviewRepository;
@@ -16,8 +17,8 @@ public class ReviewController {
     ReviewService reviewService;
 
     @PostMapping
-    public ResponseEntity<Review> createReview(@RequestBody Review review){
-        Review newReview = reviewService.createReview(review);
+    public ResponseEntity<Review> createReview(@RequestBody PostReviewDTO postReviewDTO){
+        Review newReview = reviewService.createReview(postReviewDTO);
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
     
