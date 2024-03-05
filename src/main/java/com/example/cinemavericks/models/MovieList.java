@@ -9,24 +9,25 @@ import java.util.ArrayList;
 @Table(name = "movie_lists")
 public class MovieList {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
 
     @JsonIgnoreProperties("movie_lists")
     @ManyToOne
     @JoinColumn(name = "user_id")
-    User user;
+    private User user;
 
-    String title;
+    private String title;
 
     @JsonIgnoreProperties("movie_lists")
     @ManyToMany
     @JoinTable(
-        name = "movie_lists_movies",
+        name = "movies_movie_lists",
         joinColumns = @JoinColumn(name = "movie_list_id"),
-        inverseJoinColumns = @JoinColumn(name = "movie_list_id")
+        inverseJoinColumns = @JoinColumn(name = "movie_id")
     )
-    ArrayList<Movie> movies;
+    private ArrayList<Movie> movies;
 
     public MovieList(){}
 
