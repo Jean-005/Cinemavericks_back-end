@@ -32,9 +32,10 @@ public class Movie {
 
     public Movie(){}
 
-    public Movie(String title, int year, String director){
+    public Movie(String title, int year, Genre genre, String director){
         this.title = title;
         this.year = year;
+        this.genre = genre;
         this.director = director;
         this.reviews = new ArrayList<>();
         this.movieLists = new ArrayList<>();
@@ -94,5 +95,13 @@ public class Movie {
 
     public void setMovieLists(List<MovieList> movieLists) {
         this.movieLists = movieLists;
+    }
+
+    public void addReview(Review review){
+        this.reviews.add(review);
+    }
+
+    public void removeReview(Review review){
+        this.reviews.remove(review);
     }
 }
