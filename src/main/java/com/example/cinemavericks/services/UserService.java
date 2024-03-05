@@ -36,4 +36,8 @@ public class UserService {
         User targetUser = userRepository.findById(id).get();
         return targetUser.getReviews();
     }
+
+    public User createUser(User user){
+        return userRepository.save(user);
+    }
 }
