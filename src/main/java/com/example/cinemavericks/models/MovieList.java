@@ -22,7 +22,7 @@ public class MovieList {
 
     private String title;
 
-    @JsonIgnoreProperties({"movieLists"})
+    @JsonIgnoreProperties({"movieLists","reviews"})
     @ManyToMany
     @JoinTable(
         name = "movies_movie_lists",
