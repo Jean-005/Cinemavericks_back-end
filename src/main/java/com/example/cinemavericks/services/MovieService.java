@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -17,5 +18,7 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
-    public Movie getMovieById()
+    public Optional<Movie> getMovieById(long movieId){
+        return movieRepository.findById(movieId);
+    }
 }
