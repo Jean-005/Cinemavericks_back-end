@@ -1,6 +1,7 @@
 package com.example.cinemavericks.controllers;
 
 import com.example.cinemavericks.models.MovieList;
+import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.models.User;
 import com.example.cinemavericks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,35 @@ public class UserController {
         if(targetUser.isPresent()){
             List<MovieList> allMovieLists = userService.getAllListsOfUser(id);
             return new ResponseEntity<>(allMovieLists, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/{id}/reviews")
+    public ResponseEntity<List<Review>> getAllReviewsByUser(@PathVariable long id){
+        Optional<User> targetUser = userService.getUserById(id);
+        if(targetUser.isPresent()){
+            List<Review> allReviews = userService.getAllReviewsOfUser(id);
+            return new ResponseEntity<>(allReviews, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody User user){
+        User newUser = userService.createUser(user);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Long> deleteUser(@PathVariable long id){
+        Optional<User> targetUser = userService.getUserById(id);
+        if(targetUser.isPresent()) {
+            userService.deleteUser(id);
+            return new ResponseEntity<>(id, HttpStatus.NO_CONTENT);
         }
 
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);

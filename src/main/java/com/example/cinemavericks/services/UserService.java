@@ -1,6 +1,7 @@
 package com.example.cinemavericks.services;
 
 import com.example.cinemavericks.models.MovieList;
+import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.models.User;
 import com.example.cinemavericks.repositories.MovieListRepository;
 import com.example.cinemavericks.repositories.UserRepository;
@@ -29,5 +30,18 @@ public class UserService {
     public List<MovieList> getAllListsOfUser(long id){
         User targetUser = userRepository.findById(id).get();
         return targetUser.getMovieLists();
+    }
+
+    public List<Review> getAllReviewsOfUser(long id){
+        User targetUser = userRepository.findById(id).get();
+        return targetUser.getReviews();
+    }
+
+    public User createUser(User user){
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(long id){
+        userRepository.deleteById(id);
     }
 }
