@@ -1,5 +1,6 @@
 package com.example.cinemavericks.controllers;
 
+import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.User;
 import com.example.cinemavericks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,17 @@ public class UserController {
             return new ResponseEntity<>(user.get(), HttpStatus.OK);
         }
         
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/{id}/movieLists")
+    public ResponseEntity<List<MovieList>> getAllMovieListsByUser(@PathVariable long id){
+        Optional<User> targetUser = userService.getUserById(id);
+        if(targetUser.isPresent()){
+            List<MovieList> allMovieLists = userService.getAllListsOfUser(id);
+            return new ResponseEntity<>(allMovieLists, HttpStatus.OK);
+        }
+
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 }
