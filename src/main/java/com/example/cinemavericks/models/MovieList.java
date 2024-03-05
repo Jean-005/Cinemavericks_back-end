@@ -15,7 +15,7 @@ public class MovieList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @JsonIgnoreProperties({"movieLists"})
+    @JsonIgnoreProperties({"movieLists","reviews"})
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
