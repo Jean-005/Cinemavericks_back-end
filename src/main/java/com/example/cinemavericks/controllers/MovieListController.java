@@ -47,9 +47,16 @@ public class MovieListController {
         MovieList movieList = movieListService.updatingMovieList(id, movieListDTO);
         return new ResponseEntity<>(movieList,HttpStatus.OK);
     }
+//    @PatchMapping(value = "/{id}/removeMovieFromList")
+//    public ResponseEntity<MovieList> removeMovieInMovieList(@PathVariable Long id, @RequestBody MovieListDTO movieListDTO){
+//        MovieList movieList = movieListService.removeMovieInMovieList(id, movieListDTO);
+//        return new ResponseEntity<>(movieList,HttpStatus.OK);
+//    }
 
 //    Deleting a movieList
-
-
-
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<String> removeMovieList(@PathVariable Long id){
+        movieListService.removeMovieList(id);
+        return new ResponseEntity<>("MovieList Deleted",HttpStatus.OK);
+    }
 }

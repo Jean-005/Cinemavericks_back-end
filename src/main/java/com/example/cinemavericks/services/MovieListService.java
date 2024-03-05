@@ -33,9 +33,9 @@ public class MovieListService {
 
     public MovieList addMovieList(MovieListDTO movieListDTO) {
         Optional<User> user = userRepository.findById(movieListDTO.getUserId());
-        if(user.isPresent()){
+        if (user.isPresent()) {
             return movieListRepository.save(new MovieList(user.get(), movieListDTO.getTitle()));
-        }else{
+        } else {
             //UserId not valid
             return null;
         }
@@ -45,8 +45,8 @@ public class MovieListService {
     public MovieList updatingMovieList(Long id, MovieListDTO movieListDTO) {
         //find MovieList
         Optional<MovieList> movieList = movieListRepository.findById(id);
-        if(movieList.isPresent()){
-            for(Long movieId:movieListDTO.getMovieIds()){
+        if (movieList.isPresent()) {
+            for (Long movieId : movieListDTO.getMovieIds()) {
                 Movie movie = movieRepository.findById(movieId).get();
                 movieList.get().addMovie(movie);
             }
@@ -56,4 +56,31 @@ public class MovieListService {
         //movieList id is not valid
         return null;
     }
+
+//    public MovieList removeMovieInMovieList(Long id, MovieListDTO movieListDTO) {
+//        //find MovieList
+//        Optional<MovieList> movieList = movieListRepository.findById(id);
+//        if (movieList.isPresent()) {
+//            for (Long movieId : movieListDTO.getMovieIds()) {
+//                for (Movie movie : movieList.get().getMovies()) {
+//                    if (movieId == movie.getId()) {
+//                        movieList.get().removeMovie(movie);
+//                    }
+//                }
+//            }
+//            //save movieList
+//            return movieListRepository.save(movieList.get());
+//        }
+//        //movieList id is not valid
+//        return null;
+//    }
+//
+//    // public List<Movie> updateMovieList(MovieListDTO movieListDTO, long id){
+//
+//    for(long id, movieListDTO.getMovieIds)
+
+    public void removeMovieList(Long id) {
+        movieListRepository.deleteById(id);
+    };
+
 }
