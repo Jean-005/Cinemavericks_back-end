@@ -1,7 +1,9 @@
 package com.example.cinemavericks.services;
 
 import com.example.cinemavericks.models.Movie;
+import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
+import com.example.cinemavericks.repositories.MovieListRepository;
 import com.example.cinemavericks.repositories.MovieRepository;
 import com.example.cinemavericks.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class MovieService {
     @Autowired
     ReviewRepository reviewRepository;
 
+    @Autowired
+    MovieListRepository movieListRepository;
+
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
@@ -33,5 +38,10 @@ public class MovieService {
 
     public List<Review> getReviews(long movieId){
         return reviewRepository.findByMovieId(movieId);
+    }
+
+
+    public List<MovieList> getAllMovieLists(long movieId) {
+        return movieListRepository.findByMoviesId(movieId);
     }
 }

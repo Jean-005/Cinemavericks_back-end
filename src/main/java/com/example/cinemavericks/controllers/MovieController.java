@@ -1,6 +1,7 @@
 package com.example.cinemavericks.controllers;
 
 import com.example.cinemavericks.models.Movie;
+import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,10 +60,12 @@ MovieController {
 
     }
 
-
-
     //Ex:Show all movie lists that contain a movie
-
+    @GetMapping(value = "/{movieId}/movieLists")
+    public ResponseEntity<List<MovieList>> seeMovieListsContainingMovie(@PathVariable long movieId){
+        List<MovieList> movieLists = movieService.getAllMovieLists(movieId);
+        return new ResponseEntity<>(movieLists, HttpStatus.OK);
+    }
     //Ex: Filter movies by rating
 
 
