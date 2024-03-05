@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/reviews")
 public class ReviewController {
@@ -22,10 +24,15 @@ public class ReviewController {
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
     
-    @PatchMapping
-    public ResponseEntity<Review> editReview(@RequestBody ReviewDTO reviewDTO){
-        Review updatedReview = reviewService.editReview(reviewDTO);
+    @PatchMapping("/{reviewId}")
+    public ResponseEntity<Review> editReview(@RequestBody ReviewDTO reviewDTO, @PathVariable long reviewId ){
+        Optional<Review> targetReview = reviewService.getReviewById(reviewId);
+
+        if(targetReview.isPresent()) {
+        Review updatedReview = reviewService.editReview(reviewDTO, reviewId);
         return new ResponseEntity<>(updatedReview, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("{id}")

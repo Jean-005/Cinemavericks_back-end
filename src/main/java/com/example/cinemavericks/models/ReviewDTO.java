@@ -3,9 +3,6 @@ package com.example.cinemavericks.models;
 import jakarta.persistence.Column;
 
 public class ReviewDTO {
-
-    private long id;
-
     private String title;
 
     private String date;
@@ -16,15 +13,6 @@ public class ReviewDTO {
 
 
     public ReviewDTO() {
-    }
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getTitle() {

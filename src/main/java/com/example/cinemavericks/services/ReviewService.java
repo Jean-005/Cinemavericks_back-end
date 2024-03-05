@@ -7,6 +7,8 @@ import com.example.cinemavericks.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ReviewService {
     @Autowired
@@ -28,8 +30,14 @@ public class ReviewService {
         return reviewRepository.save(newReview);
     }
 
-    public Review editReview(ReviewDTO reviewDTO){
-        Review targetReview = reviewRepository.findById(reviewDTO.getId()).get();
+    // Only for purposes of error handling our PATCH endpoint
+
+    public Optional<Review> getReviewById(long id){
+        return reviewRepository.findById(id);
+    }
+
+    public Review editReview(ReviewDTO reviewDTO, long id){
+        Review targetReview = reviewRepository.findById(id).get();
         targetReview.setTitle(reviewDTO.getTitle());
         targetReview.setDate(reviewDTO.getDate());
         targetReview.setContent(reviewDTO.getContent());
