@@ -9,6 +9,15 @@ This project is an API for a film review aggregation application. Users can leav
 - SpringBoot
 - PostgreSQL Database
 
+**Tools Used:**
+- POSTMAN
+- Intellij
+- Trello
+- Excalidraw
+- Zoom
+- Slack
+- Git
+
 Entity Relationship Diagram (ERD) and Class Diagram:
 https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
