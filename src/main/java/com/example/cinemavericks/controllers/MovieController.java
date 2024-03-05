@@ -1,6 +1,7 @@
 package com.example.cinemavericks.controllers;
 
 import com.example.cinemavericks.models.Movie;
+import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,14 +27,7 @@ MovieController {
     }
 
     //Display movie by id
-    @GetMapping(value = "/{movieId}")
-    public ResponseEntity<Movie> getMovieById(@PathVariable long movieId){
-        Optional<Movie> movie = movieService.getMovieById(movieId);
-        if (movie.isPresent()){
-            return new ResponseEntity<>(movie.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(null,  HttpStatus.NOT_FOUND);
-    }
+
 
     //Add new movie
 
