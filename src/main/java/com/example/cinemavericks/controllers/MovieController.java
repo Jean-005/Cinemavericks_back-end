@@ -1,6 +1,7 @@
 package com.example.cinemavericks.controllers;
 
 import com.example.cinemavericks.models.Movie;
+import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,12 +37,28 @@ MovieController {
     }
 
     //Add new movie
-
+    @PostMapping
+    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie){
+        movieService.saveMovie(movie);
+        return new ResponseEntity<>(movie, HttpStatus.CREATED);
+    }
 
     //Edit details of a movie
-
+    @PatchMapping(value = "/{movieId}")
+    public ResponseEntity<Movie> editMovie(@PathVariable long movieId, @RequestBody Movie newMovie){
+        newMovie.setId(movieId);
+        movieService.saveMovie(newMovie);
+        return new ResponseEntity<>(newMovie, HttpStatus.OK);
+    }
 
     //Show all reviews for a specific movie
+    @GetMapping(value = "/{movieId}/reviews")
+    public ResponseEntity<List<Review>> seeReviewsOfMovie(@PathVariable long movieId){
+        List<Review> reviews = movieService.getReviews(movieId);
+        return new ResponseEntity<>(reviews, HttpStatus.OK);
+
+    }
+
 
 
     //Ex:Show all movie lists that contain a movie
