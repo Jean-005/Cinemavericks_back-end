@@ -5,6 +5,7 @@ import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.MovieListDTO;
 import com.example.cinemavericks.models.User;
 import com.example.cinemavericks.repositories.MovieListRepository;
+import com.example.cinemavericks.repositories.MovieRepository;
 import com.example.cinemavericks.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class MovieListService {
     MovieListRepository movieListRepository;
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    MovieRepository movieRepository;
 
     public List<MovieList> getAllMovieList() {
         return movieListRepository.findAll();
@@ -36,5 +40,20 @@ public class MovieListService {
             return null;
         }
 
+    }
+
+    public MovieList updatingMovieList(Long id, MovieListDTO movieListDTO) {
+        //find MovieList
+        Optional<MovieList> movieList = movieListRepository.findById(id);
+        if(movieList.isPresent()){
+            for(Long movieId:movieListDTO.getMovieIds()){
+                Movie movie = movieRepository.findById(movieId).get();
+                movieList.get().addMovie(movie);
+            }
+            //save movieList
+            return movieListRepository.save(movieList.get());
+        }
+        //movieList id is not valid
+        return null;
     }
 }

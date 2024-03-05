@@ -42,6 +42,11 @@ public class MovieListController {
     }
 
 //    Updating specific fields of the movieList (eg: adding or removing the movies)
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<MovieList> updatingMovieList(@PathVariable Long id, @RequestBody MovieListDTO movieListDTO){
+        MovieList movieList = movieListService.updatingMovieList(id, movieListDTO);
+        return new ResponseEntity<>(movieList,HttpStatus.OK);
+    }
 
 //    Deleting a movieList
 
