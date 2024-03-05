@@ -36,10 +36,19 @@ MovieController {
     }
 
     //Add new movie
-
+    @PostMapping
+    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie){
+        movieService.saveMovie(movie);
+        return new ResponseEntity<>(movie, HttpStatus.CREATED);
+    }
 
     //Edit details of a movie
-
+    @PatchMapping(value = "/{movieId}")
+    public ResponseEntity<Movie> editMovie(@PathVariable long movieId, @RequestBody Movie newMovie){
+        newMovie.setId(movieId);
+        movieService.saveMovie(newMovie);
+        return new ResponseEntity<>(newMovie, HttpStatus.OK);
+    }
 
     //Show all reviews for a specific movie
 
