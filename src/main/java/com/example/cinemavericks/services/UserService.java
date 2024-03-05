@@ -4,6 +4,7 @@ import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.models.User;
 import com.example.cinemavericks.repositories.MovieListRepository;
+import com.example.cinemavericks.repositories.ReviewRepository;
 import com.example.cinemavericks.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class UserService {
 
     @Autowired
     MovieListRepository movieListRepository;
+
+    @Autowired
+    ReviewRepository reviewRepository;
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
@@ -42,6 +46,16 @@ public class UserService {
     }
 
     public void deleteUser(long id){
+        User targetUser = userRepository.findById(id).get();
+        for(Review review : targetUser.getReviews()) {
+            review.setUser(null);
+            reviewRepository.save(review);
+        }
+
+        for(MovieList movieList : targetUser.getMovieLists()) {
+            movieListRepository.delete(movieList);
+        }
+
         userRepository.deleteById(id);
     }
 }

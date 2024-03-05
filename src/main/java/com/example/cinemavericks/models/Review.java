@@ -24,12 +24,12 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "movie_id")
-    @JsonIgnoreProperties({"reviews"})
+    @JsonIgnoreProperties({"reviews", "movieLists"})
     private Movie movie;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties({"reviews"})
+    @JsonIgnoreProperties({"reviews", "movieLists"})
     private User user;
 
     public Review(User user, Movie movie, String title, String date, String content, double rating){
