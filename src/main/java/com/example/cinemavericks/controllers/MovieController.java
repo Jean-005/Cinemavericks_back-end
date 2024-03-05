@@ -28,14 +28,7 @@ MovieController {
     }
 
     //Display movie by id
-    @GetMapping(value = "/{movieId}")
-    public ResponseEntity<Movie> getMovieById(@PathVariable long movieId){
-        Optional<Movie> movie = movieService.getMovieById(movieId);
-        if (movie.isPresent()){
-            return new ResponseEntity<>(movie.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(null,  HttpStatus.NOT_FOUND);
-    }
+
 
     //Add new movie
     @PostMapping
