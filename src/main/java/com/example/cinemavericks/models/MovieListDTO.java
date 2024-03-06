@@ -5,11 +5,13 @@ import java.util.List;
 
 public class MovieListDTO {
     private String title;
+    private boolean isPublic;
     private Long userId;
     private List<Long> movieIds;
 
-    public MovieListDTO(String title, Long userId) {
+    public MovieListDTO(String title, boolean isPublic, Long userId) {
         this.title = title;
+        this.isPublic = isPublic;
         this.userId = userId;
         this.movieIds = new ArrayList<>();
     }
@@ -41,5 +43,13 @@ public class MovieListDTO {
 
     public void setMovieIds(List<Long> movieIds) {
         this.movieIds = movieIds;
+    }
+
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
     }
 }

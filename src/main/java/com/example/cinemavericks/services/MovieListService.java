@@ -48,24 +48,30 @@ public class MovieListService {
         Optional<MovieList> movieList = movieListRepository.findById(id);
         List<Movie> moviesToAdd = new ArrayList<>();
 
-        if (movieList.isPresent()) {
-            for (Long movieId : movieListDTO.getMovieIds()) {
-                Movie movie = movieRepository.findById(movieId).get();
-                moviesToAdd.add(movie);
-            }
-
-            for (Movie movie : moviesToAdd){
-                //CHECK if specified movie is not on the movieList
-                if(!movieList.get().getMovies().contains(movie)){
-                    movieList.get().addMovie(movie);
-                }
-            }
-
-            //save movieList
-            return movieListRepository.save(movieList.get());
+        if(movieList.isEmpty()){
+            return null;
         }
-        //movieList id is not valid
-        return null;
+
+        movieList.get().setTitle(movieListDTO.getTitle());
+        movieList.get().setPublic(movieListDTO.isPublic());
+
+        for (Long movieId : movieListDTO.getMovieIds()) {
+            Optional<Movie> movie = movieRepository.findById(movieId);
+            if(movie.isPresent()){
+                moviesToAdd.add(movie.get());
+            }
+        }
+
+        for (Movie movie : moviesToAdd){
+            //CHECK if specified movie is not on the movieList
+            if(!movieList.get().getMovies().contains(movie)){
+                movieList.get().addMovie(movie);
+            }
+        }
+
+        //save movieList
+        return movieListRepository.save(movieList.get());
+
     }
 
     public MovieList removeMovieInMovieList(Long id, MovieListDTO movieListDTO) {
@@ -74,8 +80,10 @@ public class MovieListService {
 
         //Add the movie to be deleted IN removeList
         for (Long movieId : movieListDTO.getMovieIds()){
-            Movie movie = movieRepository.findById(movieId).get();
-            removeList.add(movie);
+            Optional<Movie> movie = movieRepository.findById(movieId);
+            if(movie.isPresent()){
+                removeList.add(movie.get());
+            }
         }
 
         //REMOVE movie from movieList using removeList

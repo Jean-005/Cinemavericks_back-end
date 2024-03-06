@@ -4,6 +4,7 @@ import com.example.cinemavericks.models.Movie;
 import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.MovieListDTO;
 import com.example.cinemavericks.services.MovieListService;
+import com.sun.net.httpserver.HttpsServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,10 @@ public class MovieListController {
 
     @PatchMapping(value = "/{id}/removeMovies")
     public ResponseEntity<MovieList> removeMovieInMovieList(@PathVariable Long id, @RequestBody MovieListDTO movieListDTO){
+        Optional<MovieList> targetMovieList = movieListService.getMovieListById(id);
+        if (targetMovieList.isEmpty()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
         MovieList movieList = movieListService.removeMovieInMovieList(id, movieListDTO);
         return new ResponseEntity<>(movieList,HttpStatus.OK);
     }
@@ -58,6 +63,10 @@ public class MovieListController {
 //    Deleting a movieList
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<String> removeMovieList(@PathVariable Long id){
+        Optional<MovieList> targetMovieList = movieListService.getMovieListById(id);
+        if(targetMovieList.isEmpty()){
+            return new ResponseEntity<>("MovieList does not exist", HttpStatus.NOT_FOUND);
+        }
         movieListService.removeMovieList(id);
         return new ResponseEntity<>("MovieList Deleted",HttpStatus.OK);
     }

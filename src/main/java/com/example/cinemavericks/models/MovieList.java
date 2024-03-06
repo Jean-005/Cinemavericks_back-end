@@ -15,12 +15,17 @@ public class MovieList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column
+    private String title;
+
+    @Column(name = "is_public")
+    private boolean isPublic;
+
     @JsonIgnoreProperties({"movieLists","reviews"})
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    private String title;
 
     @JsonIgnoreProperties({"movieLists","reviews"})
     @ManyToMany
@@ -36,6 +41,7 @@ public class MovieList {
     public MovieList(User user, String title){
         this.user = user;
         this.title = title;
+        this.isPublic = false;
         this.movies = new ArrayList<>();
 
     }
@@ -79,5 +85,12 @@ public class MovieList {
     public void removeMovie(Movie movie){
         this.movies.remove(movie);
     }
-    
+
+    public boolean isPublic() {
+        return isPublic;
+    }
+
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
+    }
 }
