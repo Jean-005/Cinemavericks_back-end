@@ -70,6 +70,10 @@ MovieController {
         return new ResponseEntity<>(movieLists, HttpStatus.OK);
     }
     //Ex: Filter movies by rating
-
+    @GetMapping(value = "/filterByRating")
+    public ResponseEntity<List<Movie>> filterMoviesByRating(@RequestBody double[] ratingRange){
+        List<Movie> filteredMovies = movieService.filterMovies(ratingRange);
+        return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
+    }
 
 }
