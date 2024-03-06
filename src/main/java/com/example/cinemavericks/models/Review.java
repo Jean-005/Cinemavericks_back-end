@@ -1,7 +1,12 @@
 package com.example.cinemavericks.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "reviews")
@@ -13,8 +18,9 @@ public class Review {
     @Column(name = "title")
     private String title;
 
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     @Column(name = "date")
-    private String date;
+    private LocalDateTime date;
 
     @Column(name = "content")
     private String content;
@@ -32,11 +38,11 @@ public class Review {
     @JsonIgnoreProperties({"reviews", "movieLists"})
     private User user;
 
-    public Review(User user, Movie movie, String title, String date, String content, double rating){
+    public Review(User user, Movie movie, String title, String content, double rating){
         this.user = user;
         this.movie = movie;
         this.title = title;
-        this.date = date;
+        this.date = LocalDateTime.now();
         this.content = content;
         this.rating = rating;
 
@@ -58,14 +64,6 @@ public class Review {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getContent() {
@@ -100,4 +98,11 @@ public class Review {
         this.user = user;
     }
 
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 }

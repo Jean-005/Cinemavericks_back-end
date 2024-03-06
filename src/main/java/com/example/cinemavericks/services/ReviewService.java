@@ -7,6 +7,7 @@ import com.example.cinemavericks.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
@@ -31,7 +32,7 @@ public class ReviewService {
         Movie targetMovie = movieRepository.findById(postReviewDTO.getMovieId()).get();
         User targetUser = userRepository.findById(postReviewDTO.getUserId()).get();
 
-        Review newReview = new Review(targetUser,targetMovie, postReviewDTO.getTitle(), postReviewDTO.getDate(),
+        Review newReview = new Review(targetUser,targetMovie, postReviewDTO.getTitle(),
                 postReviewDTO.getContent(), postReviewDTO.getRating());
 
         //updates the average rating of the movie
@@ -49,7 +50,7 @@ public class ReviewService {
     public Review editReview(ReviewDTO reviewDTO, long id){
         Review targetReview = reviewRepository.findById(id).get();
         targetReview.setTitle(reviewDTO.getTitle());
-        targetReview.setDate(reviewDTO.getDate());
+//        targetReview.setDate(reviewDTO.getDate());
         targetReview.setContent(reviewDTO.getContent());
         targetReview.setRating(reviewDTO.getRating());
 
