@@ -3,8 +3,8 @@
 		"_postman_id": "3b72e74c-2aa7-4513-8419-f70cfc46dd6e",
 		"name": "Cinemavericks",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32626629",
-		"_collection_link": "https://solar-escape-629084.postman.co/workspace/Cinemavericks~ca9feb84-b862-497b-8590-36e74d47f74c/collection/32596828-3b72e74c-2aa7-4513-8419-f70cfc46dd6e?action=share&source=collection_link&creator=32626629"
+		"_exporter_id": "32596828",
+		"_collection_link": "https://solar-escape-629084.postman.co/workspace/Cinemavericks~ca9feb84-b862-497b-8590-36e74d47f74c/collection/32596828-3b72e74c-2aa7-4513-8419-f70cfc46dd6e?action=share&source=collection_link&creator=32596828"
 	},
 	"item": [
 		{
@@ -34,14 +34,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/movies/1",
+							"raw": "localhost:8080/movies/6",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"movies",
-								"1"
+								"6"
 							]
 						}
 					},
@@ -335,58 +335,148 @@
 			"name": "MovieLists",
 			"item": [
 				{
-					"name": "/movies",
+					"name": "/movieLists",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movielists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movielists"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "/movielists",
+					"name": "/movieLists by id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movielists/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movielists",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "/movielists/{id}",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "http://localhost:8080/movielists",
+					"name": "movieList",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"title\":\"Testing This\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movielists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movielists"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "http://localhost:8080/movielists/1",
+					"name": "add movie to list",
 					"request": {
 						"method": "PATCH",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movieIds\":[6,8]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movielists/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movielists",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "http://localhost:8080/movielists/1/removeMovieFromList",
+					"name": "removeMovie from list",
 					"request": {
 						"method": "PATCH",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movieIds\":[4]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movielists/1/removeMovieFromList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movielists",
+								"1",
+								"removeMovieFromList"
+							]
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "http://localhost:8080/movielists/1",
+					"name": "delete movie list",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movielists/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movielists",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}
