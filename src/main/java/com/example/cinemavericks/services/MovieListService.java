@@ -49,6 +49,9 @@ public class MovieListService {
         List<Movie> moviesToAdd = new ArrayList<>();
 
         if (movieList.isPresent()) {
+            movieList.get().setTitle(movieListDTO.getTitle());
+            movieList.get().setPublic(movieListDTO.isPublic());
+
             for (Long movieId : movieListDTO.getMovieIds()) {
                 Movie movie = movieRepository.findById(movieId).get();
                 moviesToAdd.add(movie);
