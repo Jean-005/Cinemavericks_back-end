@@ -53,4 +53,8 @@ public class MovieService {
     public List<Movie> filterMovies(Genre genre){
         return movieRepository.findByGenre(genre);
     }
+
+    public List<Movie> filterMovies(int minDuration, int maxDuration){
+        return movieRepository.findByDurationBetween(minDuration, maxDuration);
+    }
 }

@@ -12,4 +12,5 @@ public interface MovieRepository extends JpaRepository<Movie,Long> {
     List<Movie> findByAverageRatingBetween(double rangeStart, double rangeEnd);
 
     List<Movie> findByGenre(Genre genre);
+    List<Movie> findByDurationBetween(int minDuration, int maxDuration);
 }

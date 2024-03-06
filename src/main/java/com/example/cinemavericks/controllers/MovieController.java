@@ -87,4 +87,14 @@ MovieController {
         return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
     }
 
+    //Ex: Filter movies by duration
+    @GetMapping(value = "/filterByDuration")
+    public ResponseEntity<List<Movie>> filterMovieByDuration(
+            @RequestParam(defaultValue = "0") int minDuration,
+            @RequestParam(defaultValue = "500") int maxDuration
+    ){
+        List<Movie> filteredMovies = movieService.filterMovies(minDuration, maxDuration);
+        return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
+    }
+
 }
