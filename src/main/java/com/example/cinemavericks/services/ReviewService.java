@@ -20,6 +20,13 @@ public class ReviewService {
     @Autowired
     UserRepository userRepository;
 
+    public double calculateAverageRating(long id){
+        Movie targetMovie = movieRepository.findById(id).get();
+        targetMovie.calculateAverageRating();
+        movieRepository.save(targetMovie);
+        return targetMovie.getAverageRating();
+    }
+
     public Review createReview(PostReviewDTO postReviewDTO){
         Movie targetMovie = movieRepository.findById(postReviewDTO.getMovieId()).get();
         User targetUser = userRepository.findById(postReviewDTO.getUserId()).get();
@@ -27,11 +34,14 @@ public class ReviewService {
         Review newReview = new Review(targetUser,targetMovie, postReviewDTO.getTitle(), postReviewDTO.getDate(),
                 postReviewDTO.getContent(), postReviewDTO.getRating());
 
-        return reviewRepository.save(newReview);
+        //updates the average rating of the movie
+        reviewRepository.save(newReview);
+        calculateAverageRating(postReviewDTO.getMovieId());
+
+        return newReview;
     }
 
     // Only for purposes of error handling our PATCH endpoint
-
     public Optional<Review> getReviewById(long id){
         return reviewRepository.findById(id);
     }
@@ -43,10 +53,18 @@ public class ReviewService {
         targetReview.setContent(reviewDTO.getContent());
         targetReview.setRating(reviewDTO.getRating());
 
-        return reviewRepository.save(targetReview);
+        //updates the average rating of the movie
+        reviewRepository.save(targetReview);
+        calculateAverageRating(id);
+
+        return targetReview;
     }
 
     public void deleteReview(long id){
+
         reviewRepository.deleteById(id);
+        //updates the average rating of the movie
+        calculateAverageRating(id);
     }
+
 }
