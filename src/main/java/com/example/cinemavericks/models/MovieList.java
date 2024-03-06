@@ -41,7 +41,7 @@ public class MovieList {
     public MovieList(User user, String title){
         this.user = user;
         this.title = title;
-        this.isPublic = false;
+        this.isPublic = true;
         this.movies = new ArrayList<>();
 
     }
