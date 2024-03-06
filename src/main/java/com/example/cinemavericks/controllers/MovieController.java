@@ -34,7 +34,7 @@ MovieController {
         if (movie.isPresent()){
             return new ResponseEntity<>(movie.get(), HttpStatus.OK);
         }
-        return new ResponseEntity<>(null,  HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     //Add new movie
@@ -71,8 +71,11 @@ MovieController {
     }
     //Ex: Filter movies by rating
     @GetMapping(value = "/filterByRating")
-    public ResponseEntity<List<Movie>> filterMoviesByRating(@RequestBody double[] ratingRange){
-        List<Movie> filteredMovies = movieService.filterMovies(ratingRange);
+    public ResponseEntity<List<Movie>> filterMoviesByRating(
+            @RequestParam(defaultValue = "0") double minRating,
+            @RequestParam(defaultValue = "5") double maxRating
+    ){
+        List<Movie> filteredMovies = movieService.filterMovies(minRating,maxRating);
         return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
     }
 
