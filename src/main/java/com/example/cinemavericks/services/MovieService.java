@@ -50,7 +50,7 @@ public class MovieService {
         return movieRepository.findByAverageRatingBetween(minRating, maxRating);
     }
 
-//    public List<Movie> filterMovies(Genre genre){
-//
-//    }
+    public List<Movie> filterMovies(Genre genre){
+        return movieRepository.findByGenre(genre);
+    }
 }
