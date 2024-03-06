@@ -12,6 +12,5 @@ import java.util.List;
 public interface MovieRepository extends JpaRepository<Movie,Long> {
     List<Movie> findByAverageRatingBetween(double rangeStart, double rangeEnd);
 
-    List<Movie> findByGenre(GenreEnum genre);
     List<Movie> findByDurationBetween(int minDuration, int maxDuration);
 }

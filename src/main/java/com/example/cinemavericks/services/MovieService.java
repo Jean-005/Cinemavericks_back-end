@@ -51,9 +51,9 @@ public class MovieService {
         return movieRepository.findByAverageRatingBetween(minRating, maxRating);
     }
 
-    public List<Movie> filterMovies(GenreEnum genre){
-        return movieRepository.findByGenre(genre);
-    }
+//    public List<Movie> filterMovies(GenreEnum genre){
+//        return movieRepository.findByGenre(genre);
+//    }
 
     public List<Movie> filterMovies(int minDuration, int maxDuration){
         return movieRepository.findByDurationBetween(minDuration, maxDuration);

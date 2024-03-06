@@ -81,11 +81,11 @@ MovieController {
     }
 
     //Ex: Filter movies by genre
-    @GetMapping(value = "/filterByGenre")
-    public ResponseEntity<List<Movie>> filterMovieByGenre(@RequestParam GenreEnum genre){
-        List<Movie> filteredMovies = movieService.filterMovies(genre);
-        return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
-    }
+//    @GetMapping(value = "/filterByGenre")
+//    public ResponseEntity<List<Movie>> filterMovieByGenre(@RequestParam GenreEnum genre){
+//        List<Movie> filteredMovies = movieService.filterMovies(genre);
+//        return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
+//    }
 
     //Ex: Filter movies by duration
     @GetMapping(value = "/filterByDuration")

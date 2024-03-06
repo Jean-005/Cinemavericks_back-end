@@ -1,15 +1,14 @@
 package com.example.cinemavericks.components;
 
 import com.example.cinemavericks.models.*;
-import com.example.cinemavericks.repositories.MovieListRepository;
-import com.example.cinemavericks.repositories.MovieRepository;
-import com.example.cinemavericks.repositories.ReviewRepository;
-import com.example.cinemavericks.repositories.UserRepository;
-import com.example.cinemavericks.services.ReviewService;
+import com.example.cinemavericks.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -25,6 +24,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    GenreRepository genreRepository;
 
     public DataLoader(){
 
@@ -46,21 +48,42 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user5);
         userRepository.save(user6);
 
-        Movie hoodWinked = new Movie("Hoodwinked", 2005 , GenreEnum.COMEDY, "Cory Edwards", 80);
-        Movie whipLash = new Movie("Whiplash", 2014, GenreEnum.THRILLER,"Damien Chazelle",  107);
-        Movie thisIsMeNow = new Movie("This is Me Now", 2024,GenreEnum.ROMANCE,"Dave Mayers",  65);
-        Movie scottPilgrimVsTheWorld = new Movie("Scott Pilgrim Vs The World", 2010, GenreEnum.COMEDY,"Edgar Wright",  112);
+        Genre genre1 = new Genre(GenreEnum.COMEDY);
+        Genre genre2 = new Genre(GenreEnum.ACTION);
+        Genre genre3 = new Genre(GenreEnum.ANIME);
+        Genre genre4 = new Genre(GenreEnum.ADVENTURE);
+        Genre genre5 = new Genre(GenreEnum.THRILLER);
+        Genre genre6 = new Genre(GenreEnum.FANTASY);
 
-        Movie movie1 = new Movie("The Shawshank Redemption", 1994, GenreEnum.THRILLER,"Frank Darabont",  142);
-        Movie movie2 = new Movie("The Godfather", 1972, GenreEnum.THRILLER,"Francis Ford Coppola", 175);
-        Movie movie3 = new Movie("The Dark Knight", 2008, GenreEnum.ACTION,"Christopher Nolan", 152);
-        Movie movie4 = new Movie("Schindler's List", 1993, GenreEnum.THRILLER,"Steven Spielberg", 195);
-        Movie movie5 = new Movie("Pulp Fiction", 1994, GenreEnum.ACTION,"Quentin Tarantino", 165);
-        Movie movie6 = new Movie("The Lord of the Rings: The Return of the King", 2003, GenreEnum.FANTASY,"Peter Jackson",  210);
-        Movie movie7 = new Movie("Fight Club", 1999, GenreEnum.COMEDY,"David Fincher",  139);
-        Movie movie8 = new Movie("Forrest Gump", 1994, GenreEnum.COMEDY,"Robert Zemeckis",  142);
-        Movie movie9 = new Movie("Inception", 2010, GenreEnum.SCIFI,"Christopher Nolan",  148);
-        Movie movie10 = new Movie("The Matrix", 1999, GenreEnum.SCIFI,"Wachowskis",  136);
+        genreRepository.save(genre1);
+        genreRepository.save(genre2);
+        genreRepository.save(genre3);
+        genreRepository.save(genre4);
+        genreRepository.save(genre5);
+        genreRepository.save(genre6);
+        List<Genre> genres1 = new ArrayList<>();
+        List<Genre> genres2 = new ArrayList<>();
+
+        genres1.add(genre1);
+        genres1.add(genre4);
+        genres2.add(genre5);
+        genres2.add(genre2);
+
+        Movie hoodWinked = new Movie("Hoodwinked", 2005 ,"Cory Edwards", 80, genres1);
+        Movie whipLash = new Movie("Whiplash", 2014, "Damien Chazelle",  107, genres2);
+        Movie thisIsMeNow = new Movie("This is Me Now", 2024,"Dave Mayers",  65, genres1);
+        Movie scottPilgrimVsTheWorld = new Movie("Scott Pilgrim Vs The World", 2010,"Edgar Wright",  112, genres2);
+
+        Movie movie1 = new Movie("The Shawshank Redemption", 1994,"Frank Darabont",  142, genres2);
+        Movie movie2 = new Movie("The Godfather", 1972,"Francis Ford Coppola", 175, genres2);
+        Movie movie3 = new Movie("The Dark Knight", 2008,"Christopher Nolan", 152, genres2);
+        Movie movie4 = new Movie("Schindler's List", 1993,"Steven Spielberg", 195, genres2);
+        Movie movie5 = new Movie("Pulp Fiction", 1994,"Quentin Tarantino", 165, genres2);
+        Movie movie6 = new Movie("The Lord of the Rings: The Return of the King", 2003,"Peter Jackson", 210, genres1);
+        Movie movie7 = new Movie("Fight Club", 1999,"David Fincher",  139, genres2);
+        Movie movie8 = new Movie("Forrest Gump", 1994,"Robert Zemeckis", 142, genres1);
+        Movie movie9 = new Movie("Inception", 2010,"Christopher Nolan", 148, genres1);
+        Movie movie10 = new Movie("The Matrix", 1999,"Wachowskis",  136, genres2);
 
         movieRepository.save(hoodWinked);
         movieRepository.save(whipLash);

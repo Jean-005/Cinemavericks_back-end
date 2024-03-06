@@ -20,9 +20,6 @@ public class Movie {
     @Column
     private int year;
     @Column
-    @Enumerated(EnumType.STRING)
-    private GenreEnum genre;
-    @Column
     private String director;
 
     @Column
@@ -38,15 +35,24 @@ public class Movie {
     @ManyToMany(mappedBy = "movies")
     private List<MovieList> movieLists;
 
+    @JsonIgnoreProperties({"movies"})
+    @ManyToMany
+    @JoinTable(
+            name = "movies_genres",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id")
+    )
+    private List<Genre> genres;
+
     public Movie(){}
 
-    public Movie(String title, int year, GenreEnum genre, String director, int duration){
+    public Movie(String title, int year, String director, int duration, List<Genre> genres){
         this.title = title;
         this.year = year;
-        this.genre = genre;
         this.director = director;
         this.reviews = new ArrayList<>();
         this.movieLists = new ArrayList<>();
+        this.genres = genres;
         this.averageRating = 0;
         this.duration = duration;
     }
@@ -75,12 +81,12 @@ public class Movie {
         this.year = year;
     }
 
-    public GenreEnum getGenre() {
-        return this.genre;
+    public List<Genre> getGenres() {
+        return genres;
     }
 
-    public void setGenre(GenreEnum genre) {
-        this.genre = genre;
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
     }
 
     public String getDirector() {
@@ -129,6 +135,10 @@ public class Movie {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public void addGenre(Genre genre){
+        this.genres.add(genre);
     }
 
     public double calculateAverageRating(){
