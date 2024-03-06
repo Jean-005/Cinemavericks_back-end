@@ -21,7 +21,7 @@ public class Movie {
     private int year;
     @Column
     @Enumerated(EnumType.STRING)
-    private Genre genre;
+    private GenreEnum genre;
     @Column
     private String director;
 
@@ -40,7 +40,7 @@ public class Movie {
 
     public Movie(){}
 
-    public Movie(String title, int year, Genre genre, String director, int duration){
+    public Movie(String title, int year, GenreEnum genre, String director, int duration){
         this.title = title;
         this.year = year;
         this.genre = genre;
@@ -75,11 +75,11 @@ public class Movie {
         this.year = year;
     }
 
-    public Genre getGenre() {
+    public GenreEnum getGenre() {
         return this.genre;
     }
 
-    public void setGenre(Genre genre) {
+    public void setGenre(GenreEnum genre) {
         this.genre = genre;
     }
 

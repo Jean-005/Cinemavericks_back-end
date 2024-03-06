@@ -1,6 +1,6 @@
 package com.example.cinemavericks.controllers;
 
-import com.example.cinemavericks.models.Genre;
+import com.example.cinemavericks.models.GenreEnum;
 import com.example.cinemavericks.models.Movie;
 import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
@@ -82,7 +82,7 @@ MovieController {
 
     //Ex: Filter movies by genre
     @GetMapping(value = "/filterByGenre")
-    public ResponseEntity<List<Movie>> filterMovieByGenre(@RequestParam Genre genre){
+    public ResponseEntity<List<Movie>> filterMovieByGenre(@RequestParam GenreEnum genre){
         List<Movie> filteredMovies = movieService.filterMovies(genre);
         return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
     }

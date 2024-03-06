@@ -1,6 +1,7 @@
 package com.example.cinemavericks.services;
 
 import com.example.cinemavericks.models.Genre;
+import com.example.cinemavericks.models.GenreEnum;
 import com.example.cinemavericks.models.Movie;
 import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
@@ -50,7 +51,7 @@ public class MovieService {
         return movieRepository.findByAverageRatingBetween(minRating, maxRating);
     }
 
-    public List<Movie> filterMovies(Genre genre){
+    public List<Movie> filterMovies(GenreEnum genre){
         return movieRepository.findByGenre(genre);
     }
 
