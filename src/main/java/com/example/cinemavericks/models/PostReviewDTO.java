@@ -1,10 +1,15 @@
 package com.example.cinemavericks.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.time.LocalDateTime;
+
 public class PostReviewDTO {
 
     private String title;
 
-    private String date;
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime date;
 
     private String content;
 
@@ -22,14 +27,6 @@ public class PostReviewDTO {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDate() {
-        return this.date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public String getContent() {
@@ -62,5 +59,13 @@ public class PostReviewDTO {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 }

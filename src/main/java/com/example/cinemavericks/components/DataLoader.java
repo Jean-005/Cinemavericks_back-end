@@ -76,9 +76,9 @@ public class DataLoader implements ApplicationRunner {
         movieRepository.save(movie9);
         movieRepository.save(movie10);
 
-        Review review1 = new Review(user3, scottPilgrimVsTheWorld, "wow so cool","01/01/2004","FILM SO GOOD WOW WOOOOOOO!", 5);
-        Review review2 = new Review(user5, movie2, "Not Great","01/01/2012","Hmmm, it was okay. Not the best but not bad.", 2.5);
-        Review review3 = new Review(user6, movie2, "Don't even","01/01/1995","Don't.", 1);
+        Review review1 = new Review(user3, scottPilgrimVsTheWorld, "wow so cool","FILM SO GOOD WOW WOOOOOOO!", 5);
+        Review review2 = new Review(user5, movie2, "Not Great","Hmmm, it was okay. Not the best but not bad.", 2.5);
+        Review review3 = new Review(user6, movie2, "Don't even","Don't.", 1);
 
         reviewRepository.save(review1);
         reviewRepository.save(review2);
