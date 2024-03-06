@@ -4,7 +4,9 @@ import com.example.cinemavericks.models.PostReviewDTO;
 import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.models.ReviewDTO;
 import com.example.cinemavericks.repositories.ReviewRepository;
+import com.example.cinemavericks.services.MovieService;
 import com.example.cinemavericks.services.ReviewService;
+import com.example.cinemavericks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +17,26 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/reviews")
 public class ReviewController {
+
     @Autowired
     ReviewService reviewService;
 
+    @Autowired
+    MovieService movieService;
+
+    @Autowired
+    UserService userService;
+
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody PostReviewDTO postReviewDTO){
+        if(movieService.getMovieById(postReviewDTO.getMovieId()).isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+
+        if(userService.getUserById(postReviewDTO.getUserId()).isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+
         Review newReview = reviewService.createReview(postReviewDTO);
         return new ResponseEntity<>(newReview, HttpStatus.CREATED);
     }
