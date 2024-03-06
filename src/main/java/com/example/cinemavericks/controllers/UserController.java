@@ -3,6 +3,7 @@ package com.example.cinemavericks.controllers;
 import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.models.User;
+import com.example.cinemavericks.models.UserDTO;
 import com.example.cinemavericks.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -62,6 +63,17 @@ public class UserController {
         User newUser = userService.createUser(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<User> editUser(@PathVariable long id, @RequestBody UserDTO userDTO) {
+        Optional<User> targetUser = userService.getUserById(id);
+        if (targetUser.isPresent()) {
+            userService.editUser(id, userDTO);
+            return new ResponseEntity<>(targetUser.get(), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/{id}")

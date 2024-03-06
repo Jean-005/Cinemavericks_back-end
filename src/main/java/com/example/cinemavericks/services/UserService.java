@@ -48,6 +48,8 @@ public class UserService {
 
     public User editUser(long id, UserDTO userDTO){
         User targetUser = userRepository.findById(id).get();
+        targetUser.setName(userDTO.getName());
+        return userRepository.save(targetUser);
     }
 
     public void deleteUser(long id){
