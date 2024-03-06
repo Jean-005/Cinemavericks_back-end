@@ -91,11 +91,17 @@ public class DataLoader implements ApplicationRunner {
         MovieList movieList4 = new MovieList(user4,"Sad List");
         MovieList movieList5 = new MovieList(user5,"Horror List");
         MovieList movieList6 = new MovieList(user6,"Watch List");
+        MovieList movieList7 = new MovieList(user2, "Best List");
 
         movieList1.addMovie(scottPilgrimVsTheWorld);
         movieList1.addMovie(whipLash);
         movieList1.addMovie(thisIsMeNow);
         movieList1.addMovie(hoodWinked);
+
+        movieList7.addMovie(hoodWinked);
+        movieList7.addMovie(whipLash);
+        movieList7.addMovie(movie6);
+        movieList7.addMovie(movie10);
 
         movieListRepository.save(movieList1);
         movieListRepository.save(movieList2);
@@ -103,6 +109,7 @@ public class DataLoader implements ApplicationRunner {
         movieListRepository.save(movieList4);
         movieListRepository.save(movieList5);
         movieListRepository.save(movieList6);
+        movieListRepository.save(movieList7);
 
 
     }
