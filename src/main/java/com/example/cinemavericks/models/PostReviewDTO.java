@@ -15,7 +15,13 @@ public class PostReviewDTO {
     private long userId;
 
     public PostReviewDTO(){}
-
+    public PostReviewDTO(String title, String content, double rating, long movieId, long userId){
+        this.title = title;
+        this.content = content;
+        this.rating = rating;
+        this.movieId = movieId;
+        this.userId = userId;
+    }
     public String getTitle() {
         return this.title;
     }

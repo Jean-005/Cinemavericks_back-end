@@ -5,6 +5,7 @@ import com.example.cinemavericks.repositories.MovieListRepository;
 import com.example.cinemavericks.repositories.MovieRepository;
 import com.example.cinemavericks.repositories.ReviewRepository;
 import com.example.cinemavericks.repositories.UserRepository;
+import com.example.cinemavericks.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -80,9 +81,20 @@ public class DataLoader implements ApplicationRunner {
         Review review2 = new Review(user5, movie2, "Not Great","01/01/2012","Hmmm, it was okay. Not the best but not bad.", 2.5);
         Review review3 = new Review(user6, movie2, "Don't even","01/01/1995","Don't.", 1);
 
+
         reviewRepository.save(review1);
         reviewRepository.save(review2);
         reviewRepository.save(review3);
+
+        // Making movie object equal to its database counterpart that has a review attached to it
+        movie2 = movieRepository.findById(6L).get();
+
+        movie2.calculateAverageRating();
+        movieRepository.save(movie2);
+
+        scottPilgrimVsTheWorld = movieRepository.findById(4L).get();
+        scottPilgrimVsTheWorld.calculateAverageRating();
+        movieRepository.save(scottPilgrimVsTheWorld);
 
 
         MovieList movieList1 = new MovieList(user1,"Fav List");
