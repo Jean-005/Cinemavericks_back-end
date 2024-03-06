@@ -141,6 +141,7 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 - Display lists containing a specific film
 
 - Automatically add current date to review (refactor to LocalDateTime)
+- List reviews by most recent
 
 - Allow movies to have multiple genres
 - Allow users to leave comments and likes on reviews
