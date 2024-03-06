@@ -20,6 +20,7 @@ public class Movie {
     @Column
     private int year;
     @Column
+    @Enumerated(EnumType.STRING)
     private Genre genre;
     @Column
     private String director;
