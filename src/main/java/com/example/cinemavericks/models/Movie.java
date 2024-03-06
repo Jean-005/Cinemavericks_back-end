@@ -47,6 +47,7 @@ public class Movie {
         this.reviews = new ArrayList<>();
         this.movieLists = new ArrayList<>();
         this.averageRating = 0;
+        this.duration = duration;
     }
 
     public long getId() {
