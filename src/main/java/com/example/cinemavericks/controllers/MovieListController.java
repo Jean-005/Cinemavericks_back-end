@@ -42,13 +42,13 @@ public class MovieListController {
     }
 
 //    Updating specific fields of the movieList (eg: adding or removing the movies)
-    @PatchMapping(value = "/{id}")
+    @PatchMapping(value = "/{id}/addMovies")
     public ResponseEntity<MovieList> updatingMovieList(@PathVariable Long id, @RequestBody MovieListDTO movieListDTO){
         MovieList movieList = movieListService.updatingMovieList(id, movieListDTO);
         return new ResponseEntity<>(movieList,HttpStatus.OK);
     }
 
-    @PatchMapping(value = "/{id}/removeMovieFromList")
+    @PatchMapping(value = "/{id}/removeMovies")
     public ResponseEntity<MovieList> removeMovieInMovieList(@PathVariable Long id, @RequestBody MovieListDTO movieListDTO){
         MovieList movieList = movieListService.removeMovieInMovieList(id, movieListDTO);
         return new ResponseEntity<>(movieList,HttpStatus.OK);
