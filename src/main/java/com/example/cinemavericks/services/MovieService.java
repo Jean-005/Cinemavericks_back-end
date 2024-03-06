@@ -44,4 +44,8 @@ public class MovieService {
     public List<MovieList> getAllMovieLists(long movieId) {
         return movieListRepository.findByMoviesId(movieId);
     }
+
+    public List<Movie> filterMovies(double[] ratingRange){
+        return movieRepository.findByAverageRatingBetween(ratingRange[0], ratingRange[1]);
+    }
 }
