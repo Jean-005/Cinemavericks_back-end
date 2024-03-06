@@ -46,11 +46,21 @@ public class MovieListService {
     public MovieList updatingMovieList(Long id, MovieListDTO movieListDTO) {
         //find MovieList
         Optional<MovieList> movieList = movieListRepository.findById(id);
+        List<Movie> moviesToAdd = new ArrayList<>();
+
         if (movieList.isPresent()) {
             for (Long movieId : movieListDTO.getMovieIds()) {
                 Movie movie = movieRepository.findById(movieId).get();
-                movieList.get().addMovie(movie);
+                moviesToAdd.add(movie);
             }
+
+            for (Movie movie : moviesToAdd){
+                //CHECK if specified movie is not on the movieList
+                if(!movieList.get().getMovies().contains(movie)){
+                    movieList.get().addMovie(movie);
+                }
+            }
+
             //save movieList
             return movieListRepository.save(movieList.get());
         }
