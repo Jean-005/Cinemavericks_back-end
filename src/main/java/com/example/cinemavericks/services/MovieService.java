@@ -1,5 +1,6 @@
 package com.example.cinemavericks.services;
 
+import com.example.cinemavericks.models.Genre;
 import com.example.cinemavericks.models.Movie;
 import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
@@ -45,7 +46,11 @@ public class MovieService {
         return movieListRepository.findByMoviesId(movieId);
     }
 
-    public List<Movie> filterMovies(double[] ratingRange){
-        return movieRepository.findByAverageRatingBetween(ratingRange[0], ratingRange[1]);
+    public List<Movie> filterMovies(double minRating, double maxRating){
+        return movieRepository.findByAverageRatingBetween(minRating, maxRating);
+    }
+
+    public List<Movie> filterMovies(Genre genre){
+        return movieRepository.findByGenre(genre);
     }
 }
