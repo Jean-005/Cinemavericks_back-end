@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -58,7 +59,17 @@ public class ReviewController {
         return new ResponseEntity<>(id,HttpStatus.NO_CONTENT);
     }
 
-
+    //Ext: Sort Reviews by time(newest/oldest); Method is extensible for other categories as well
+    @GetMapping(value = "/sort{timeOrder}")
+    public ResponseEntity<List<Review>> sortReviews(@RequestParam(defaultValue = "newest") String timeOrder){
+        // sort by time if value has been inputted
+        if(timeOrder.equals("newest")||timeOrder.equals("oldest")){
+            List<Review> reviews = reviewService.sortByTime(timeOrder);
+            return new ResponseEntity<>(reviews, HttpStatus.OK);
+        }
+        //
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    }
 
 
 }
