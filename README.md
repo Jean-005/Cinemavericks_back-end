@@ -1,4 +1,5 @@
 ## CineMavericks
+![Axolotl at the cinemas](https://github.com/GJaradat/cinemavericks/assets/108727885/38e385b5-6cb2-4b21-a2c7-7147facb727d)
 
 **Bio:**
 
@@ -83,7 +84,6 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 - Allow movies to have multiple genres
 - Automatically add current date to review (refactor to LocalDate)
 - Allow users to leave comments and likes on reviews
-
 
 ### Class Diagram for CinemaMavericks
 ![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/5c99d09f-2a65-4b2a-aeb1-3062a65e8f87)
