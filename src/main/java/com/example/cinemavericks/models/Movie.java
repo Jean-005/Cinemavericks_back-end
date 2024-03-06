@@ -3,6 +3,7 @@ package com.example.cinemavericks.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,12 +117,16 @@ public class Movie {
     public void setAverageRating(double averageRating) {
         this.averageRating = averageRating;
     }
+
+
     public double calculateAverageRating(){
         double ratingsSum = 0;
         for (Review review : this.reviews){
             ratingsSum += review.getRating();
         }
         this.averageRating = ratingsSum / this.reviews.size();
+        this.averageRating = Math.round(this.averageRating * 100.0) / 100.0;
+
         return this.averageRating;
     }
 }
