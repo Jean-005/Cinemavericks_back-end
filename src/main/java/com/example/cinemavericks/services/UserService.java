@@ -3,6 +3,7 @@ package com.example.cinemavericks.services;
 import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.models.User;
+import com.example.cinemavericks.models.UserDTO;
 import com.example.cinemavericks.repositories.MovieListRepository;
 import com.example.cinemavericks.repositories.ReviewRepository;
 import com.example.cinemavericks.repositories.UserRepository;
@@ -43,6 +44,10 @@ public class UserService {
 
     public User createUser(User user){
         return userRepository.save(user);
+    }
+
+    public User editUser(long id, UserDTO userDTO){
+        User targetUser = userRepository.findById(id).get();
     }
 
     public void deleteUser(long id){
