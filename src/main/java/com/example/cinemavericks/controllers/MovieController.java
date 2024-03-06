@@ -47,9 +47,12 @@ MovieController {
     //Edit details of a movie
     @PatchMapping(value = "/{movieId}")
     public ResponseEntity<Movie> editMovie(@PathVariable long movieId, @RequestBody Movie newMovie){
-        newMovie.setId(movieId);
-        movieService.saveMovie(newMovie);
-        return new ResponseEntity<>(newMovie, HttpStatus.OK);
+        if (movieService.getMovieById(movieId).isPresent()) {
+            newMovie.setId(movieId);
+            movieService.saveMovie(newMovie);
+            return new ResponseEntity<>(newMovie, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     //Show all reviews for a specific movie
