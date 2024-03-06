@@ -23,7 +23,7 @@ Entity Relationship Diagram (ERD) and Class Diagram:
 https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 
-**MVP:**
+## MVP
 
 Design and build an API with CRUD functionality. There will be a one-to-many relationship of Movies  and Users to the Reviews.
 
@@ -72,28 +72,17 @@ The API must include routes enabling user to:
 - Update movie list
 - Delete movie list
 
-
 Create a DataLoader to seed the database with Users, Movies and Reviews.
 
-**EXTENSION:**
-- User can set lists to private or public
-- Edit a user’s information
-- Give movies an average rating property
-- Filter movies by average rating
-- Display lists containing a specific film
-- Allow movies to have multiple genres
-- Automatically add current date to review (refactor to LocalDate)
-- Allow users to leave comments and likes on reviews
-
-### Class Diagram for CinemaMavericks
+**Class Diagram for CinemaMavericks**
 ![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
 
-### ERD Diagram for CinemaMavericks
+**ERD Diagram for CinemaMavericks**
 ![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
 
 
 ### Data Dictionary for CinemaMavericks
-#### Movie Table
+**Movie Table**
 
 | Column Name | Description                 | Data Type    | Permitted Values |
 |-------------|-----------------------------|--------------|------------------|
@@ -103,14 +92,14 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | genre       | Genre of the movie          | VARCHAR(255) |                  |
 | director    | Director of the movie       | VARCHAR(255) |                  |
 
-#### User Table
+**User Table**
 
 | Column Name | Description               | Data Type    | Permitted Values |
 |-------------|---------------------------|--------------|------------------|
 | id          | Unique identifier         | SERIAL       | numbers >= 1     |
 | name        | Name of the user          | VARCHAR(255) |                  |
 
-#### Review Table
+**Review Table**
 
 | Column Name | Description                         | Data Type    | Permitted Values                |
 |-------------|-------------------------------------|--------------|---------------------------------|
@@ -122,7 +111,7 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | user_id     | ID referencing user in User table   | INT          | Foreign Key (User.id)           |
 
 
-#### Movie List Table
+**Movie List Table**
 
 | Column Name | Description                       | Data Type    | Permitted Values      | 
 |-------------|-----------------------------------|--------------|-----------------------|
@@ -131,11 +120,21 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | user_id     | ID referencing user in User table | INT          | Foreign Key (User.id) |
 
 
-#### Movie Movie Lists Table
+**Movie Movie Lists Table**
 
 | Column Name | Description                                          | Data Type    | Permitted Values                  |
 |-------------|------------------------------------------------------|--------------|-----------------------------------|
 | id          | Unique identifier                                    | SERIAL       | numbers >= 1                      |
 | movielist_id | ID referencing movie list in Movie Lists table     | INT          | Foreign Key (MovieList.id)      |
 | movie_id    | ID referencing movie in Movie table                  | INT          | Foreign Key (Movie.id)            |
+
+## EXTENSION:
+- User can set lists to private or public
+- Edit a user’s information
+- Give movies an average rating property
+- Filter movies by average rating
+- Display lists containing a specific film
+- Allow movies to have multiple genres
+- Automatically add current date to review (refactor to LocalDate)
+- Allow users to leave comments and likes on reviews
 
