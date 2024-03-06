@@ -3,7 +3,9 @@
 
 **Bio:**
 
-This project is an API for a film review aggregation application. Users can leave reviews with star ratings on films they have seen and curate lists of films based around any theme of their choosing. They can also search movies by genre, director etc.
+This project involves creating an API for a film review aggregation platform, which incorporates a comprehensive movie database. Users can leave reviews with star ratings on films they have seen and curate lists of films based around any theme of their choosing. Additionally, they have the capability to explore movies by genre, director, and other relevant criteria.
+
+The motivation behind this project is to foster a dynamic and engaging platform where users can interact with films in a meaningful and personalized manner.
 
 **Tech Stack:**
 - Java
@@ -21,6 +23,13 @@ This project is an API for a film review aggregation application. Users can leav
 
 Entity Relationship Diagram (ERD) and Class Diagram:
 https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
+
+
+**Class Diagram for CinemaMavericks**
+![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
+
+**ERD Diagram for CinemaMavericks**
+![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
 
 
 ## MVP
@@ -74,11 +83,23 @@ The API must include routes enabling user to:
 
 Create a DataLoader to seed the database with Users, Movies and Reviews.
 
-**Class Diagram for CinemaMavericks**
-![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
+## EXTENSION:
+- Movie has a duration property
+- User can filter movie search by duration
 
-**ERD Diagram for CinemaMavericks**
-![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
+- Give movies an average rating property
+- Filter movies by average rating
+- Round average rating to 2dp
+
+- Edit a user’s information
+- User can set lists to private or public
+- Display lists containing a specific film
+
+- Automatically add current date to review (refactor to LocalDateTime)
+- List reviews by most recent
+
+- Allow movies to have multiple genres
+- Allow users to leave comments and likes on reviews
 
 
 ### Data Dictionary for CinemaMavericks
@@ -127,22 +148,4 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | id          | Unique identifier                                    | SERIAL       | numbers >= 1                      |
 | movielist_id | ID referencing movie list in Movie Lists table     | INT          | Foreign Key (MovieList.id)      |
 | movie_id    | ID referencing movie in Movie table                  | INT          | Foreign Key (Movie.id)            |
-
-## EXTENSION:
-- Movie has a duration property
-- User can filter movie search by duration
-
-- Give movies an average rating property
-- Filter movies by average rating
-- Round average rating to 2dp
-
-- Edit a user’s information
-- User can set lists to private or public
-- Display lists containing a specific film
-
-- Automatically add current date to review (refactor to LocalDateTime)
-- List reviews by most recent
-
-- Allow movies to have multiple genres
-- Allow users to leave comments and likes on reviews
 
