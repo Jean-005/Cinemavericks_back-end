@@ -129,12 +129,19 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | movie_id    | ID referencing movie in Movie table                  | INT          | Foreign Key (Movie.id)            |
 
 ## EXTENSION:
-- User can set lists to private or public
-- Edit a user’s information
+- Movie has a duration property
+- User can filter movie search by duration
+
 - Give movies an average rating property
 - Filter movies by average rating
+- Round average rating to 2dp
+
+- Edit a user’s information
+- User can set lists to private or public
 - Display lists containing a specific film
+
+- Automatically add current date to review (refactor to LocalDateTime)
+
 - Allow movies to have multiple genres
-- Automatically add current date to review (refactor to LocalDate)
 - Allow users to leave comments and likes on reviews
 
