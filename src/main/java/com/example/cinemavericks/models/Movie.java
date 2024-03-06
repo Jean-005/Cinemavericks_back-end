@@ -22,6 +22,8 @@ public class Movie {
     private Genre genre;
     @Column
     private String director;
+    @Column(name = "average_rating")
+    private double averageRating;
 
     @JsonIgnoreProperties({"movies"})
     @OneToMany(mappedBy = "movie")
@@ -40,6 +42,7 @@ public class Movie {
         this.director = director;
         this.reviews = new ArrayList<>();
         this.movieLists = new ArrayList<>();
+        this.averageRating = 0;
     }
 
     public long getId() {
@@ -104,5 +107,21 @@ public class Movie {
 
     public void removeReview(Review review){
         this.reviews.remove(review);
+    }
+
+    public double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
+    }
+    public double calculateAverageRating(){
+        double ratingsSum = 0;
+        for (Review review : this.reviews){
+            ratingsSum += review.getRating();
+        }
+        this.averageRating = ratingsSum / this.reviews.size();
+        return this.averageRating;
     }
 }
