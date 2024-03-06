@@ -27,7 +27,7 @@ MovieController {
         return new ResponseEntity<>(movieService.getAllMovies(), HttpStatus.OK);
     }
 
-    //Display movie by id
+    //Display movie by movieId
     @GetMapping(value = "/{movieId}")
     public ResponseEntity<Movie> getMovieById(@PathVariable long movieId){
         Optional<Movie> movie = movieService.getMovieById(movieId);
