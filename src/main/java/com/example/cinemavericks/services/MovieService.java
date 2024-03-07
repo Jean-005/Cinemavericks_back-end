@@ -1,10 +1,6 @@
 package com.example.cinemavericks.services;
 
-import com.example.cinemavericks.models.Genre;
-import com.example.cinemavericks.models.GenreEnum;
-import com.example.cinemavericks.models.Movie;
-import com.example.cinemavericks.models.MovieList;
-import com.example.cinemavericks.models.Review;
+import com.example.cinemavericks.models.*;
 import com.example.cinemavericks.repositories.GenreRepository;
 import com.example.cinemavericks.repositories.MovieListRepository;
 import com.example.cinemavericks.repositories.MovieRepository;
@@ -38,8 +34,22 @@ public class MovieService {
         return movieRepository.findById(movieId);
     }
 
-    public void saveMovie(Movie movie){
-        movieRepository.save(movie);
+    public Movie saveMovie(MovieDTO movieDTO){
+        List<Genre> targetGenres = new ArrayList<>();
+        for (Long genreId: movieDTO.getGenreIds()){
+            Optional<Genre> genre = genreRepository.findById(genreId);
+            if (genre.isPresent()){
+                targetGenres.add(genre.get());
+            }
+        }
+
+        Movie movie = new Movie(movieDTO.getTitle(), movieDTO.getYear(), targetGenres,
+                movieDTO.getDirector(), movieDTO.getDuration());
+        return movieRepository.save(movie);
+    }
+
+    public Movie saveMovie(Movie movie){
+        return movieRepository.save(movie);
     }
 
     public List<Review> getReviews(long movieId){
@@ -79,5 +89,26 @@ public class MovieService {
             return reviewRepository.findByMovieIdOrderByDateAsc(movieId);
         }
         return null;
+    }
+
+    public Movie editMovie(long movieId, MovieDTO newMovieDTO) {
+        Movie movieToEdit = movieRepository.findById(movieId).get();
+
+        //Genres
+        List<Genre> targetGenres = new ArrayList<>();
+        for (Long genreId: newMovieDTO.getGenreIds()){
+            Optional<Genre> genre = genreRepository.findById(genreId);
+            if (genre.isPresent()){
+                targetGenres.add(genre.get());
+            }
+        }
+
+        movieToEdit.setTitle(newMovieDTO.getTitle());
+        movieToEdit.setYear(newMovieDTO.getYear());
+        movieToEdit.setDirector(newMovieDTO.getDirector());
+        movieToEdit.setGenres(targetGenres);
+        movieToEdit.setDuration(newMovieDTO.getDuration());
+
+        return movieRepository.save(movieToEdit);
     }
 }
