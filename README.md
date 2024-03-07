@@ -126,8 +126,8 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | title       | Title of the review                 | VARCHAR(255) |                                 |
 | content     | Content of the review               | TEXT         |                                 |
 | rating      | Rating given to the movie           | INT          | 1 <= value <= 5                 |
-| movie_id    | ID referencing movie in Movie table | INT          | Foreign Key (Movie.id)          |
-| user_id     | ID referencing user in User table   | INT          | Foreign Key (User.id)           |
+| movie_id    | ID referencing movie in Movie table | BIGINT       | Foreign Key (Movie.id)          |
+| user_id     | ID referencing user in User table   | BIGINT       | Foreign Key (User.id)           |
 
 
 **Movie List Table**
@@ -136,7 +136,7 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 |-------------|-----------------------------------|--------------|-----------------------|
 | id          | Unique identifier                 | SERIAL       | numbers >= 1          |
 | title       | Title of the movie list           | VARCHAR(255) |                       |
-| user_id     | ID referencing user in User table | INT          | Foreign Key (User.id) |
+| user_id     | ID referencing user in User table | BIGINT       | Foreign Key (User.id) |
 
 
 **Movie Movie Lists Table**
@@ -144,6 +144,6 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | Column Name | Description                                          | Data Type    | Permitted Values                  |
 |-------------|------------------------------------------------------|--------------|-----------------------------------|
 | id          | Unique identifier                                    | SERIAL       | numbers >= 1                      |
-| movielist_id | ID referencing movie list in Movie Lists table     | INT          | Foreign Key (MovieList.id)      |
-| movie_id    | ID referencing movie in Movie table                  | INT          | Foreign Key (Movie.id)            |
+| movielist_id | ID referencing movie list in Movie Lists table      | BIGINT       | Foreign Key (MovieList.id)        |
+| movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key (Movie.id)            |
 
