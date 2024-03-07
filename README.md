@@ -126,7 +126,7 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 
 
 ## Data Dictionary for CinemaMavericks
-**Movie Table**
+**Movies Table**
 
 | Column Name | Description                 | Data Type    | Permitted Values |
 |-------------|-----------------------------|--------------|------------------|
@@ -136,14 +136,14 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | genre       | Genre of the movie          | VARCHAR(255) |                  |
 | director    | Director of the movie       | VARCHAR(255) |                  |
 
-**User Table**
+**Users Table**
 
 | Column Name | Description               | Data Type    | Permitted Values |
 |-------------|---------------------------|--------------|------------------|
 | id          | Unique identifier         | SERIAL       | numbers >= 1     |
 | name        | Name of the user          | VARCHAR(255) |                  |
 
-**Review Table**
+**Reviews Table**
 
 | Column Name | Description                         | Data Type    | Permitted Values                |
 |-------------|-------------------------------------|--------------|---------------------------------|
@@ -151,25 +151,25 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | title       | Title of the review                 | VARCHAR(255) |                                 |
 | content     | Content of the review               | TEXT         |                                 |
 | rating      | Rating given to the movie           | INT          | 1 <= value <= 5                 |
-| movie_id    | ID referencing movie in Movie table | BIGINT       | Foreign Key (Movie.id)          |
-| user_id     | ID referencing user in User table   | BIGINT       | Foreign Key (User.id)           |
+| movie_id    | ID of movie being reviewed          | BIGINT       | Foreign Key ```movies.id```     |
+| user_id     | ID of user leaving review           | BIGINT       | Foreign Key ```users.id```      |
 
 
-**Movie List Table**
+**Movie Lists Table**
 
-| Column Name | Description                       | Data Type    | Permitted Values      | 
-|-------------|-----------------------------------|--------------|-----------------------|
-| id          | Unique identifier                 | SERIAL       | numbers >= 1          |
-| title       | Title of the movie list           | VARCHAR(255) |                       |
-| user_id     | ID referencing user in User table | BIGINT       | Foreign Key (User.id) |
+| Column Name | Description                       | Data Type    | Permitted Values            | 
+|-------------|-----------------------------------|--------------|-----------------------------|
+| id          | Unique identifier                 | SERIAL       | numbers >= 1                |
+| title       | Title of the movie list           | VARCHAR(255) |                             |  
+| user_id     | ID of User who created the list   | BIGINT       | Foreign Key ```users.id```  |
 
 
-**Movie Movie Lists Table**
+**Movies Movie Lists Table**
 
 | Column Name | Description                                          | Data Type    | Permitted Values                  |
 |-------------|------------------------------------------------------|--------------|-----------------------------------|
 | id          | Unique identifier                                    | SERIAL       | numbers >= 1                      |
-| movielist_id | ID referencing movie list in Movie Lists table      | BIGINT       | Foreign Key (MovieList.id)        |
-| movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key (Movie.id)            |
+| movielist_id| ID referencing movie list in Movie Lists table       | BIGINT        | Foreign Key ```moviesLists.id``` |
+| movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
 
 ## Contributions
