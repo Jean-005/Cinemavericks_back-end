@@ -69,4 +69,15 @@ public class MovieService {
     public List<Movie> filterMovies(int minDuration, int maxDuration){
         return movieRepository.findByDurationBetween(minDuration, maxDuration);
     }
+
+    //Get sorted reviews
+    public List<Review> sortByTime(String timeOrder, long movieId) {
+        if (timeOrder.equals("newest")){
+            return reviewRepository.findByMovieIdOrderByDateDesc(movieId);
+        }
+        if (timeOrder.equals("oldest")){
+            return reviewRepository.findByMovieIdOrderByDateAsc(movieId);
+        }
+        return null;
+    }
 }

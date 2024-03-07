@@ -97,7 +97,6 @@ public class UserController {
             List<Review> reviews = userService.sortByTime(timeOrder, userId);
            return new ResponseEntity<>(reviews, HttpStatus.OK);
         }
-
         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 }
