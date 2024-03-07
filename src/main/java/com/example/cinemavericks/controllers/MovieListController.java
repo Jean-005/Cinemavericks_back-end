@@ -62,12 +62,11 @@ public class MovieListController {
     public ResponseEntity<MovieList> setMovieListVisibility(@PathVariable Long movieListId, @PathVariable Boolean setting) {
 
         Optional<MovieList> targetMovieList = movieListService.getMovieListById(movieListId);
-        if(targetMovieList.isPresent()){
-        targetMovieList.get().setPublic(setting);
-        return new ResponseEntity<>(targetMovieList.get(), HttpStatus.OK);}
-
+        if(targetMovieList.isPresent()) {
+            movieListService.setMovieListVisibility(movieListId, setting);
+            return new ResponseEntity<>(targetMovieList.get(), HttpStatus.OK);
+        }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-
     }
 
 
