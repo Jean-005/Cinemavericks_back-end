@@ -166,7 +166,7 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 | Route Name                    | URL                                   | Example Permitted Request                          | Example Response         |
 |-------------------------------|---------------------------------------|----------------------------------------------------|--------------------------|
-| Movie Index	                  | /localhost:8080movies	                            	| GET /movies                	                       | { "movies": [...] }      |
+| Movie Index	                  | localhost:8080movies	                            	| GET /movies                	                       | { "movies": [...] }      |
 | View Movie	                  | localhost:8080/movies/:id	                        	| GET /movies/movie1                                 | { "id": [...] }          |
 | Add Movie	                    | localhost:8080/movies	                            	| POST /movies	                                     | { "id": [...] }          |
 | Edit Movie	                  | localhost:8080/movies/:id	                          | PATCH /movies/1  	                                 | { "id": [...] }          |
@@ -209,7 +209,7 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | Toggle movie list privacy setting	      | localhost:8080/movielists/:id/setPublic?         | PATCH /movielists/8/setPublicfalse               | { "id": "title", ... }   |
 | Add movie to List                       | localhost:8080/movielists/:id/addMovies	         | PATCH /movielists/1/addMovies                    | { "id": ..., "movies" }  |
 | Remove movie from list                    | localhost:8080/movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | Movie Deleted from MovieList        |
-Remove movieList                    | localhost:8080/movielists/:id/	     | DELETE /movielists/1/                 | MovieList Deleted        |
+Remove movieList                    | localhost:8080/movielists/:id	     | DELETE /movielists/1/                 | MovieList Deleted        |
 
 
 
