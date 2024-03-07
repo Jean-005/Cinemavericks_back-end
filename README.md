@@ -6,12 +6,13 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Installation](#installation)
+2. [Installation Instruction](#installation)
 3. [Technology](#technology)
 4. [MVP](#mvp)
 7. [Extension](#extension)
 8. [Class and ERD Diagram](#class-erd-diagram)
 9. [Data Dictionary](#data-dictionary)
+10. [Api Route Table (Usage)](#api-routes-table)
 
 <a id="introduction"></a>
 ## Introduction
@@ -21,7 +22,7 @@ This project involves creating an API for a film review aggregation platform, wh
 The motivation behind this project is to foster a dynamic and engaging platform where users can interact with films in a meaningful and personalized manner. This project have been created as part of BNTA (Bright Network Technology Academy) Cohort 13 Group 3 Collaboration Backend Project.
 
 <a id="installation"></a>
-## Installation
+## Installation Instruction
 1. Have a Java IDE, POSTMAN, Postico, PostgreSQL Installed
 2. Fork Project to your GitHub/Clone Project to your local computer
 3. Open the project in an IDE
@@ -60,26 +61,6 @@ The objective is to enhance learning and skill development as an integral compon
 
 Design and build an API with CRUD functionality. There will be a one-to-many relationship of Movies  and Users to the Reviews.
 
-The Movie table will have columns for:
-- Id
-- Title
-- Year - Movie Released
-- Genre
-- Director
-
-The User table will have columns for:
-- Id
-- name
-
-
-The Review table will have columns for:
-- id
-- Title
-- Movie
-- User
-- Content
-- Rating
-
 The API must include routes enabling user to:
 
 - View all movies
@@ -106,11 +87,14 @@ The API must include routes enabling user to:
 - Delete movie list
 
 
+
 **MVP Class Diagram**
+
 ![Class Diagram](https://github.com/GJaradat/cinemavericks/assets/99983599/b29bdc72-cbe0-4fcf-b04e-20855d46e95f)
 
 
 **MVP ERD Diagram**
+
 ![ERD Diagram](https://github.com/GJaradat/cinemavericks/assets/99983599/3ae17da8-7d76-4c66-a0eb-9bf78b57b141)
 
 
@@ -151,6 +135,7 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 <a id="data-dictionary"></a>
 ## Data Dictionary for CinemaMavericks
+
 **Movies Table**
 
 | Column Name | Description                 | Data Type    | Permitted Values |
@@ -197,7 +182,9 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | movielist_id| ID referencing movie list in Movie Lists table       | BIGINT        | Foreign Key ```movies_lists.id```|
 | movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
 
- **API Routes Table**
+
+ <a id="api-routes-table"></a>
+## API Routes Table
 
 | Route Name                    | URL                                   | Example Permitted Request                          | Example Response         |
 |-------------------------------|---------------------------------------|----------------------------------------------------|--------------------------|
