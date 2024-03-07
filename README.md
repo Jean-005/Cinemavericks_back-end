@@ -199,18 +199,33 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
  **API Routes Table**
 
+ **MovieAPI Routes**
+
 | Route Name                    | URL                                   | Example Permitted Request                          | Example Response         |
 |-------------------------------|---------------------------------------|----------------------------------------------------|--------------------------|
 | Movie Index	                  | /movies	                            	| GET /movies                	                       | { "movies": [...] }      |
-| View Movie	                  | /movies/:id	                        	| GET /movies/movie123	                             | { "id": [...] }          |
+| View Movie	                  | /movies/:id	                        	| GET /movies/movie1                                 | { "id": [...] }          |
 | Add Movie	                    | /movies	                            	| POST /movies	                                     | { "id": [...] }          |
-| Edit Movie	                  | /movies/:id	                          | PATCH /movies/movie123	                           | { "id": [...] }          |
+| Edit Movie	                  | /movies/:id	                          | PATCH /movies/movie1  	                           | { "id": [...] }          |
 | Reviews of a Movie	          | /movies/:id/reviews	                  | GET /movies/movie123/reviews	                     | { "reviews": [...] }     |
 | Movie Lists containing Movie	| /movies/:id/movieLists	              | GET /movies/movie123/movieLists	                   | { "movieLists": [...] }  |
 | Filter movies by rating	      | /movies?minRating	                    | GET	/movies?minRating=4	                           | { "movies": [...] }      |
 | Filter movies by genre	      | /movies/filterByGenre?genre	          | GET /movies/filterByGenre?genre=action	           | { "movies": [...] }      |
 | Filter movies by duration	    | /movies/filterByDuration?minDuration	| GET /movies/filterByDuration?minDuration=120	     | { "movies": [...] }      |
 | Sort reviews by time	        | /movies/:id/reviews/sort?timeOrder	 	| GET /movies/movie123/reviews/sort?timeOrder=newest | { "reviews": [...] }     |
+
+**UserAPI Routes**
+
+| Route Name                              | URL                                | Example Permitted Request                        | Example Response         |
+|-----------------------------------------|------------------------------------|--------------------------------------------------|--------------------------|
+| Get all Users                           | /users                             | GET /users                	                      | { "id": "user1", ... }   |
+| Get specific User	                      | /users/:id                       	 | GET GET /users/user1	                            | { "id": "user1", ... }   |
+| Get all Reviews by User                 | /users/:id/reviews                 | GET /users/user1/reviews                         | { "id": "review1",...}   |
+| Get all MovieLists by User	            | /users/:id/movieLists              | GET /users/user1/movieLists                      | { "id": "list1", ... }   |
+| Post User	                              | /users	                           | POST /users	                                    | { "id": "user100", ... } |
+| Delete User	                            | /users/:id	                       | DELETE /users/user1	                            | No Content               |
+| Patch User	                            | /users/:id                         | PATCH /users/user1	                              | { "id": "user1", ... }   |
+| Get all Reviews by User Sorted by Time	| /users/:id/reviews/sort?timeOrder	 | GET /users/user1/reviews/sort?timeOrder=newest   | { "id": "review1", ... } |
 
 
 
