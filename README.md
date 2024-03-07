@@ -39,11 +39,11 @@ The objective is to enhance learning and skill development as an integral compon
 - PostgreSQL Database
 
 **The Spring Boot Libraries used:**
-Maven Project
-Spring Boot: Ver. 3.2.3
-Spring Boot Dev Tools
-Spring Web
-PostgreSQL Driver
+- Maven Project
+- Spring Boot: Ver. 3.2.3
+- Spring Boot Dev Tools
+- Spring Web
+- PostgreSQL Driver
 
 **Tools Used:**
 - POSTMAN
