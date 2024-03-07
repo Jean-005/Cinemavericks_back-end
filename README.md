@@ -6,22 +6,30 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Technology](#technology)
+4. [MVP](#mvp)
+6. [Class and ERD Diagram](#class-erd-diagram)
+7. [Extension](#extension)
+8. [Data Dictionary](#data-dictionary)
 
 <a id="introduction"></a>
-##Introduction
+## Introduction
 
 This project involves creating an API for a film review aggregation platform, which incorporates a comprehensive movie database. Users can leave reviews with star ratings on films they have seen and curate lists of films based around any theme of their choosing. Additionally, they have the capability to explore movies by genre, director, and other relevant criteria.
 
 The motivation behind this project is to foster a dynamic and engaging platform where users can interact with films in a meaningful and personalized manner. This project have been created as part of BNTA (Bright Network Technology Academy) Cohort 13 Group 3 Collaboration Backend Project.
 
-##Installation
+<a id="installation"></a>
+## Installation
 1. Fork Project
 2. Clone Project to your local file
 3. Open the project in a java editor
 4. Run the application
 5. Use it on POSTMAN (use the provided postman collection associated with this github)
 
-##Technology
+<a id="technology"></a>
+## Technology
 Purpose of Technology usage:
 The objective is to enhance learning and skill development as an integral component of the bootcamp experience hence why the following technologies were used.
 
@@ -49,6 +57,7 @@ PostgreSQL Driver
 Entity Relationship Diagram (ERD) and Class Diagram - Both MVP and Extension :
 https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
+<a id="mvp"></a>
 ## MVP
 
 Design and build an API with CRUD functionality. There will be a one-to-many relationship of Movies  and Users to the Reviews.
@@ -98,14 +107,15 @@ The API must include routes enabling user to:
 - Update movie list
 - Delete movie list
 
-Create a DataLoader to seed the database with Users, Movies and Reviews.
-
+<a id="class-erd-diagram"></a>
+## Class Diagram and ERD Diagram:
 **Class Diagram for CinemaMavericks**
 ![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
 
 **ERD Diagram for CinemaMavericks**
 ![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
 
+<a id="extension"></a>
 ## EXTENSION:
 - Movie has a duration property
 - User can filter movie search by duration
@@ -124,7 +134,7 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 - Allow movies to have multiple genres
 - Allow users to leave comments and likes on reviews
 
-
+<a id="data-dictionary"></a>
 ## Data Dictionary for CinemaMavericks
 **Movies Table**
 
