@@ -27,8 +27,8 @@ The motivation behind this project is to create a dynamic and engaging platform 
 1. Have a Java IDE, POSTMAN, Postico, PostgreSQL Installed
 2. Fork Project to your GitHub/Clone Project to your local computer
 3. Open the project in an IDE
-4. Run the application and server
-5. Create database 'cinemavericks_db' in your terminal/Gitbash (local computer)
+4. Create database 'cinemavericks_db' in your terminal/Gitbash (local computer)
+5. Run the application and server
 5. Use POSTMAN to use or test the endpoints (use the provided postman collection found in GitHub repo)
 
 <a id="technology"></a>
@@ -47,6 +47,7 @@ The objective is to enhance learning and skill development as an integral compon
 - Spring Boot Dev Tools
 - Spring Web
 - PostgreSQL Driver
+- Spring Data JPA
 
 **Tools Used:**
 - POSTMAN
