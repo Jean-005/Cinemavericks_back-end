@@ -18,7 +18,7 @@
 
 This project involves creating an API for a film review aggregation platform, which incorporates a comprehensive movie database. Users can leave reviews with star ratings on films they have seen and curate lists of films based around any theme of their choosing. Additionally, they have the capability to explore movies by genre, director, and other relevant criteria.
 
-The motivation behind this project is to foster a dynamic and engaging platform where users can interact with films in a meaningful and personalized manner. This project have been created as part of BNTA (Bright Network Technology Academy) Cohort 13 Group 3 Collaboration Backend Project.
+The motivation behind this project is to create a dynamic and engaging platform where users can interact with other cinephiles in a meaningful and personalized manner. This project have been created as part of a BNTA (Bright Network Technology Academy) Cohort 13 Collaboration Backend Project.
 
 <a id="installation"></a>
 ## Installation
@@ -58,52 +58,7 @@ The objective is to enhance learning and skill development as an integral compon
 <a id="mvp"></a>
 ## MVP
 
-Design and build an API with CRUD functionality. There will be a one-to-many relationship of Movies  and Users to the Reviews.
-
-The Movie table will have columns for:
-- Id
-- Title
-- Year - Movie Released
-- Genre
-- Director
-
-The User table will have columns for:
-- Id
-- name
-
-
-The Review table will have columns for:
-- id
-- Title
-- Movie
-- User
-- Content
-- Rating
-
-The API must include routes enabling user to:
-
-- View all movies
-- Get movie by id
-- Add movie
-- Edit movie
-- Get all the reviews of a movie
-
-- Create review
-- Edit review
-- Delete review
-
-- Get all users
-- Get specific user
-- Get all reviews by a specific user
-- Get all movie lists by specific user
-- Create a user
-- Delete a user
-  
-- Get all movie lists
-- Get specific movie list by id
-- Create movie list
-- Update movie list
-- Delete movie list
+Design and build an API with CRUD functionality. The database will store ```Movies```, ```Users```, ```Reviews``` (left by ```Users``` about ```Movies```) and ```MovieLists``` created by ```Users```. All ```Reviews``` and ```MovieLists``` will be attached to a specific ```User``` and these should be viewable from their "profile". One should also be able to retrieve all ```Reviews``` of a specific ```Movie```. This functionality will be achieved through a series of one-to-many and many-to-many relationships between these entities, as detailed by the ERD below.
 
 
 **MVP Class Diagram**
@@ -115,25 +70,26 @@ The API must include routes enabling user to:
 
 
 <a id="extension"></a>
-## EXTENSION:
-- Movie has a duration property
-- User can filter movie search by duration
+## EXTENSIONS:
+- Give ```Movie``` a duration property and write a ```GET``` request that returns ```Movie``` objects filtered by duration
 
-- Give movies an average rating property
-- Filter movies by average rating
-- Round average rating to 2dp
+- Calculate an ```averageRating``` property for each ```Movie``` based on its asscoiated ```Review```s. This should be rounded to 2 decimal places.
+- Write ```GET``` endpoint that that returns ```Movie``` objects filtered by average rating
 
-- Edit a user’s information
-- User can set lists to private or public
-- Display lists containing a specific film
+- Write ```PATCH``` request to edit properties of a ```User```
+- Write ```PATCH``` method to set ```MovieList``` private or public
+- 
+- Display all ```MovieList```s containing a specific ```Movie```
 
-- Automatically add current date to review (refactor to LocalDateTime)
-- Order movies reviews by oldest/newest created
-- Order user reviews by oldest/newest created
+- Automatically add current date to review (refactor to ```LocalDateTime```)
+- Order ```Review```s of a certain ```Movie``` by oldest/newest created
+- Order ```Review```s by a certain ```User``` by oldest/newest created
 
-- Allow movies to have multiple genres
-- Allow users to leave comments and likes on reviews
-- User is able to toggle their movie list to public or private
+- Allow movies to have more than one ```Genre```
+- Write ```GET``` request that returns all ```Movie``` objects of a specified ```Genre```
+- ```MovieList``` can be set to public or private and only public ones are displayed by INDEX route
+  
+- Allow users to leave comments and likes on reviews (coming soon!)
 
 <a id="class-erd-diagram"></a>
 ## Class Diagram and ERD Diagram:
