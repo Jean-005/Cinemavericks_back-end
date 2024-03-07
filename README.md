@@ -12,6 +12,7 @@
 7. [Extension](#extension)
 8. [Class and ERD Diagram](#class-erd-diagram)
 9. [Data Dictionary](#data-dictionary)
+10. [API Route Table](#api-route-table)
 
 <a id="introduction"></a>
 ## Introduction
@@ -130,6 +131,7 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 <a id="data-dictionary"></a>
 ## Data Dictionary for CinemaMavericks
+
 **Movies Table**
 
 | Column Name | Description                 | Data Type    | Permitted Values |
@@ -176,7 +178,9 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | movielist_id| ID referencing movie list in Movie Lists table       | BIGINT        | Foreign Key ```movies_lists.id```|
 | movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
 
-**API Routes Table**
+
+<a id="api-route-table"></a>
+## API Routes Table
 
 **Movie API routes**
 
