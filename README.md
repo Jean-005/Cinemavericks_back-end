@@ -197,22 +197,20 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | movielist_id| ID referencing movie list in Movie Lists table       | BIGINT        | Foreign Key ```movies_lists.id```|
 | movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
 
-## API Routes Table
+ **API Routes Table**
 
-**Movie API routes**
-
-| Column Route Name            | URL                                  | HTTP verb | Description                               | HTTP status |
-|------------------------------|--------------------------------------|-----------|-------------------------------------------|-------------|
-| Movie Index                  | /movies                              | GET       | Display all movies                        | OK          |
-| View Movie                   | /movies/:id                          | GET       | Display movie by Id                       | OK          |
-| Add Movie                    | /movies                              | POST      | Add new movie                             | CREATED     |
-| Edit Movie                   | /movies/:id                          | PATCH     | Edit details of a movie                   | OK          |
-| Reviews of a Movie           | /movies/:id/reviews                  | GET       | Show all reviews for a specific movie     | OK          |
-| Movie Lists containing Movie | /movies/:id/movieLists               | GET       | Show all movie lists that contain a movie | OK          |
-| Filter movies by rating      | /movies?minRating                    | GET       | Filter movies by rating                   | OK          |
-| Filter movies by genre       | /movies/filterByGenre?genre          | GET       | Filter movies by genre                    | OK          |
-| Filter movies by duration    | /movies/filterByDuration?minDuration | GET       | Filter movies by duration                 | OK          |
-| Sort reviews by time         | /movies/:id/reviews/sort?timeOrder   | GET       | Sort reviews by time created              | OK          |
+| Route Name                    | URL                                   | Example Permitted Request                          | Example Response         |
+|-------------------------------|---------------------------------------|----------------------------------------------------|--------------------------|
+| Movie Index	                  | /movies	                            	| GET /movies                	                       | { "movies": [...] }      |
+| View Movie	                  | /movies/:id	                        	| GET /movies/movie123	                             | { "id": [...] }          |
+| Add Movie	                    | /movies	                            	| POST /movies	                                     | { "id": [...] }          |
+| Edit Movie	                  | /movies/:id	                          | PATCH /movies/movie123	                           | { "id": [...] }          |
+| Reviews of a Movie	          | /movies/:id/reviews	                  | GET /movies/movie123/reviews	                     | { "reviews": [...] }     |
+| Movie Lists containing Movie	| /movies/:id/movieLists	              | GET /movies/movie123/movieLists	                   | { "movieLists": [...] }  |
+| Filter movies by rating	      | /movies?minRating	                    | GET	/movies?minRating=4	                           | { "movies": [...] }      |
+| Filter movies by genre	      | /movies/filterByGenre?genre	          | GET /movies/filterByGenre?genre=action	           | { "movies": [...] }      |
+| Filter movies by duration	    | /movies/filterByDuration?minDuration	| GET /movies/filterByDuration?minDuration=120	     | { "movies": [...] }      |
+| Sort reviews by time	        | /movies/:id/reviews/sort?timeOrder	 	| GET /movies/movie123/reviews/sort?timeOrder=newest | { "reviews": [...] }     |
 
 
 
