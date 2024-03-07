@@ -9,9 +9,9 @@
 2. [Installation](#installation)
 3. [Technology](#technology)
 4. [MVP](#mvp)
-6. [Class and ERD Diagram](#class-erd-diagram)
 7. [Extension](#extension)
-8. [Data Dictionary](#data-dictionary)
+8. [Class and ERD Diagram](#class-erd-diagram)
+9. [Data Dictionary](#data-dictionary)
 
 <a id="introduction"></a>
 ## Introduction
@@ -22,11 +22,12 @@ The motivation behind this project is to foster a dynamic and engaging platform 
 
 <a id="installation"></a>
 ## Installation
-1. Fork Project
-2. Clone Project to your local file
-3. Open the project in a java editor
-4. Run the application
-5. Use it on POSTMAN (use the provided postman collection associated with this github)
+1. Have a Java IDE, POSTMAN, Postico, PostgreSQL Installed
+2. Fork Project to your GitHub/Clone Project to your local computer
+3. Open the project in an IDE
+4. Run the application and server
+5. Create database 'cinemavericks_db' in your terminal/Gitbash (local computer)
+5. Use POSTMAN to use or test the endpoints (use the provided postman collection found in GitHub repo)
 
 <a id="technology"></a>
 ## Technology
@@ -53,9 +54,6 @@ The objective is to enhance learning and skill development as an integral compon
 - Zoom
 - Slack
 - Git
-
-Entity Relationship Diagram (ERD) and Class Diagram - Both MVP and Extension :
-https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 <a id="mvp"></a>
 ## MVP
@@ -107,13 +105,14 @@ The API must include routes enabling user to:
 - Update movie list
 - Delete movie list
 
-<a id="class-erd-diagram"></a>
-## Class Diagram and ERD Diagram:
-**Class Diagram for CinemaMavericks**
-![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
 
-**ERD Diagram for CinemaMavericks**
-![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
+**MVP Class Diagram**
+![Class Diagram](https://github.com/GJaradat/cinemavericks/assets/99983599/b29bdc72-cbe0-4fcf-b04e-20855d46e95f)
+
+
+**MVP ERD Diagram**
+![ERD Diagram](https://github.com/GJaradat/cinemavericks/assets/99983599/3ae17da8-7d76-4c66-a0eb-9bf78b57b141)
+
 
 <a id="extension"></a>
 ## EXTENSION:
@@ -133,6 +132,19 @@ The API must include routes enabling user to:
 
 - Allow movies to have multiple genres
 - Allow users to leave comments and likes on reviews
+
+<a id="class-erd-diagram"></a>
+## Class Diagram and ERD Diagram:
+**Class Diagram for CinemaMavericks**
+![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
+
+**ERD Diagram for CinemaMavericks**
+![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
+
+Entity Relationship Diagram (ERD) and Class Diagram - Both MVP and Extension :
+https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
+
+
 
 <a id="data-dictionary"></a>
 ## Data Dictionary for CinemaMavericks
