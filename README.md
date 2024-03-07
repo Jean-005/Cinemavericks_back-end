@@ -150,7 +150,7 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | id          | Unique identifier                   | SERIAL       | numbers >= 1                    |
 | title       | Title of the review                 | VARCHAR(255) |                                 |
 | content     | Content of the review               | TEXT         |                                 |
-| rating      | Rating given to the movie           | INT          | 1 <= value <= 5                 |
+| rating      | Rating given to the movie           | INT          | 0 <= value <= 5                 |
 | movie_id    | ID of movie being reviewed          | BIGINT       | Foreign Key ```movies.id```     |
 | user_id     | ID of user leaving review           | BIGINT       | Foreign Key ```users.id```      |
 
