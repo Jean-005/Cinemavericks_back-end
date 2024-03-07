@@ -10,4 +10,10 @@ import java.util.List;
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     List<Review> findByMovieId(long movieId);
+
+    List<Review> findByUserIdOrderByDateAsc(long userId);
+
+    List<Review> findByUserIdOrderByDateDesc(long userId);
+
+
 }

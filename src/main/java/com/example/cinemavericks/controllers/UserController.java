@@ -86,4 +86,18 @@ public class UserController {
 
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
+    //Ext: Sort Reviews by time(newest/oldest); Method is extensible for other categories as well
+    @GetMapping(value = "/{userId}/reviews/sort{timeOrder}")
+    public ResponseEntity<List<Review>> sortReviews(
+                                                    @PathVariable String timeOrder,
+                                                    @PathVariable long userId){
+        // sort by time if value has been inputted
+        if(timeOrder.equals("newest")|| timeOrder.equals("oldest")){
+            List<Review> reviews = userService.sortByTime(timeOrder, userId);
+           return new ResponseEntity<>(reviews, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    }
 }
