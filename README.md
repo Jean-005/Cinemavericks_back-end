@@ -134,6 +134,7 @@ The API must include routes enabling user to:
 - Allow movies to have multiple genres
 - Allow users to leave comments and likes on reviews
 - User is able to toggle their movie list to public or private
+- The get movielist request only shows public movielists (when a user searches for their movielists they can still see their private ones though)
 
 <a id="class-erd-diagram"></a>
 ## Class Diagram and ERD Diagram:
