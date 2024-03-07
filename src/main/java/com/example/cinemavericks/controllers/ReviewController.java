@@ -30,6 +30,10 @@ public class ReviewController {
 
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody PostReviewDTO postReviewDTO){
+        if (postReviewDTO.getRating() < 0 || postReviewDTO.getRating() > 5) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+
         if(movieService.getMovieById(postReviewDTO.getMovieId()).isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
