@@ -3,7 +3,6 @@ package com.example.cinemavericks.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
