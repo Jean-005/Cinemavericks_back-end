@@ -20,8 +20,7 @@ public class MovieListController {
 
     // EXTENSION!
     //Handles following:
-    // GET movieLists - only public ones though! 
-    // TODO: GET movieLists?inclPrivate=true
+    // GET movieLists - only public ones now though!
     @GetMapping
     public ResponseEntity<List<MovieList>> gePublicMovieList() {
         List<MovieList> allMovieLists = movieListService.getAllMovieList();
