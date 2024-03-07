@@ -1,17 +1,54 @@
 package com.example.cinemavericks.models;
 
-public enum Genre {
-    ACTION,
-    ADVENTURE,
-    COMEDY,
-    THRILLER,
-    ROMANCE,
-    FANTASY,
-    HORROR,
-    SCIFI,
-    HISTORICAL,
-    ANIME;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
+import java.util.List;
 
-    Genre() {}
+@Entity
+@Table(name = "genres")
+public class Genre {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "genre_enum")
+    private GenreEnum genreEnum;
+
+    @JsonIgnoreProperties({"genres"})
+    @ManyToMany(mappedBy = "genres")
+    private List<Movie> movies;
+
+    public Genre(GenreEnum genreEnum){
+        this.genreEnum = genreEnum;
+    }
+
+    public Genre(){
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public GenreEnum getGenreEnum() {
+        return genreEnum;
+    }
+
+    public void setGenreEnum(GenreEnum genreEnum) {
+        this.genreEnum = genreEnum;
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
+    }
 }
