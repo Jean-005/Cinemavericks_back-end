@@ -18,6 +18,15 @@ public class Movie {
     private String title;
     @Column
     private int year;
+
+    @JsonIgnoreProperties({"movies", "id"})
+    @ManyToMany
+    @JoinTable(
+            name = "movies_genres",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id")
+    )
+    private List<Genre> genres;
     @Column
     private String director;
 
@@ -34,24 +43,15 @@ public class Movie {
     @ManyToMany(mappedBy = "movies")
     private List<MovieList> movieLists;
 
-    @JsonIgnoreProperties({"movies", "id"})
-    @ManyToMany
-    @JoinTable(
-            name = "movies_genres",
-            joinColumns = @JoinColumn(name = "movie_id"),
-            inverseJoinColumns = @JoinColumn(name = "genre_id")
-    )
-    private List<Genre> genres;
-
     public Movie(){}
 
-    public Movie(String title, int year, String director, int duration, List<Genre> genres){
+    public Movie(String title, int year, List<Genre> genres, String director, int duration){
         this.title = title;
         this.year = year;
+        this.genres = genres;
         this.director = director;
         this.reviews = new ArrayList<>();
         this.movieLists = new ArrayList<>();
-        this.genres = genres;
         this.averageRating = 0;
         this.duration = duration;
     }
