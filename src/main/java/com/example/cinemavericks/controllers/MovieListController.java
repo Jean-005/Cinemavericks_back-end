@@ -60,9 +60,13 @@ public class MovieListController {
     // EXT: Setting a movieList to public or private
     @PatchMapping("/{movieListId}/setPublic{setting}")
     public ResponseEntity<MovieList> setMovieListVisibility(@PathVariable Long movieListId, @PathVariable Boolean setting) {
-        MovieList targetMovieList = movieListService.getMovieListById(movieListId).get();
-        targetMovieList.setPublic(setting);
-        return new ResponseEntity<>(targetMovieList, HttpStatus.OK);
+
+        Optional<MovieList> targetMovieList = movieListService.getMovieListById(movieListId);
+        if(targetMovieList.isPresent()){
+        targetMovieList.get().setPublic(setting);
+        return new ResponseEntity<>(targetMovieList.get(), HttpStatus.OK);}
+
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 
     }
 
