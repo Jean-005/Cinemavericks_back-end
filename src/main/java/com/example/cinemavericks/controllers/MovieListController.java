@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,11 +18,23 @@ public class MovieListController {
     @Autowired
     MovieListService movieListService;
 
-    //Display all movie list
+    // EXTENSION!
+    //Handles following:
+    // GET movieLists - only public ones now though!
     @GetMapping
-    public ResponseEntity<List<MovieList>> getAllMovieList() {
-        return new ResponseEntity<>(movieListService.getAllMovieList(), HttpStatus.OK);
+    public ResponseEntity<List<MovieList>> gePublicMovieList() {
+        List<MovieList> allMovieLists = movieListService.getAllMovieList();
+        List<MovieList> publicMovieList = new ArrayList<>();
+        for (MovieList movieList : allMovieLists) {
+            if (movieList.isPublic()) {
+                publicMovieList.add(movieList);
+            }
+        }
+        return new ResponseEntity<>(publicMovieList,HttpStatus.OK);
     }
+
+
+
 
     //Display specific movieList by id
     @GetMapping(value = "/{id}")
