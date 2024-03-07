@@ -1,4 +1,6 @@
-## CineMavericks
+![CineMavericks-07-03-2024](https://github.com/GJaradat/cinemavericks/assets/92640386/82aea640-075b-4015-8967-ef5daaebe401)
+![Like-TopGun-but-for-movies-07-03-2024](https://github.com/GJaradat/cinemavericks/assets/92640386/8720cd5c-699f-4e99-bbb3-dbac56fe8e39)
+
 ![Axolotl at the cinemas](https://github.com/GJaradat/cinemavericks/assets/108727885/38e385b5-6cb2-4b21-a2c7-7147facb727d)
 
 **Bio:**
