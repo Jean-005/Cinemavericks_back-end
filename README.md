@@ -4,16 +4,38 @@
 
 ![Axolotl at the cinemas](https://github.com/GJaradat/cinemavericks/assets/108727885/38e385b5-6cb2-4b21-a2c7-7147facb727d)
 
-**Bio:**
+## Table of Contents
+1. [Introduction](#introduction)
+
+<a id="introduction"></a>
+##Introduction
 
 This project involves creating an API for a film review aggregation platform, which incorporates a comprehensive movie database. Users can leave reviews with star ratings on films they have seen and curate lists of films based around any theme of their choosing. Additionally, they have the capability to explore movies by genre, director, and other relevant criteria.
 
-The motivation behind this project is to foster a dynamic and engaging platform where users can interact with films in a meaningful and personalized manner.
+The motivation behind this project is to foster a dynamic and engaging platform where users can interact with films in a meaningful and personalized manner. This project have been created as part of BNTA (Bright Network Technology Academy) Cohort 13 Group 3 Collaboration Backend Project.
+
+##Installation
+1. Fork Project
+2. Clone Project to your local file
+3. Open the project in a java editor
+4. Run the application
+5. Use it on POSTMAN (use the provided postman collection associated with this github)
+
+##Technology
+Purpose of Technology usage:
+The objective is to enhance learning and skill development as an integral component of the bootcamp experience hence why the following technologies were used.
 
 **Tech Stack:**
 - Java
 - SpringBoot
 - PostgreSQL Database
+
+**The Spring Boot Libraries used:**
+Maven Project
+Spring Boot: Ver. 3.2.3
+Spring Boot Dev Tools
+Spring Web
+PostgreSQL Driver
 
 **Tools Used:**
 - POSTMAN
@@ -103,7 +125,7 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 - Allow users to leave comments and likes on reviews
 
 
-### Data Dictionary for CinemaMavericks
+## Data Dictionary for CinemaMavericks
 **Movie Table**
 
 | Column Name | Description                 | Data Type    | Permitted Values |
@@ -150,3 +172,4 @@ Create a DataLoader to seed the database with Users, Movies and Reviews.
 | movielist_id | ID referencing movie list in Movie Lists table      | BIGINT       | Foreign Key (MovieList.id)        |
 | movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key (Movie.id)            |
 
+## Contributions
