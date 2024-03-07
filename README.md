@@ -144,7 +144,6 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | movie_id    | ID of movie being reviewed          | BIGINT       | Foreign Key ```movies.id```     |
 | user_id     | ID of user leaving review           | BIGINT       | Foreign Key ```users.id```      |
 
-
 **Movie Lists Table**
 
 | Column Name | Description                       | Data Type    | Permitted Values            | 
@@ -153,21 +152,13 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | title       | Title of the movie list           | VARCHAR(255) |                             |  
 | user_id     | ID of User who created the list   | BIGINT       | Foreign Key ```users.id```  |
 
-
-**Movies Movie Lists Table**
-
-| Column Name | Description                                          | Data Type    | Permitted Values                  |
-|-------------|------------------------------------------------------|--------------|-----------------------------------|
-| id          | Unique identifier                                    | SERIAL       | numbers >= 1                      |
-| movielist_id| ID referencing movie list in Movie Lists table       | BIGINT        | Foreign Key ```movies_lists.id```|
-| movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
-
 **Genres Table**
 
 | Column Name | Description                 | Data Type    | Permitted Values |
 |-------------|-----------------------------|--------------|------------------|
 | id          | Unique identifier           | SERIAL       | numbers >= 1     |
 | genre       | Genre from the Genre Enum         | ENUM |                  |
+
 
 <a id="api-route-table"></a>
 ## API Routes Table
