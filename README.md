@@ -217,9 +217,8 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | Post MovieList                          | /movielists                        | POST /movielists                                 | { "id": "title", ... }   |
 | Toggle movie list privacy setting	      | /movielists/:id/setPublic?         | PATCH /movielists/8/setPublicfalse               | { "id": "title", ... }   |
 | Add movie to List                       | /movielists/:id/addMovies	         | PATCH /movielists/1/addMovies                    | { "id": ..., "movies" }  |
-| Remove movie to List                    | /movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | { "id": ..., "movies" }  |
-| Patch User	                            | /users/:id                         | PATCH /users/user7	                              | { "id": "user1", ... }   |
-| Get all Reviews by User Sorted by Time	| /movielists/:id                    | DELETE /movielists/1                             | MovieList Deleted        |
+| Remove movie to List                    | /movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | | MovieList Deleted      |
+
 
 
 ## Contributions
