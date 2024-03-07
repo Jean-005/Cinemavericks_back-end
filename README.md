@@ -120,9 +120,10 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 |-------------|-----------------------------|--------------|------------------|
 | id          | Unique identifier           | SERIAL       | numbers >= 1     |
 | title       | Title of the movie          | VARCHAR(255) |                  |
-| year        | Year of movie release       | INT          |                  |
-| genre       | Genre of the movie          | VARCHAR(255) |                  |
+| year        | Year of movie release       | BIGINT       |                  |
 | director    | Director of the movie       | VARCHAR(255) |                  |
+| duration    | Duration of the movie       | INT          |                  |
+| average_rating    | Average rating based on reviews       | DOUBLE |                  |
 
 **Users Table**
 
@@ -161,7 +162,12 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | movielist_id| ID referencing movie list in Movie Lists table       | BIGINT        | Foreign Key ```movies_lists.id```|
 | movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
 
+**Genres Table**
 
+| Column Name | Description                 | Data Type    | Permitted Values |
+|-------------|-----------------------------|--------------|------------------|
+| id          | Unique identifier           | SERIAL       | numbers >= 1     |
+| genre       | Genre from the Genre Enum         | ENUM |                  |
 
 <a id="api-route-table"></a>
 ## API Routes Table
