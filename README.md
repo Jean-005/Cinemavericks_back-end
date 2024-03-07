@@ -208,8 +208,8 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | Post MovieList                          | localhost:8080/movielists                        | POST /movielists                                 | { "id": "title", ... }   |
 | Toggle movie list privacy setting	      | localhost:8080/movielists/:id/setPublic?         | PATCH /movielists/8/setPublicfalse               | { "id": "title", ... }   |
 | Add movie to List                       | localhost:8080/movielists/:id/addMovies	         | PATCH /movielists/1/addMovies                    | { "id": ..., "movies" }  |
-| Remove movie from list                    | localhost:8080/movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | Movie Deleted from MovieList        |
-Remove movieList                    | localhost:8080/movielists/:id	     | DELETE /movielists/1/                 | MovieList Deleted        |
+| Remove movie from List                  | localhost:8080/movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | { "id": ..., "movies" }  |
+| Delete movielist                        | localhost:8080/movielists/:id/            	     | PATCH /movielists/1/                             | MovieList Deleted        |
 
 
 
