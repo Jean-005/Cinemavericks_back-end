@@ -185,11 +185,12 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | Get all Users                           | localhost:8080/users                             | GET /users                	                      | { "id": "1", ... }, ...  |
 | Get specific User	                      | localhost:8080/users/:id                       	 | GET /users/1	                                    | { "id": "1", ... }       |
 | Get all Reviews by User                 | localhost:8080/users/:id/reviews                 | GET /users/1/reviews                             | { "id": "review1",...}   |
+| Get all Reviews by User Sorted by Time	| localhost:8080/users/:id/reviews/sortnewest      | GET /users/2/reviews/sortnewest                  | { "id": "review1", ... } |
 | Get all MovieLists by User	            | localhost:8080/users/:id/movieLists              | GET /users/1/movieLists                           | { "id": "1", ... }      |
 | Post User	                              | localhost:8080/users	                           | POST /users	                                    | { "id": "user100", ... } |
 | Delete User	                            | localhost:8080/users/:id	                       | DELETE /users/6	                                | No Content               |
 | Patch User	                            | localhost:8080/users/:id                         | PATCH /users/7	                                  | { "id": "user1", ... }   |
-| Get all Reviews by User Sorted by Time	| localhost:8080/users/:id/reviews/sortnewest      | GET /users/2/reviews/sortnewest                  | { "id": "review1", ... } |
+
 
 **ReviewAPI Routes**
 
