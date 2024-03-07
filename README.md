@@ -21,16 +21,8 @@ The motivation behind this project is to foster a dynamic and engaging platform 
 - Slack
 - Git
 
-Entity Relationship Diagram (ERD) and Class Diagram:
+Entity Relationship Diagram (ERD) and Class Diagram - Both MVP and Extension :
 https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
-
-
-**Class Diagram for CinemaMavericks**
-![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
-
-**ERD Diagram for CinemaMavericks**
-![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
-
 
 ## MVP
 
@@ -82,6 +74,12 @@ The API must include routes enabling user to:
 - Delete movie list
 
 Create a DataLoader to seed the database with Users, Movies and Reviews.
+
+**Class Diagram for CinemaMavericks**
+![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
+
+**ERD Diagram for CinemaMavericks**
+![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
 
 ## EXTENSION:
 - Movie has a duration property
