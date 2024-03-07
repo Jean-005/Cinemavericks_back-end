@@ -5,6 +5,7 @@ import com.example.cinemavericks.models.GenreEnum;
 import com.example.cinemavericks.models.Movie;
 import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.Review;
+import com.example.cinemavericks.repositories.GenreRepository;
 import com.example.cinemavericks.repositories.MovieListRepository;
 import com.example.cinemavericks.repositories.MovieRepository;
 import com.example.cinemavericks.repositories.ReviewRepository;
@@ -25,6 +26,9 @@ public class MovieService {
 
     @Autowired
     MovieListRepository movieListRepository;
+
+    @Autowired
+    GenreRepository genreRepository;
 
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
@@ -51,9 +55,16 @@ public class MovieService {
         return movieRepository.findByAverageRatingBetween(minRating, maxRating);
     }
 
-//    public List<Movie> filterMovies(GenreEnum genre){
-//        return movieRepository.findByGenre(genre);
-//    }
+    public List<Movie> filterMovies(GenreEnum genre){
+        List<Movie> filterResult = new ArrayList<>();
+        Genre targetGenre = genreRepository.findByGenreEnum(genre);
+        for (Movie movie: movieRepository.findAll()){
+            if (movie.getGenres().contains(targetGenre)){
+                filterResult.add(movie);
+            }
+        }
+        return filterResult;
+    }
 
     public List<Movie> filterMovies(int minDuration, int maxDuration){
         return movieRepository.findByDurationBetween(minDuration, maxDuration);

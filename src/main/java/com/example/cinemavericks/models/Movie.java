@@ -27,7 +27,7 @@ public class Movie {
     @Column(name = "average_rating")
     private double averageRating;
 
-    @JsonIgnoreProperties({"movies"})
+    @JsonIgnoreProperties({"movies", "reviews"})
     @OneToMany(mappedBy = "movie")
     private List<Review> reviews;
 
@@ -35,7 +35,7 @@ public class Movie {
     @ManyToMany(mappedBy = "movies")
     private List<MovieList> movieLists;
 
-    @JsonIgnoreProperties({"movies"})
+    @JsonIgnoreProperties({"movies", "id"})
     @ManyToMany
     @JoinTable(
             name = "movies_genres",

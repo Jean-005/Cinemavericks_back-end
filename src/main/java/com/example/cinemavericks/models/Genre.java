@@ -14,7 +14,7 @@ public class Genre {
     private long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "genre")
+    @Column(name = "genre_enum")
     private GenreEnum genreEnum;
 
     @JsonIgnoreProperties({"genres"})
