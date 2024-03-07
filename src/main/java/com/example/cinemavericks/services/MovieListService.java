@@ -46,7 +46,7 @@ public class MovieListService {
 
     }
 
-    public MovieList updatingMovieList(Long id, MovieListDTO movieListDTO) {
+    public MovieList addMovieInMovieList(Long id, MovieListDTO movieListDTO) {
         //find MovieList
         Optional<MovieList> movieList = movieListRepository.findById(id);
         List<Movie> moviesToAdd = new ArrayList<>();
@@ -54,9 +54,6 @@ public class MovieListService {
         if(movieList.isEmpty()){
             return null;
         }
-
-        movieList.get().setTitle(movieListDTO.getTitle());
-        movieList.get().setPublic(movieListDTO.isPublic());
 
         for (Long movieId : movieListDTO.getMovieIds()) {
             Optional<Movie> movie = movieRepository.findById(movieId);
