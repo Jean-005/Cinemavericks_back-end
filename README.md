@@ -179,7 +179,7 @@ The API must include routes enabling user to:
 | Column Name | Description                                          | Data Type    | Permitted Values                  |
 |-------------|------------------------------------------------------|--------------|-----------------------------------|
 | id          | Unique identifier                                    | SERIAL       | numbers >= 1                      |
-| movielist_id| ID referencing movie list in Movie Lists table       | BIGINT        | Foreign Key ```moviesLists.id``` |
+| movielist_id| ID referencing movie list in Movie Lists table       | BIGINT        | Foreign Key ```movies_lists.id``` |
 | movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
 
 ## Contributions
