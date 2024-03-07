@@ -78,7 +78,6 @@ Design and build an API with CRUD functionality. The database will store ```Movi
 
 - Write ```PATCH``` request to edit properties of a ```User```
 - Write ```PATCH``` method to set ```MovieList``` private or public
-- 
 - Display all ```MovieList```s containing a specific ```Movie```
 
 - Automatically add current date to review (refactor to ```LocalDateTime```)
@@ -88,6 +87,7 @@ Design and build an API with CRUD functionality. The database will store ```Movi
 - Allow movies to have more than one ```Genre```
 - Write ```GET``` request that returns all ```Movie``` objects of a specified ```Genre```
 - ```MovieList``` can be set to public or private and only public ones are displayed by INDEX route
+- Accessing all ```MovieList```s of a ```User``` will display both public and private ```MovieList```
   
 - Allow users to leave comments and likes on reviews (coming soon!)
 
