@@ -203,13 +203,12 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 | Route Name                              | URL                                | Example Permitted Request                        | Example Response         |
 |-----------------------------------------|------------------------------------|--------------------------------------------------|--------------------------|
-| Get all MovieLists (only public ones)   | /movielists                        | GET /movielists                	                | { "id": "list1", ... }   |
-| Get specific MovieList                  | /movielists/:id                    | GET /movielists/1                                | { "id": "title", ... }   |
-| Post MovieList                          | /movielists                        | POST /movielists                                 | { "id": "title", ... }   |
-| Toggle movie list privacy setting	      | /movielists/:id/setPublic?         | PATCH /movielists/8/setPublicfalse               | { "id": "title", ... }   |
-| Add movie to List                       | /movielists/:id/addMovies	         | PATCH /movielists/1/addMovies                    | { "id": ..., "movies" }  |
-| Remove movie to List                    | /movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | MovieList Deleted        |
+| Get all MovieLists (only public ones)   | localhost:8080/movielists                        | GET /movielists                	                | { "id": "list1", ... }   |
+| Get specific MovieList                  | localhost:8080/movielists/:id                    | GET /movielists/1                                | { "id": "title", ... }   |
+| Post MovieList                          | localhost:8080/movielists                        | POST /movielists                                 | { "id": "title", ... }   |
+| Toggle movie list privacy setting	      | localhost:8080/movielists/:id/setPublic?         | PATCH /movielists/8/setPublicfalse               | { "id": "title", ... }   |
+| Add movie to List                       | localhost:8080/movielists/:id/addMovies	         | PATCH /movielists/1/addMovies                    | { "id": ..., "movies" }  |
+| Remove movie to List                    | localhost:8080/movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | MovieList Deleted        |
 
 
 
-## Contributions
