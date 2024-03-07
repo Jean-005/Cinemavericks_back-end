@@ -60,26 +60,6 @@ The objective is to enhance learning and skill development as an integral compon
 
 Design and build an API with CRUD functionality. There will be a one-to-many relationship of Movies  and Users to the Reviews.
 
-The Movie table will have columns for:
-- Id
-- Title
-- Year - Movie Released
-- Genre
-- Director
-
-The User table will have columns for:
-- Id
-- name
-
-
-The Review table will have columns for:
-- id
-- Title
-- Movie
-- User
-- Content
-- Rating
-
 The API must include routes enabling user to:
 
 - View all movies
@@ -136,12 +116,12 @@ The API must include routes enabling user to:
 - User is able to toggle their movie list to public or private
 
 <a id="class-erd-diagram"></a>
-## Class Diagram and ERD Diagram:
+## Final Class Diagram and ERD Diagram:
 **Class Diagram for CinemaMavericks**
-![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
+![Final Class Diagram](https://github.com/moneshadhali/cinemavericks/assets/99983599/d2c3a71f-e745-47b5-8c4d-42f3f992a596)
 
 **ERD Diagram for CinemaMavericks**
-![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
+![Final ERD Diagram](https://github.com/moneshadhali/cinemavericks/assets/99983599/8bf2778a-a177-40c3-886e-b1540eea8f4d)
 
 Entity Relationship Diagram (ERD) and Class Diagram - Both MVP and Extension :
 https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
