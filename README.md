@@ -128,10 +128,12 @@ The API must include routes enabling user to:
 - Display lists containing a specific film
 
 - Automatically add current date to review (refactor to LocalDateTime)
-- List reviews by most recent
+- Order movies reviews by oldest/newest created
+- Order user reviews by oldest/newest created
 
 - Allow movies to have multiple genres
 - Allow users to leave comments and likes on reviews
+- User is able to toggle their movie list to public or private
 
 <a id="class-erd-diagram"></a>
 ## Class Diagram and ERD Diagram:
@@ -196,9 +198,15 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 **API Routes Table**
 
-| Column Route Name | URL                             | HTTP verb | Description                  | HTTP statu |
-|-------------------|---------------------------------|-----------|------------------------------|------------|
-| id                | Unique identi                   | SERIAL    | numbers >= 1                 |            |
-| movielist_id      | ID referencing                  | BIGINT    | Foreign Key ```              |            |
-| movie_id          | ID referenc                     | BIGINT    | Foreign Key ```movies.id     |            |
+| Column Route Name            | URL                    | HTTP verb | Description                               | HTTP status |
+|------------------------------|------------------------|-----------|-------------------------------------------|-------------|
+| Movie Index                  | /movies                | GET       | Display all movies                        | OK          |
+| View Movie                   | /movies/:id            | GET       | Display movie by Id                       | OK          |
+| Add Movie                    | /movies                | POST      | Add new movie                             | CREATED     |
+| Edit Movie                   | /movies/:id            | PATCH     | Edit details of a movie                   | OK          |
+| Reviews of a Movie           | /movies/:id/reviews    | GET       | Show all reviews for a specific movie     | OK          |
+| Movie Lists containing Movie | /movies/:id/movieLists | GET       | Show all movie lists that contain a movie | OK          |
+| Filter movies by rating      | /movies?minRating      | GET       | Filter movies by rating                   | OK          |
+
+          | ID referenc                     | BIGINT    | Foreign Key ```movies.id     |            |
 ## Contributions
