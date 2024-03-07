@@ -65,4 +65,15 @@ public class UserService {
 
         userRepository.deleteById(id);
     }
+
+    //Get sorted reviews
+    public List<Review> sortByTime(String timeOrder, long userId) {
+        if (timeOrder.equals("newest")){
+            return reviewRepository.findByUserIdOrderByDateDesc(userId);
+        }
+        if (timeOrder.equals("oldest")){
+            return reviewRepository.findByUserIdOrderByDateAsc(userId);
+        }
+        return null;
+    }
 }

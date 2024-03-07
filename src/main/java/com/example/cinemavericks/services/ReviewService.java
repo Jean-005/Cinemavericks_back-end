@@ -70,13 +70,4 @@ public class ReviewService {
         calculateAverageRating(id);
     }
 
-
-    public List<Review> sortByTime(String timeOrder) {
-        if (timeOrder == "newest"){
-            return reviewRepository.
-        }
-        if (timeOrder == "oldest"){
-
-        }
-    }
 }
