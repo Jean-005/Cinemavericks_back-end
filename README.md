@@ -120,9 +120,10 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 |-------------|-----------------------------|--------------|------------------|
 | id          | Unique identifier           | SERIAL       | numbers >= 1     |
 | title       | Title of the movie          | VARCHAR(255) |                  |
-| year        | Year of movie release       | INT          |                  |
-| genre       | Genre of the movie          | VARCHAR(255) |                  |
+| year        | Year of movie release       | BIGINT       |                  |
 | director    | Director of the movie       | VARCHAR(255) |                  |
+| duration    | Duration of the movie       | INT          |                  |
+| average_rating    | Average rating based on reviews       | DOUBLE |                  |
 
 **Users Table**
 
@@ -138,11 +139,10 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | id          | Unique identifier                   | SERIAL       | numbers >= 1                    |
 | title       | Title of the review                 | VARCHAR(255) |                                 |
 | content     | Content of the review               | TEXT         |                                 |
-| date        | Date of the review                  | DATETIME     |                                 |
-| rating      | Rating given to the movie           | INT          | 0 <= value <= 5                 |
+| rating      | Rating given to the movie           | DOUBLE       | 0 <= value <= 5                 |
+| date        | Date and time review was posted     | DATETIME     |                                 |
 | movie_id    | ID of movie being reviewed          | BIGINT       | Foreign Key ```movies.id```     |
 | user_id     | ID of user leaving review           | BIGINT       | Foreign Key ```users.id```      |
-
 
 **Movie Lists Table**
 
@@ -152,6 +152,12 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | title       | Title of the movie list           | VARCHAR(255) |                             |  
 | user_id     | ID of User who created the list   | BIGINT       | Foreign Key ```users.id```  |
 
+**Genres Table**
+
+| Column Name | Description                 | Data Type    | Permitted Values |
+|-------------|-----------------------------|--------------|------------------|
+| id          | Unique identifier           | SERIAL       | numbers >= 1     |
+| genre       | Genre from the Genre Enum         | ENUM |                  |
 
 
 <a id="api-route-table"></a>
@@ -202,9 +208,8 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | Post MovieList                          | /movielists                        | POST /movielists                                 | { "id": "title", ... }   |
 | Toggle movie list privacy setting	      | /movielists/:id/setPublic?         | PATCH /movielists/8/setPublicfalse               | { "id": "title", ... }   |
 | Add movie to List                       | /movielists/:id/addMovies	         | PATCH /movielists/1/addMovies                    | { "id": ..., "movies" }  |
-| Remove movie to List                    | /movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | { "id": ..., "movies" }  |
-| Patch User	                            | /users/:id                         | PATCH /users/user7	                              | { "id": "user1", ... }   |
-| Get all Reviews by User Sorted by Time	| /movielists/:id                    | DELETE /movielists/1                             | MovieList Deleted        |
+| Remove movie to List                    | /movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | MovieList Deleted        |
+
 
 
 ## Contributions
