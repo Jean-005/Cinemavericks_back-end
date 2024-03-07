@@ -171,12 +171,12 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | Add Movie	                    | localhost:8080/movies	                            	| POST /movies	                                     | { "id": [...] }          |
 | Edit Movie	                  | localhost:8080/movies/:id	                          | PATCH /movies/1  	                                 | { "id": [...] }          |
 | Reviews of a Movie	          | localhost:8080/movies/:id/reviews	                  | GET /movies/1/reviews	                             | { "reviews": [...] }     |
-| Movie Lists containing Movie	| localhost:8080/movies/:id/movieLists	              | GET /movies/movie1/movieLists	                     | { "movieLists": [...] }  |
+| Movie's movieLists  	        | localhost:8080/movies/:id/movieLists	 	            | GET /movies/10/movieLists                          | { "movieLists": [...] }  |
 | Filter movies by rating	      | localhost:8080/movies?minRating	                    | GET	/movies/filterByRating	                       | { "movies": [...] }      |
 | Filter movies by genre	      | localhost:8080/movies/filterByGenre?genre=?	        | GET /movies/filterByGenre?genre=COMEDY	           | { "movies": [...] }      |
 | Filter movies by duration	    | localhost:8080/movies/filterByDuration?minDuration	| GET /movies/filterByDuration                	     | { "movies": [...] }      |
 | Sort reviews by time	        | localhost:8080/movies/:id/reviews/sort?timeOrder	 	| GET /movies/10/reviews/sortnewest                  | { "reviews": [...] }     |
-| Movie's movieLists  	        | localhost:8080/movies/:id/movieLists	 	            | GET /movies/10/movieLists                          | { "movieLists": [...] }  |
+
 
 **UserAPI Routes**
 
