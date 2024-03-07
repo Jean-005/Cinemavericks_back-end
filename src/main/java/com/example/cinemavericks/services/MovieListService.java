@@ -8,7 +8,10 @@ import com.example.cinemavericks.repositories.MovieListRepository;
 import com.example.cinemavericks.repositories.MovieRepository;
 import com.example.cinemavericks.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,5 +102,16 @@ public class MovieListService {
     public void removeMovieList(Long id) {
         movieListRepository.deleteById(id);
     };
+
+    //EXTENSION:
+    // Setting Movie List privacy settings
+
+    public void setMovieListVisibility(Long movieListId, Boolean isPublic){
+        MovieList targetMovieList = movieListRepository.findById(movieListId).get();
+        targetMovieList.setPublic(isPublic);
+        movieListRepository.save(targetMovieList);
+
+}
+
 
 }
