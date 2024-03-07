@@ -195,9 +195,9 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 | Route Name                              | URL                                | Example Permitted Request                        | Example Response         |
 |-----------------------------------------|------------------------------------|--------------------------------------------------|--------------------------|
-| Post Review                             | /reviews                           | POST /reviews                	                  | { "id": ...}             |
-| Patch Review	                          | /reviews/:id                       | PATCH /reviews/4                                 | { "id": "review4", ... } |
-| Delete Review                           | /reviews/:id                       | DELETE /reviews/1                                | No Content               |
+| Post Review                             | localhost:8080/reviews             | POST /reviews                	                  | { "id": ...}             |
+| Patch Review	                          | localhost:8080/reviews/:id         | PATCH /reviews/4                                 | { "id": "review4", ... } |
+| Delete Review                           | localhost:8080/reviews/:id         | DELETE /reviews/1                                | No Content               |
 
 **MovieListsAPI Routes**
 
