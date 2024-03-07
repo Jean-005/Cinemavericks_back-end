@@ -48,26 +48,39 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user5);
         userRepository.save(user6);
 
-        Genre genre1 = new Genre(GenreEnum.COMEDY);
-        Genre genre2 = new Genre(GenreEnum.ACTION);
-        Genre genre3 = new Genre(GenreEnum.ANIME);
-        Genre genre4 = new Genre(GenreEnum.ADVENTURE);
-        Genre genre5 = new Genre(GenreEnum.THRILLER);
-        Genre genre6 = new Genre(GenreEnum.FANTASY);
+        Genre comedy = new Genre(GenreEnum.COMEDY);
+        Genre action = new Genre(GenreEnum.ACTION);
+        Genre anime = new Genre(GenreEnum.ANIME);
+        Genre adventure = new Genre(GenreEnum.ADVENTURE);
+        Genre thriller = new Genre(GenreEnum.THRILLER);
+        Genre fantasy = new Genre(GenreEnum.FANTASY);
+        Genre historical = new Genre(GenreEnum.HISTORICAL);
+        Genre horror = new Genre(GenreEnum.HORROR);
+        Genre romance = new Genre(GenreEnum.ROMANCE);
+        Genre scifi = new Genre(GenreEnum.SCIFI);
 
-        genreRepository.save(genre1);
-        genreRepository.save(genre2);
-        genreRepository.save(genre3);
-        genreRepository.save(genre4);
-        genreRepository.save(genre5);
-        genreRepository.save(genre6);
+        genreRepository.save(comedy);
+        genreRepository.save(action);
+        genreRepository.save(anime);
+        genreRepository.save(adventure);
+        genreRepository.save(thriller);
+        genreRepository.save(fantasy);
+        genreRepository.save(historical);
+        genreRepository.save(horror);
+        genreRepository.save(romance);
+        genreRepository.save(scifi);
+        
         List<Genre> genres1 = new ArrayList<>();
         List<Genre> genres2 = new ArrayList<>();
+        List<Genre> genres3 = new ArrayList<>();
+        List<Genre> genres4 = new ArrayList<>();
 
-        genres1.add(genre1);
-        genres1.add(genre4);
-        genres2.add(genre5);
-        genres2.add(genre2);
+        genres1.add(comedy);
+        genres1.add(adventure);
+        genres2.add(thriller);
+        genres2.add(action);
+        genres3.add(romance);
+        genres4.add(scifi);
 
         Movie hoodWinked = new Movie("Hoodwinked", 2005 ,"Cory Edwards", 80, genres1);
         Movie whipLash = new Movie("Whiplash", 2014, "Damien Chazelle",  107, genres2);
