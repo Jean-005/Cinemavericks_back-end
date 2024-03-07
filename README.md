@@ -198,15 +198,21 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 **API Routes Table**
 
-| Column Route Name            | URL                    | HTTP verb | Description                               | HTTP status |
-|------------------------------|------------------------|-----------|-------------------------------------------|-------------|
-| Movie Index                  | /movies                | GET       | Display all movies                        | OK          |
-| View Movie                   | /movies/:id            | GET       | Display movie by Id                       | OK          |
-| Add Movie                    | /movies                | POST      | Add new movie                             | CREATED     |
-| Edit Movie                   | /movies/:id            | PATCH     | Edit details of a movie                   | OK          |
-| Reviews of a Movie           | /movies/:id/reviews    | GET       | Show all reviews for a specific movie     | OK          |
-| Movie Lists containing Movie | /movies/:id/movieLists | GET       | Show all movie lists that contain a movie | OK          |
-| Filter movies by rating      | /movies?minRating      | GET       | Filter movies by rating                   | OK          |
+**Movie API routes**
 
-          | ID referenc                     | BIGINT    | Foreign Key ```movies.id     |            |
+| Column Route Name            | URL                                  | HTTP verb | Description                               | HTTP status |
+|------------------------------|--------------------------------------|-----------|-------------------------------------------|-------------|
+| Movie Index                  | /movies                              | GET       | Display all movies                        | OK          |
+| View Movie                   | /movies/:id                          | GET       | Display movie by Id                       | OK          |
+| Add Movie                    | /movies                              | POST      | Add new movie                             | CREATED     |
+| Edit Movie                   | /movies/:id                          | PATCH     | Edit details of a movie                   | OK          |
+| Reviews of a Movie           | /movies/:id/reviews                  | GET       | Show all reviews for a specific movie     | OK          |
+| Movie Lists containing Movie | /movies/:id/movieLists               | GET       | Show all movie lists that contain a movie | OK          |
+| Filter movies by rating      | /movies?minRating                    | GET       | Filter movies by rating                   | OK          |
+| Filter movies by genre       | /movies/filterByGenre?genre          | GET       | Filter movies by genre                    | OK          |
+| Filter movies by duration    | /movies/filterByDuration?minDuration | GET       | Filter movies by duration                 | OK          |
+| Sort reviews by time         | /movies/:id/reviews/sort?timeOrder   | GET       | Sort reviews by time created              | OK          |
+
+
+
 ## Contributions
