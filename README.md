@@ -14,6 +14,7 @@
 9. [Data Dictionary](#data-dictionary)
 10. [Api Route Table (Usage)](#api-routes-table)
 
+
 <a id="introduction"></a>
 ## Introduction
 
@@ -121,12 +122,12 @@ The API must include routes enabling user to:
 - The get movielist request only shows public movielists (when a user searches for their movielists they can still see their private ones though)
 
 <a id="class-erd-diagram"></a>
-## Class Diagram and ERD Diagram:
+## Final Class Diagram and ERD Diagram:
 **Class Diagram for CinemaMavericks**
-![Class Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/108727885/ace8874d-3191-43cd-b6e7-e72ba3503ab4)
+![Final Class Diagram](https://github.com/moneshadhali/cinemavericks/assets/99983599/d2c3a71f-e745-47b5-8c4d-42f3f992a596)
 
 **ERD Diagram for CinemaMavericks**
-![ERD Diagram for CinemaMavericks](https://github.com/GJaradat/cinemavericks/assets/99983599/164bec3e-21f3-41a7-bfde-8e973acea3bc)
+![Final ERD Diagram](https://github.com/moneshadhali/cinemavericks/assets/99983599/8bf2778a-a177-40c3-886e-b1540eea8f4d)
 
 Entity Relationship Diagram (ERD) and Class Diagram - Both MVP and Extension :
 https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
@@ -183,9 +184,9 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
 
 
- <a id="api-routes-table"></a>
-## API Routes Table
 
+<a id="api-route-table"></a>
+## API Routes Table
  **MovieAPI Routes**
 
 | Route Name                    | URL                                   | Example Permitted Request                          | Example Response         |
@@ -213,6 +214,7 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | Delete User	                            | /users/:id	                       | DELETE /users/user1	                            | No Content               |
 | Patch User	                            | /users/:id                         | PATCH /users/user1	                              | { "id": "user1", ... }   |
 | Get all Reviews by User Sorted by Time	| /users/:id/reviews/sort?timeOrder	 | GET /users/user1/reviews/sort?timeOrder=newest   | { "id": "review1", ... } |
+
 
 
 
