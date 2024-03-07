@@ -6,13 +6,14 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Installation](#installation)
+2. [Installation Instruction](#installation)
 3. [Technology](#technology)
 4. [MVP](#mvp)
 7. [Extension](#extension)
 8. [Class and ERD Diagram](#class-erd-diagram)
 9. [Data Dictionary](#data-dictionary)
-10. [API Route Table](#api-route-table)
+10. [Api Route Table (Usage)](#api-routes-table)
+
 
 <a id="introduction"></a>
 ## Introduction
@@ -22,7 +23,7 @@ This project involves creating an API for a film review aggregation platform, wh
 The motivation behind this project is to foster a dynamic and engaging platform where users can interact with films in a meaningful and personalized manner. This project have been created as part of BNTA (Bright Network Technology Academy) Cohort 13 Group 3 Collaboration Backend Project.
 
 <a id="installation"></a>
-## Installation
+## Installation Instruction
 1. Have a Java IDE, POSTMAN, Postico, PostgreSQL Installed
 2. Fork Project to your GitHub/Clone Project to your local computer
 3. Open the project in an IDE
@@ -87,11 +88,14 @@ The API must include routes enabling user to:
 - Delete movie list
 
 
+
 **MVP Class Diagram**
+
 ![Class Diagram](https://github.com/GJaradat/cinemavericks/assets/99983599/b29bdc72-cbe0-4fcf-b04e-20855d46e95f)
 
 
 **MVP ERD Diagram**
+
 ![ERD Diagram](https://github.com/GJaradat/cinemavericks/assets/99983599/3ae17da8-7d76-4c66-a0eb-9bf78b57b141)
 
 
@@ -115,6 +119,7 @@ The API must include routes enabling user to:
 - Allow movies to have multiple genres
 - Allow users to leave comments and likes on reviews
 - User is able to toggle their movie list to public or private
+- The get movielist request only shows public movielists (when a user searches for their movielists they can still see their private ones though)
 
 <a id="class-erd-diagram"></a>
 ## Final Class Diagram and ERD Diagram:
@@ -179,23 +184,37 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 | movie_id    | ID referencing movie in Movie table                  | BIGINT       | Foreign Key ```movies.id```       |
 
 
+
 <a id="api-route-table"></a>
 ## API Routes Table
+ **MovieAPI Routes**
 
-**Movie API routes**
+| Route Name                    | URL                                   | Example Permitted Request                          | Example Response         |
+|-------------------------------|---------------------------------------|----------------------------------------------------|--------------------------|
+| Movie Index	                  | /movies	                            	| GET /movies                	                       | { "movies": [...] }      |
+| View Movie	                  | /movies/:id	                        	| GET /movies/movie1                                 | { "id": [...] }          |
+| Add Movie	                    | /movies	                            	| POST /movies	                                     | { "id": [...] }          |
+| Edit Movie	                  | /movies/:id	                          | PATCH /movies/movie1  	                           | { "id": [...] }          |
+| Reviews of a Movie	          | /movies/:id/reviews	                  | GET /movies/movie123/reviews	                     | { "reviews": [...] }     |
+| Movie Lists containing Movie	| /movies/:id/movieLists	              | GET /movies/movie123/movieLists	                   | { "movieLists": [...] }  |
+| Filter movies by rating	      | /movies?minRating	                    | GET	/movies?minRating=4	                           | { "movies": [...] }      |
+| Filter movies by genre	      | /movies/filterByGenre?genre	          | GET /movies/filterByGenre?genre=action	           | { "movies": [...] }      |
+| Filter movies by duration	    | /movies/filterByDuration?minDuration	| GET /movies/filterByDuration?minDuration=120	     | { "movies": [...] }      |
+| Sort reviews by time	        | /movies/:id/reviews/sort?timeOrder	 	| GET /movies/movie123/reviews/sort?timeOrder=newest | { "reviews": [...] }     |
 
-| Column Route Name            | URL                                  | HTTP verb | Description                               | HTTP status |
-|------------------------------|--------------------------------------|-----------|-------------------------------------------|-------------|
-| Movie Index                  | /movies                              | GET       | Display all movies                        | OK          |
-| View Movie                   | /movies/:id                          | GET       | Display movie by Id                       | OK          |
-| Add Movie                    | /movies                              | POST      | Add new movie                             | CREATED     |
-| Edit Movie                   | /movies/:id                          | PATCH     | Edit details of a movie                   | OK          |
-| Reviews of a Movie           | /movies/:id/reviews                  | GET       | Show all reviews for a specific movie     | OK          |
-| Movie Lists containing Movie | /movies/:id/movieLists               | GET       | Show all movie lists that contain a movie | OK          |
-| Filter movies by rating      | /movies?minRating                    | GET       | Filter movies by rating                   | OK          |
-| Filter movies by genre       | /movies/filterByGenre?genre          | GET       | Filter movies by genre                    | OK          |
-| Filter movies by duration    | /movies/filterByDuration?minDuration | GET       | Filter movies by duration                 | OK          |
-| Sort reviews by time         | /movies/:id/reviews/sort?timeOrder   | GET       | Sort reviews by time created              | OK          |
+**UserAPI Routes**
+
+| Route Name                              | URL                                | Example Permitted Request                        | Example Response         |
+|-----------------------------------------|------------------------------------|--------------------------------------------------|--------------------------|
+| Get all Users                           | /users                             | GET /users                	                      | { "id": "user1", ... }   |
+| Get specific User	                      | /users/:id                       	 | GET GET /users/user1	                            | { "id": "user1", ... }   |
+| Get all Reviews by User                 | /users/:id/reviews                 | GET /users/user1/reviews                         | { "id": "review1",...}   |
+| Get all MovieLists by User	            | /users/:id/movieLists              | GET /users/user1/movieLists                      | { "id": "list1", ... }   |
+| Post User	                              | /users	                           | POST /users	                                    | { "id": "user100", ... } |
+| Delete User	                            | /users/:id	                       | DELETE /users/user1	                            | No Content               |
+| Patch User	                            | /users/:id                         | PATCH /users/user1	                              | { "id": "user1", ... }   |
+| Get all Reviews by User Sorted by Time	| /users/:id/reviews/sort?timeOrder	 | GET /users/user1/reviews/sort?timeOrder=newest   | { "id": "review1", ... } |
+
 
 
 
