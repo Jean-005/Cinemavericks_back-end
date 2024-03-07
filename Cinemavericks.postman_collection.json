@@ -3,8 +3,8 @@
 		"_postman_id": "3b72e74c-2aa7-4513-8419-f70cfc46dd6e",
 		"name": "Cinemavericks",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32596828",
-		"_collection_link": "https://solar-escape-629084.postman.co/workspace/Cinemavericks~ca9feb84-b862-497b-8590-36e74d47f74c/collection/32596828-3b72e74c-2aa7-4513-8419-f70cfc46dd6e?action=share&source=collection_link&creator=32596828"
+		"_exporter_id": "32626629",
+		"_collection_link": "https://solar-escape-629084.postman.co/workspace/Cinemavericks~ca9feb84-b862-497b-8590-36e74d47f74c/collection/32596828-3b72e74c-2aa7-4513-8419-f70cfc46dd6e?action=share&source=collection_link&creator=32626629"
 	},
 	"item": [
 		{
@@ -34,33 +34,131 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/movies/6",
+							"raw": "localhost:8080/movies/100",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"movies",
-								"6"
+								"100"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "get movieLists by movie id",
+					"name": "get movies by genre",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/movies/1/movieLists",
+							"raw": "localhost:8080/movies/filterByGenre?genre=COMEDY",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"movies",
-								"1",
+								"filterByGenre"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": "COMEDY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movies by rating range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movies/filterByRating",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"filterByRating"
+							],
+							"query": [
+								{
+									"key": "minRating",
+									"value": "2.0",
+									"disabled": true
+								},
+								{
+									"key": "maxRating",
+									"value": "4.0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a movie's reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movies/10/reviews/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"10",
+								"reviews",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a movie's reviews SORTED BY DATE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movies/10/reviews/sortnewest",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"10",
+								"reviews",
+								"sortnewest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a movie's movieLists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/movies/100/movieLists",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"100",
 								"movieLists"
 							]
 						}
@@ -74,7 +172,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Shrek\",\n    \"year\": 2001,\n    \"genre\": \"COMEDY\",\n    \"director\": \"Andrew Adamson\"\n}",
+							"raw": "{\n    \"title\": \"Shrek\",\n    \"year\": 2001,\n    \"genre\": \"HORROR\",\n    \"director\": \"Andrew Adamson\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -151,14 +249,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/users/6",
+							"raw": "localhost:8080/users/3",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"users",
-								"6"
+								"3"
 							]
 						}
 					},
@@ -170,14 +268,34 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/users/1/reviews",
+							"raw": "localhost:8080/users/3/reviews",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"users",
-								"1",
+								"3",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user's reviews sorted",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/2/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"2",
 								"reviews"
 							]
 						}
@@ -232,6 +350,34 @@
 					"response": []
 				},
 				{
+					"name": "edit user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Monesha\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "delete user",
 					"request": {
 						"method": "DELETE",
@@ -262,7 +408,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{                \"title\": \"Iconic!\",\n                \"date\": \"01/01/2000\",\n                \"content\": \"I mean that bullet time scene slapped\",\n                \"rating\": 5.0,\n                \"movieId\": 14,\n                \"userId\": 1\n    \n}",
+							"raw": "{\n    \"title\": \"Life-changing\",\n    \"content\": \"The greatest film of all time\",\n    \"rating\": 5.0,\n    \"movieId\": 10,\n    \"userId\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -289,7 +435,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n            \"title\": \"still cool\",\n            \"date\": \"09/09/2009\",\n            \"content\": \"You will not get me to write a bad review for this\",\n            \"rating\": 5.0\n                }\n",
+							"raw": "{\n            \"title\": \"still cool\",\n            \"content\": \"You will not get me to write a bad review for this\",\n            \"rating\": 5.0\n                }\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -316,14 +462,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/reviews/1",
+							"raw": "localhost:8080/reviews/4",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"reviews",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -378,15 +524,6 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"userId\": 1,\n    \"title\":\"Testing This\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "http://localhost:8080/movielists",
 							"protocol": "http",
@@ -408,7 +545,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"movieIds\":[6,8]\n}",
+							"raw": "{\n    \"movieIds\":[9]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -416,7 +553,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/movielists/1",
+							"raw": "http://localhost:8080/movielists/1/addMovies",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -424,7 +561,8 @@
 							"port": "8080",
 							"path": [
 								"movielists",
-								"1"
+								"1",
+								"addMovies"
 							]
 						}
 					},
@@ -437,7 +575,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"movieIds\":[4]\n}",
+							"raw": "{\n    \"movieIds\":[4,9,8,5]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -445,7 +583,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/movielists/1/removeMovieFromList",
+							"raw": "http://localhost:8080/movielists/1/removeMovies",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -454,27 +592,7 @@
 							"path": [
 								"movielists",
 								"1",
-								"removeMovieFromList"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete movie list",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/movielists/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"movielists",
-								"1"
+								"removeMovies"
 							]
 						}
 					},
