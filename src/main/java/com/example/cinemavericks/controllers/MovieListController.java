@@ -3,6 +3,7 @@ package com.example.cinemavericks.controllers;
 import com.example.cinemavericks.models.Movie;
 import com.example.cinemavericks.models.MovieList;
 import com.example.cinemavericks.models.MovieListDTO;
+import com.example.cinemavericks.models.Review;
 import com.example.cinemavericks.services.MovieListService;
 import com.sun.net.httpserver.HttpsServer;
 import org.springframework.beans.factory.annotation.Autowired;

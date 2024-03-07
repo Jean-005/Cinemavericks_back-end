@@ -80,14 +80,14 @@ MovieController {
         return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
     }
 
-//    Ex: Filter movies by genre
+    // Filter movies by genre
     @GetMapping(value = "/filterByGenre")
     public ResponseEntity<List<Movie>> filterMovieByGenre(@RequestParam GenreEnum genre){
         List<Movie> filteredMovies = movieService.filterMovies(genre);
         return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
     }
 
-    //Ex: Filter movies by duration
+    // Filter movies by duration
     @GetMapping(value = "/filterByDuration")
     public ResponseEntity<List<Movie>> filterMovieByDuration(
             @RequestParam(defaultValue = "0") int minDuration,
@@ -97,4 +97,17 @@ MovieController {
         return new ResponseEntity<>(filteredMovies, HttpStatus.OK);
     }
 
+    // Sort Reviews by time(newest/oldest); Method is extensible for other categories as well
+    @GetMapping(value = "/{movieId}/reviews/sort{timeOrder}")
+    public ResponseEntity<List<Review>> sortReviews(
+            @PathVariable String timeOrder,
+            @PathVariable long movieId){
+        // sort by time if value has been inputted
+        if(timeOrder.equals("newest")|| timeOrder.equals("oldest")){
+            List<Review> reviews = movieService.sortByTime(timeOrder, movieId);
+            return new ResponseEntity<>(reviews, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    }
 }
