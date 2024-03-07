@@ -9,8 +9,8 @@ public enum GenreEnum {
     HISTORICAL,
     HORROR,
     ROMANCE,
-    THRILLER,
-    SCIFI;
+    SCIFI,
+    THRILLER;
 
 
     GenreEnum() {}

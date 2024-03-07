@@ -48,28 +48,29 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user5);
         userRepository.save(user6);
 
-        Genre comedy = new Genre(GenreEnum.COMEDY);
         Genre action = new Genre(GenreEnum.ACTION);
-        Genre anime = new Genre(GenreEnum.ANIME);
         Genre adventure = new Genre(GenreEnum.ADVENTURE);
-        Genre thriller = new Genre(GenreEnum.THRILLER);
+        Genre anime = new Genre(GenreEnum.ANIME);
+        Genre comedy = new Genre(GenreEnum.COMEDY);
         Genre fantasy = new Genre(GenreEnum.FANTASY);
         Genre historical = new Genre(GenreEnum.HISTORICAL);
         Genre horror = new Genre(GenreEnum.HORROR);
         Genre romance = new Genre(GenreEnum.ROMANCE);
         Genre scifi = new Genre(GenreEnum.SCIFI);
+        Genre thriller = new Genre(GenreEnum.THRILLER);
 
-        genreRepository.save(comedy);
+
         genreRepository.save(action);
-        genreRepository.save(anime);
         genreRepository.save(adventure);
-        genreRepository.save(thriller);
+        genreRepository.save(anime);
+        genreRepository.save(comedy);
         genreRepository.save(fantasy);
         genreRepository.save(historical);
         genreRepository.save(horror);
         genreRepository.save(romance);
         genreRepository.save(scifi);
-        
+        genreRepository.save(thriller);
+
         List<Genre> genres1 = new ArrayList<>();
         List<Genre> genres2 = new ArrayList<>();
         List<Genre> genres3 = new ArrayList<>();
