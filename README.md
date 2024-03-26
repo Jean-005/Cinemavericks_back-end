@@ -12,7 +12,8 @@
 7. [Extension](#extension)
 8. [Class and ERD Diagram](#class-erd-diagram)
 9. [Data Dictionary](#data-dictionary)
-10. [Api Route Table (Usage)](#api-routes-table)
+10. [Api Route Table](#api-routes-table)
+11. [API Route Examples](#api-route-example)
 
 
 <a id="introduction"></a>
@@ -213,4 +214,146 @@ No| Route Name                              | URL                               
 7 | Delete movielist                        | localhost:8080/movielists/:id/            	     | PATCH /movielists/1/                             | MovieList Deleted        |
 
 
+<a id="api-route-example"></a>
+## API Routes Example
+ **MovieAPI Routes**
 
+
+1. Movie Index | ```localhost:8080movies ``` | ``` GET /movies ```   
+```
+[
+    {
+        "id": 1,
+        "title": "Hoodwinked",
+        "year": 2005,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Cory Edwards",
+        "duration": 80,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            },
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    },
+   
+]
+```
+
+2. View Movie	                  | ```localhost:8080/movies/3	```                        	| ```GET /movies/movie1   ```
+```
+{
+    "id": 3,
+    "title": "This is Me Now",
+    "year": 2024,
+    "genres": [
+        {
+            "genreEnum": "ADVENTURE"
+        },
+        {
+            "genreEnum": "COMEDY"
+        }
+    ],
+    "director": "Dave Mayers",
+    "duration": 65,
+    "averageRating": 0.0,
+    "reviews": [],
+    "movieLists": [
+        {
+            "id": 1,
+            "title": "Fav List",
+            "user": {
+                "id": 1,
+                "name": "Zarrin"
+            },
+            "public": true
+        }
+    ]
+}
+```
+
+3. Add Movie	                    | ``` localhost:8080/movies	  ```                            	|  ``` POST /movies	       ```
+```
+{
+    "id": 15,
+    "title": "Scaryddd Movie",
+    "year": 2025,
+    "genres": [
+        {
+            "genreEnum": "ACTION"
+        },
+        {
+            "genreEnum": "ADVENTURE"
+        }
+    ],
+    "director": "Andrew Adamson",
+    "duration": 0,
+    "averageRating": 0.0,
+    "reviews": [],
+    "movieLists": []
+}
+```
+                          
+5. Edit Movie	                  |  ``` localhost:8080/movies/15	   ```                         |  ``` PATCH /movies/1  	    ```
+JSON input (sent by the user)
+```
+{
+    "title": "Hoodwinked 15",
+    "year": 2024,
+    "genreIds": [1,2],
+    "director": "Michael Bay"
+}
+```
+JSON Response (sent by the server)
+```
+{
+    "id": 15,
+    "title": "Hoodwinked 15",
+    "year": 2024,
+    "genres": [
+        {
+            "genreEnum": "ACTION"
+        },
+        {
+            "genreEnum": "ADVENTURE"
+        }
+    ],
+    "director": "Michael Bay",
+    "duration": 0,
+    "averageRating": 0.0,
+    "reviews": [],
+    "movieLists": []
+}
+```
+
+7. Reviews of a Movie	          |  ``` localhost:8080/movies/:id/reviews	 ```                   |  ``` GET /movies/1/reviews	    ```                        
+9. Movie's movieLists  	        |  ``` localhost:8080/movies/:id/movieLists	 	 ```             |  ``` GET /movies/10/movieLists    ```                       
+10. Filter movies by rating	      |  ``` localhost:8080/movies?minRating	     ```                 | ```  GET	/movies/filterByRating	    ```                
+11. Filter movies by genre	      |  ``` localhost:8080/movies/filterByGenre?genre=?	  ```        |  ``` GET /movies/filterByGenre?genre=COMEDY	 ```      
+12. Filter movies by duration	    |  ``` localhost:8080/movies/filterByDuration?minDuration	 ``` |  ``` GET /movies/filterByDuration              ```    	   
+13. Sort reviews by time	        |  ``` localhost:8080/movies/:id/reviews/sort?timeOrder	  ``` 	|  ``` GET /movies/10/reviews/sortnewest ``` 
+
+     
