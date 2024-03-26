@@ -259,7 +259,7 @@ No| Route Name                              | URL                               
             }
         ]
     },
-   
+...,... 
 ]
 ```
 
@@ -293,46 +293,64 @@ No| Route Name                              | URL                               
         }
     ]
 }
+
 ```
 
 3. Add Movie | ``` localhost:8080/movies```|``` POST /movies```
+
+JSON input (sent by the user)
 ```
 {
-    "id": 15,
-    "title": "Scaryddd Movie",
-    "year": 2025,
+    "title": "Dune",
+    "year": 2021,
+    "genreIds": [1,2,9],
+    "director": "Dennis",
+    "duration": "155"
+}
+```
+
+JSON Response (sent by the server)
+```
+{
+    "id": 16,
+    "title": "Dune",
+    "year": 2021,
     "genres": [
         {
             "genreEnum": "ACTION"
         },
         {
             "genreEnum": "ADVENTURE"
+        },
+        {
+            "genreEnum": "SCIFI"
         }
     ],
-    "director": "Andrew Adamson",
-    "duration": 0,
+    "director": "Dennis",
+    "duration": 155,
     "averageRating": 0.0,
     "reviews": [],
     "movieLists": []
 }
 ```
                           
-5. Edit Movie |  ``` localhost:8080/movies/15``` |  ``` PATCH /movies/1```
+4. Edit Movie |  ``` localhost:8080/movies/15``` |  ``` PATCH /movies/1```
 
 JSON input (sent by the user)
 ```
 {
-    "title": "Hoodwinked 15",
+    "title": "Godfather 10",
     "year": 2024,
     "genreIds": [1,2],
-    "director": "Michael Bay"
+    "director": "Michael Bay",
+    "duration": 420
 }
 ```
 JSON Response (sent by the server)
 ```
 {
-    "id": 15,
-    "title": "Hoodwinked 15",
+    "id": 6,
+    "title": "Godfather 10",
     "year": 2024,
     "genres": [
         {
@@ -343,18 +361,1114 @@ JSON Response (sent by the server)
         }
     ],
     "director": "Michael Bay",
-    "duration": 0,
-    "averageRating": 0.0,
-    "reviews": [],
+    "duration": 420,
+    "averageRating": 1.75,
+    "reviews": [
+        {
+            "id": 2,
+            "title": "Not Great",
+            "date": "26-03-2024 09:05:03",
+            "content": "Hmmm, it was okay. Not the best but not bad.",
+            "rating": 2.5,
+            "movie": {
+                "id": 6,
+                "title": "Godfather 10",
+                "year": 2024,
+                "genres": [
+                    {
+                        "genreEnum": "ACTION"
+                    },
+                    {
+                        "genreEnum": "ADVENTURE"
+                    }
+                ],
+                "director": "Michael Bay",
+                "duration": 420,
+                "averageRating": 1.75
+            },
+            "user": {
+                "id": 5,
+                "name": "Not Zarrin"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Don't even",
+            "date": "26-03-2024 09:05:03",
+            "content": "Don't.",
+            "rating": 1.0,
+            "movie": {
+                "id": 6,
+                "title": "Godfather 10",
+                "year": 2024,
+                "genres": [
+                    {
+                        "genreEnum": "ACTION"
+                    },
+                    {
+                        "genreEnum": "ADVENTURE"
+                    }
+                ],
+                "director": "Michael Bay",
+                "duration": 420,
+                "averageRating": 1.75
+            },
+            "user": {
+                "id": 6,
+                "name": "Tommy"
+            }
+        }
+    ],
     "movieLists": []
 }
 ```
 
-7. Reviews of a Movie	          |  ``` localhost:8080/movies/:id/reviews	 ``` |  ``` GET /movies/1/reviews```                        
-9. Movie's movieLists  	        |  ``` localhost:8080/movies/:id/movieLists``` |  ``` GET /movies/10/movieLists```                       
-10. Filter movies by rating	      |  ``` localhost:8080/movies?minRating```| ```GET /movies/filterByRating```              
-11. Filter movies by genre	      |  ``` localhost:8080/movies/filterByGenre?genre=?```|  ``` GET /movies/filterByGenre?genre=COMEDY```      
-12. Filter movies by duration	    |  ``` localhost:8080/movies/filterByDuration?minDuration``` |  ``` GET /movies/filterByDuration```    	   
-13. Sort reviews by time	        |  ``` localhost:8080/movies/:id/reviews/sort?timeOrder``` 	|  ``` GET /movies/10/reviews/sortnewest ``` 
+5. Reviews of a Movie	          |  ``` localhost:8080/movies/10/reviews	 ``` |  ``` GET /movies/1/reviews```
+```
+[
+    {
+        "id": 4,
+        "title": "Life-changing",
+        "date": "26-03-2024 10:05:44",
+        "content": "The greatest film of all time",
+        "rating": 5.0,
+        "movie": {
+            "id": 10,
+            "title": "The Lord of the Rings: The Return of the King",
+            "year": 2003,
+            "genres": [
+                {
+                    "genreEnum": "ADVENTURE"
+                },
+                {
+                    "genreEnum": "COMEDY"
+                }
+            ],
+            "director": "Peter Jackson",
+            "duration": 210,
+            "averageRating": 5.0
+        },
+        "user": {
+            "id": 2,
+            "name": "Gabriel"
+        }
+    }
+]
+```
+                  
+6. Movie's movieLists  	        |  ``` localhost:8080/movies/10/movieLists``` |  ``` GET /movies/10/movieLists```
+```
+[
+    {
+        "id": 7,
+        "title": "Best List",
+        "user": {
+            "id": 2,
+            "name": "Gabriel"
+        },
+        "movies": [
+            {
+                "id": 1,
+                "title": "Hoodwinked",
+                "year": 2005,
+                "genres": [
+                    {
+                        "genreEnum": "ADVENTURE"
+                    },
+                    {
+                        "genreEnum": "COMEDY"
+                    }
+                ],
+                "director": "Cory Edwards",
+                "duration": 80,
+                "averageRating": 0.0
+            },
+            {
+                "id": 2,
+                "title": "Whiplash",
+                "year": 2014,
+                "genres": [
+                    {
+                        "genreEnum": "ACTION"
+                    },
+                    {
+                        "genreEnum": "THRILLER"
+                    }
+                ],
+                "director": "Damien Chazelle",
+                "duration": 107,
+                "averageRating": 0.0
+            },
+            {
+                "id": 14,
+                "title": "The Matrix",
+                "year": 1999,
+                "genres": [
+                    {
+                        "genreEnum": "ACTION"
+                    },
+                    {
+                        "genreEnum": "THRILLER"
+                    }
+                ],
+                "director": "Wachowskis",
+                "duration": 136,
+                "averageRating": 0.0
+            },
+            {
+                "id": 10,
+                "title": "The Lord of the Rings: The Return of the King",
+                "year": 2003,
+                "genres": [
+                    {
+                        "genreEnum": "ADVENTURE"
+                    },
+                    {
+                        "genreEnum": "COMEDY"
+                    }
+                ],
+                "director": "Peter Jackson",
+                "duration": 210,
+                "averageRating": 5.0
+            }
+        ],
+        "public": true
+    }
+]
+```                     
+7. Filter movies by rating	      |  ``` localhost:8080/movies?minRating```| ```GET /movies/filterByRating```
+```
+[
+    {
+        "id": 1,
+        "title": "Hoodwinked",
+        "year": 2005,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Cory Edwards",
+        "duration": 80,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            },
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Whiplash",
+        "year": 2014,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Damien Chazelle",
+        "duration": 107,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            },
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "This is Me Now",
+        "year": 2024,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Dave Mayers",
+        "duration": 65,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Frank Darabont",
+        "duration": 142,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 7,
+        "title": "The Dark Knight",
+        "year": 2008,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Christopher Nolan",
+        "duration": 152,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 8,
+        "title": "Schindler's List",
+        "year": 1993,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Steven Spielberg",
+        "duration": 195,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 9,
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Quentin Tarantino",
+        "duration": 165,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 11,
+        "title": "Fight Club",
+        "year": 1999,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "David Fincher",
+        "duration": 139,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 12,
+        "title": "Forrest Gump",
+        "year": 1994,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Robert Zemeckis",
+        "duration": 142,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 13,
+        "title": "Inception",
+        "year": 2010,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Christopher Nolan",
+        "duration": 148,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 14,
+        "title": "The Matrix",
+        "year": 1999,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Wachowskis",
+        "duration": 136,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Scott Pilgrim Vs The World",
+        "year": 2010,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Edgar Wright",
+        "duration": 112,
+        "averageRating": 5.0,
+        "reviews": [
+            {
+                "id": 1,
+                "title": "wow so cool",
+                "date": "26-03-2024 09:05:03",
+                "content": "FILM SO GOOD WOW WOOOOOOO!",
+                "rating": 5.0,
+                "movie": {
+                    "id": 4,
+                    "title": "Scott Pilgrim Vs The World",
+                    "year": 2010,
+                    "genres": [
+                        {
+                            "genreEnum": "ACTION"
+                        },
+                        {
+                            "genreEnum": "THRILLER"
+                        }
+                    ],
+                    "director": "Edgar Wright",
+                    "duration": 112,
+                    "averageRating": 5.0
+                },
+                "user": {
+                    "id": 3,
+                    "name": "Leila"
+                }
+            }
+        ],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Hoodwinked 15",
+        "year": 2024,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "ADVENTURE"
+            }
+        ],
+        "director": "Michael Bay",
+        "duration": 0,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 16,
+        "title": "Dune",
+        "year": 2021,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "SCIFI"
+            }
+        ],
+        "director": "Dennis",
+        "duration": 155,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 6,
+        "title": "Godfather 10",
+        "year": 2024,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "ADVENTURE"
+            }
+        ],
+        "director": "Michael Bay",
+        "duration": 420,
+        "averageRating": 1.75,
+        "reviews": [
+            {
+                "id": 2,
+                "title": "Not Great",
+                "date": "26-03-2024 09:05:03",
+                "content": "Hmmm, it was okay. Not the best but not bad.",
+                "rating": 2.5,
+                "movie": {
+                    "id": 6,
+                    "title": "Godfather 10",
+                    "year": 2024,
+                    "genres": [
+                        {
+                            "genreEnum": "ACTION"
+                        },
+                        {
+                            "genreEnum": "ADVENTURE"
+                        }
+                    ],
+                    "director": "Michael Bay",
+                    "duration": 420,
+                    "averageRating": 1.75
+                },
+                "user": {
+                    "id": 5,
+                    "name": "Not Zarrin"
+                }
+            },
+            {
+                "id": 3,
+                "title": "Don't even",
+                "date": "26-03-2024 09:05:03",
+                "content": "Don't.",
+                "rating": 1.0,
+                "movie": {
+                    "id": 6,
+                    "title": "Godfather 10",
+                    "year": 2024,
+                    "genres": [
+                        {
+                            "genreEnum": "ACTION"
+                        },
+                        {
+                            "genreEnum": "ADVENTURE"
+                        }
+                    ],
+                    "director": "Michael Bay",
+                    "duration": 420,
+                    "averageRating": 1.75
+                },
+                "user": {
+                    "id": 6,
+                    "name": "Tommy"
+                }
+            }
+        ],
+        "movieLists": []
+    },
+    {
+        "id": 10,
+        "title": "The Lord of the Rings: The Return of the King",
+        "year": 2003,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Peter Jackson",
+        "duration": 210,
+        "averageRating": 5.0,
+        "reviews": [
+            {
+                "id": 4,
+                "title": "Life-changing",
+                "date": "26-03-2024 10:05:44",
+                "content": "The greatest film of all time",
+                "rating": 5.0,
+                "movie": {
+                    "id": 10,
+                    "title": "The Lord of the Rings: The Return of the King",
+                    "year": 2003,
+                    "genres": [
+                        {
+                            "genreEnum": "ADVENTURE"
+                        },
+                        {
+                            "genreEnum": "COMEDY"
+                        }
+                    ],
+                    "director": "Peter Jackson",
+                    "duration": 210,
+                    "averageRating": 5.0
+                },
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                }
+            }
+        ],
+        "movieLists": [
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    }
+]
+```        
+8. Filter movies by genre	      |  ``` localhost:8080/movies/filterByGenre?genre=COMEDY```|  ``` GET /movies/filterByGenre?genre=COMEDY```
+```
+[
+    {
+        "id": 1,
+        "title": "Hoodwinked",
+        "year": 2005,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Cory Edwards",
+        "duration": 80,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            },
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "This is Me Now",
+        "year": 2024,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Dave Mayers",
+        "duration": 65,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Forrest Gump",
+        "year": 1994,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Robert Zemeckis",
+        "duration": 142,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 13,
+        "title": "Inception",
+        "year": 2010,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Christopher Nolan",
+        "duration": 148,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 10,
+        "title": "The Lord of the Rings: The Return of the King",
+        "year": 2003,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Peter Jackson",
+        "duration": 210,
+        "averageRating": 5.0,
+        "reviews": [
+            {
+                "id": 4,
+                "title": "Life-changing",
+                "date": "26-03-2024 10:05:44",
+                "content": "The greatest film of all time",
+                "rating": 5.0,
+                "movie": {
+                    "id": 10,
+                    "title": "The Lord of the Rings: The Return of the King",
+                    "year": 2003,
+                    "genres": [
+                        {
+                            "genreEnum": "ADVENTURE"
+                        },
+                        {
+                            "genreEnum": "COMEDY"
+                        }
+                    ],
+                    "director": "Peter Jackson",
+                    "duration": 210,
+                    "averageRating": 5.0
+                },
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                }
+            }
+        ],
+        "movieLists": [
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    }
+]
+```
 
-     
+9. Filter movies by duration	    |  ``` localhost:8080/movies/filterByDuration?maxDuration=190&minDuration=100``` |  ``` GET /movies/filterByDuration```
+```
+[
+    {
+        "id": 2,
+        "title": "Whiplash",
+        "year": 2014,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Damien Chazelle",
+        "duration": 107,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            },
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Frank Darabont",
+        "duration": 142,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 7,
+        "title": "The Dark Knight",
+        "year": 2008,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Christopher Nolan",
+        "duration": 152,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 9,
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Quentin Tarantino",
+        "duration": 165,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 11,
+        "title": "Fight Club",
+        "year": 1999,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "David Fincher",
+        "duration": 139,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 12,
+        "title": "Forrest Gump",
+        "year": 1994,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Robert Zemeckis",
+        "duration": 142,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 13,
+        "title": "Inception",
+        "year": 2010,
+        "genres": [
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "COMEDY"
+            }
+        ],
+        "director": "Christopher Nolan",
+        "duration": 148,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    },
+    {
+        "id": 14,
+        "title": "The Matrix",
+        "year": 1999,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Wachowskis",
+        "duration": 136,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": [
+            {
+                "id": 7,
+                "title": "Best List",
+                "user": {
+                    "id": 2,
+                    "name": "Gabriel"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Scott Pilgrim Vs The World",
+        "year": 2010,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "THRILLER"
+            }
+        ],
+        "director": "Edgar Wright",
+        "duration": 112,
+        "averageRating": 5.0,
+        "reviews": [
+            {
+                "id": 1,
+                "title": "wow so cool",
+                "date": "26-03-2024 09:05:03",
+                "content": "FILM SO GOOD WOW WOOOOOOO!",
+                "rating": 5.0,
+                "movie": {
+                    "id": 4,
+                    "title": "Scott Pilgrim Vs The World",
+                    "year": 2010,
+                    "genres": [
+                        {
+                            "genreEnum": "ACTION"
+                        },
+                        {
+                            "genreEnum": "THRILLER"
+                        }
+                    ],
+                    "director": "Edgar Wright",
+                    "duration": 112,
+                    "averageRating": 5.0
+                },
+                "user": {
+                    "id": 3,
+                    "name": "Leila"
+                }
+            }
+        ],
+        "movieLists": [
+            {
+                "id": 1,
+                "title": "Fav List",
+                "user": {
+                    "id": 1,
+                    "name": "Zarrin"
+                },
+                "public": true
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Dune",
+        "year": 2021,
+        "genres": [
+            {
+                "genreEnum": "ACTION"
+            },
+            {
+                "genreEnum": "ADVENTURE"
+            },
+            {
+                "genreEnum": "SCIFI"
+            }
+        ],
+        "director": "Dennis",
+        "duration": 155,
+        "averageRating": 0.0,
+        "reviews": [],
+        "movieLists": []
+    }
+]
+```
+ 	   
+10. Sort reviews by time	        |  ``` localhost:8080/movies/10/reviews/sortnewest``` 	|  ``` GET /movies/10/reviews/sortnewest ``` 
+```
+[
+    {
+        "id": 4,
+        "title": "Life-changing",
+        "date": "26-03-2024 10:05:44",
+        "content": "The greatest film of all time",
+        "rating": 5.0,
+        "movie": {
+            "id": 10,
+            "title": "The Lord of the Rings: The Return of the King",
+            "year": 2003,
+            "genres": [
+                {
+                    "genreEnum": "ADVENTURE"
+                },
+                {
+                    "genreEnum": "COMEDY"
+                }
+            ],
+            "director": "Peter Jackson",
+            "duration": 210,
+            "averageRating": 5.0
+        },
+        "user": {
+            "id": 2,
+            "name": "Gabriel"
+        }
+    }
+]
+``` 
