@@ -263,7 +263,7 @@ No| Route Name                              | URL                               
 ]
 ```
 
-2. View Movie	                  | ```localhost:8080/movies/3	```                        	| ```GET /movies/movie1   ```
+2. View Movie | ```localhost:8080/movies/3```| ```GET /movies/movie1```
 ```
 {
     "id": 3,
@@ -295,7 +295,7 @@ No| Route Name                              | URL                               
 }
 ```
 
-3. Add Movie	                    | ``` localhost:8080/movies	  ```                            	|  ``` POST /movies	       ```
+3. Add Movie | ``` localhost:8080/movies```|``` POST /movies```
 ```
 {
     "id": 15,
@@ -317,7 +317,8 @@ No| Route Name                              | URL                               
 }
 ```
                           
-5. Edit Movie	                  |  ``` localhost:8080/movies/15	   ```                         |  ``` PATCH /movies/1  	    ```
+5. Edit Movie |  ``` localhost:8080/movies/15``` |  ``` PATCH /movies/1```
+
 JSON input (sent by the user)
 ```
 {
@@ -349,11 +350,11 @@ JSON Response (sent by the server)
 }
 ```
 
-7. Reviews of a Movie	          |  ``` localhost:8080/movies/:id/reviews	 ```                   |  ``` GET /movies/1/reviews	    ```                        
-9. Movie's movieLists  	        |  ``` localhost:8080/movies/:id/movieLists	 	 ```             |  ``` GET /movies/10/movieLists    ```                       
-10. Filter movies by rating	      |  ``` localhost:8080/movies?minRating	     ```                 | ```  GET	/movies/filterByRating	    ```                
-11. Filter movies by genre	      |  ``` localhost:8080/movies/filterByGenre?genre=?	  ```        |  ``` GET /movies/filterByGenre?genre=COMEDY	 ```      
-12. Filter movies by duration	    |  ``` localhost:8080/movies/filterByDuration?minDuration	 ``` |  ``` GET /movies/filterByDuration              ```    	   
-13. Sort reviews by time	        |  ``` localhost:8080/movies/:id/reviews/sort?timeOrder	  ``` 	|  ``` GET /movies/10/reviews/sortnewest ``` 
+7. Reviews of a Movie	          |  ``` localhost:8080/movies/:id/reviews	 ``` |  ``` GET /movies/1/reviews```                        
+9. Movie's movieLists  	        |  ``` localhost:8080/movies/:id/movieLists``` |  ``` GET /movies/10/movieLists```                       
+10. Filter movies by rating	      |  ``` localhost:8080/movies?minRating```| ```GET /movies/filterByRating```              
+11. Filter movies by genre	      |  ``` localhost:8080/movies/filterByGenre?genre=?```|  ``` GET /movies/filterByGenre?genre=COMEDY```      
+12. Filter movies by duration	    |  ``` localhost:8080/movies/filterByDuration?minDuration``` |  ``` GET /movies/filterByDuration```    	   
+13. Sort reviews by time	        |  ``` localhost:8080/movies/:id/reviews/sort?timeOrder``` 	|  ``` GET /movies/10/reviews/sortnewest ``` 
 
      
