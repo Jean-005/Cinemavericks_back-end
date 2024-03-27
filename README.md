@@ -10,9 +10,9 @@
 3. [Technology](#technology)
 4. [MVP](#mvp)
 7. [Extension](#extension)
-8. [Class and ERD Diagram](#class-erd-diagram)
+8. [Class Diagram and ERD](#class-erd-diagram)
 9. [Data Dictionary](#data-dictionary)
-10. [Api Route Table](#api-routes-table)
+10. [API Route Table](#api-routes-table)
 
 
 <a id="introduction"></a>
@@ -89,11 +89,11 @@ Design and build an API with CRUD functionality. The database will store ```Movi
 - Allow users to leave comments and likes on reviews (coming soon!)
 
 <a id="class-erd-diagram"></a>
-## Final Class Diagram and ERD Diagram:
+## Class Diagram and ERD:
 **Class Diagram for CinemaMavericks**
 ![Final Class Diagram](https://github.com/moneshadhali/cinemavericks/assets/99983599/d2c3a71f-e745-47b5-8c4d-42f3f992a596)
 
-**ERD Diagram for CinemaMavericks**
+**ERD for CinemaMavericks**
 ![Final ERD Diagram](https://github.com/moneshadhali/cinemavericks/assets/99983599/8bf2778a-a177-40c3-886e-b1540eea8f4d)
 
 Entity Relationship Diagram (ERD) and Class Diagram - Both MVP and Extension :
