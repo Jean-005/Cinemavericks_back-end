@@ -156,27 +156,27 @@ https://excalidraw.com/#room=4bc1651ba3f81fbe936c,Ud0mJ7-NPaNVfieqM0HqCw
 
 No| Route Name                    | URL                                   | Example Permitted Request                          | Example Response         |
 --|-------------------------------|---------------------------------------|----------------------------------------------------|--------------------------|
-1 | Movie Index	                  | localhost:8080movies	                            	| GET /movies                	                       | { "movies": [...] }      |
-2 | View Movie	                  | localhost:8080/movies/:id	                        	| GET /movies/movie1                                 | { "id": [...] }          |
-3 | Add Movie	                    | localhost:8080/movies	                            	| POST /movies	                                     | { "id": [...] }          |
-4 | Edit Movie	                  | localhost:8080/movies/:id	                          | PATCH /movies/1  	                                 | { "id": [...] }          |
-5 | Reviews of a Movie	          | localhost:8080/movies/:id/reviews	                  | GET /movies/1/reviews	                             | { "reviews": [...] }     |
-6 | Movie's movieLists  	        | localhost:8080/movies/:id/movieLists	 	            | GET /movies/10/movieLists                          | { "movieLists": [...] }  |
-7 | Filter movies by rating	      | localhost:8080/movies?minRating	                    | GET	/movies/filterByRating	                       | { "movies": [...] }      |
-8 | Filter movies by genre	      | localhost:8080/movies/filterByGenre?genre=?	        | GET /movies/filterByGenre?genre=COMEDY	           | { "movies": [...] }      |
-9 | Filter movies by duration	    | localhost:8080/movies/filterByDuration?minDuration	| GET /movies/filterByDuration                	     | { "movies": [...] }      |
-10| Sort reviews by time	        | localhost:8080/movies/:id/reviews/sort?timeOrder	 	| GET /movies/10/reviews/sortnewest                  | { "reviews": [...] }     |
+1 | Movie Index	                  | localhost:8080movies	                            	| GET /movies                	                       | [ {},{},.. ]   |
+2 | View Movie	                  | localhost:8080/movies/:id	                        	| GET /movies/movie1                                 | {}          |
+3 | Add Movie	                    | localhost:8080/movies	                            	| POST /movies	                                     | {}          |
+4 | Edit Movie	                  | localhost:8080/movies/:id	                          | PATCH /movies/1  	                                 | {}          |
+5 | Reviews of a Movie	          | localhost:8080/movies/:id/reviews	                  | GET /movies/1/reviews	                             | [ {},{},.. ]  }  |
+6 | Movie's movieLists  	        | localhost:8080/movies/:id/movieLists	 	            | GET /movies/10/movieLists                          | [ {},{},.. ]  |
+7 | Filter movies by rating	      | localhost:8080/movies?minRating	                    | GET	/movies/filterByRating	                       | [ {},{},.. ]   |
+8 | Filter movies by genre	      | localhost:8080/movies/filterByGenre?genre=?	        | GET /movies/filterByGenre?genre=COMEDY	           | [ {},{},.. ]  |
+9 | Filter movies by duration	    | localhost:8080/movies/filterByDuration?minDuration	| GET /movies/filterByDuration                	     | [ {},{},.. ]  |
+10| Sort reviews by time	        | localhost:8080/movies/:id/reviews/sort?timeOrder	 	| GET /movies/10/reviews/sortnewest                  | [ {},{},.. ]   |
 
 
 **UserAPI Routes**
 
 No| Route Name                              | URL                                | Example Permitted Request                        | Example Response         |
 --|-----------------------------------------|------------------------------------|--------------------------------------------------|--------------------------|
-1 | Get all Users                           | localhost:8080/users                             | GET /users                	                      | { "id": "1", ... }, ...  |
-2 | Get specific User	                      | localhost:8080/users/:id                       	 | GET /users/1	                                    | { "id": "1", ... }       |
-3 | Get all Reviews by User                 | localhost:8080/users/:id/reviews                 | GET /users/1/reviews                             | { "id": "review1",...}   |
-4 | Get all Reviews by User Sorted by Time	| localhost:8080/users/:id/reviews/sortnewest      | GET /users/2/reviews/sortnewest                  | { "id": "review1", ... } |
-5 | Get all MovieLists by User	            | localhost:8080/users/:id/movieLists              | GET /users/1/movieLists                           | { "id": "1", ... }      |
+1 | Get all Users                           | localhost:8080/users                             | GET /users                	                      | [ {},{},.. ]  |
+2 | Get specific User	                      | localhost:8080/users/:id                       	 | GET /users/1	                                    | {}     |
+3 | Get all Reviews by User                 | localhost:8080/users/:id/reviews                 | GET /users/1/reviews                             | [ {},{},.. ]   |
+4 | Get all Reviews by User Sorted by Time	| localhost:8080/users/:id/reviews/sortnewest      | GET /users/2/reviews/sortnewest                  | [ {},{},.. ] |
+5 | Get all MovieLists by User	            | localhost:8080/users/:id/movieLists              | GET /users/1/movieLists                           | [ {},{},.. ]   |
 6 | Post User	                              | localhost:8080/users	                           | POST /users	                                    | { "id": "user100", ... } |
 7 | Delete User	                            | localhost:8080/users/:id	                       | DELETE /users/6	                                | No Content               |
 8 | Patch User	                            | localhost:8080/users/:id                         | PATCH /users/7	                                  | { "id": "user1", ... }   |
@@ -186,18 +186,18 @@ No| Route Name                              | URL                               
 
 No| Route Name                              | URL                                | Example Permitted Request                        | Example Response         |
 --|-----------------------------------------|------------------------------------|--------------------------------------------------|--------------------------|
-1 | Post Review                             | localhost:8080/reviews             | POST /reviews                	                  | { "id": ...}             |
-2 | Patch Review	                          | localhost:8080/reviews/:id         | PATCH /reviews/4                                 | { "id": "review4", ... } |
+1 | Post Review                             | localhost:8080/reviews             | POST /reviews                	                  | {}             |
+2 | Patch Review	                          | localhost:8080/reviews/:id         | PATCH /reviews/4                                 | {} |
 3 | Delete Review                           | localhost:8080/reviews/:id         | DELETE /reviews/1                                | No Content               |
 
 **MovieListsAPI Routes**
 
 No| Route Name                              | URL                                | Example Permitted Request                        | Example Response         |
 --|-----------------------------------------|------------------------------------|--------------------------------------------------|--------------------------|
-1 | Get all MovieLists (only public ones)   | localhost:8080/movielists                        | GET /movielists                	                | { "id": "list1", ... }   |
-2 | Get specific MovieList                  | localhost:8080/movielists/:id                    | GET /movielists/1                                | { "id": "title", ... }   |
-3 | Post MovieList                          | localhost:8080/movielists                        | POST /movielists                                 | { "id": "title", ... }   |
-4 | Toggle movie list privacy setting	      | localhost:8080/movielists/:id/setPublic?         | PATCH /movielists/8/setPublicfalse               | { "id": "title", ... }   |
-5 | Add movie to List                       | localhost:8080/movielists/:id/addMovies	         | PATCH /movielists/1/addMovies                    | { "id": ..., "movies" }  |
-6 | Remove movie from List                  | localhost:8080/movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | { "id": ..., "movies" }  |
+1 | Get all MovieLists (only public ones)   | localhost:8080/movielists                        | GET /movielists                	                | [ {},{},.. ]   |
+2 | Get specific MovieList                  | localhost:8080/movielists/:id                    | GET /movielists/1                                | {} |
+3 | Post MovieList                          | localhost:8080/movielists                        | POST /movielists                                 | {}   |
+4 | Toggle movie list privacy setting	      | localhost:8080/movielists/:id/setPublic?         | PATCH /movielists/8/setPublicfalse               | {} |
+5 | Add movie to List                       | localhost:8080/movielists/:id/addMovies	         | PATCH /movielists/1/addMovies                    | {}  |
+6 | Remove movie from List                  | localhost:8080/movielists/:id/removeMovies	     | PATCH /movielists/1/removeMovies                 | [ {},{},.. ]  |
 7 | Delete movielist                        | localhost:8080/movielists/:id/            	     | PATCH /movielists/1/                             | MovieList Deleted        |
