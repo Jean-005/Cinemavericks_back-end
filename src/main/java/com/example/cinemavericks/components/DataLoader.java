@@ -89,6 +89,7 @@ public class DataLoader implements ApplicationRunner {
         List<Genre> genres14 = new ArrayList<>();
         List<Genre> genres15 = new ArrayList<>();
         List<Genre> genres16 = new ArrayList<>();
+        List<Genre> genres17 = new ArrayList<>();
 
         genres1.add(comedy);
         genres1.add(adventure);
@@ -104,6 +105,8 @@ public class DataLoader implements ApplicationRunner {
         genres15.add(action);
         genres16.add(horror);
         genres16.add(romance);
+        genres17.add(action);
+        genres17.add(romance);
 
 
         Movie hoodWinked = new Movie("Hoodwinked", 2005 ,genres1,"Cory Edwards", 80);
@@ -114,6 +117,7 @@ public class DataLoader implements ApplicationRunner {
         Movie gladiator = new Movie("Gladiator", 2000, genres14, "Ridley Scott", 155);
         Movie anchorMan = new Movie("Anchorman: The Legend of Ron Burgundy", 2004, genres15, "Adam McKay", 94);
         Movie scream = new Movie("Scream", 1996, genres16, "Wes Craven", 111);
+        Movie topGun = new Movie("Top Gun", 1986, genres17, "Tony Scott", 110);
 
         Movie movie1 = new Movie("The Shawshank Redemption", 1994,genres2,"Frank Darabont",  142);
         Movie movie2 = new Movie("The Godfather", 1972,genres2,"Francis Ford Coppola", 175);
@@ -144,6 +148,7 @@ public class DataLoader implements ApplicationRunner {
         movieRepository.save(gladiator);
         movieRepository.save(anchorMan);
         movieRepository.save(scream);
+        movieRepository.save(topGun);
 
         Review review1 = new Review(user3, scottPilgrimVsTheWorld, "wow so cool","FILM SO GOOD WOW WOOOOOOO!", 5);
         Review review2 = new Review(user5, movie2, "Not Great","Hmmm, it was okay. Not the best but not bad.", 2.5);
@@ -153,7 +158,8 @@ public class DataLoader implements ApplicationRunner {
         Review review6 = new Review(user9, naruto, "Great!", "I love anime!", 4);
         Review review7 = new Review(user10, gladiator, "Good", "A bit too long but still a good watch", 3.5);
         Review review8 = new Review(user11, anchorMan, "Okay...", "Not a big fan of comedies", 2.5);
-
+        Review review9 = new Review(user1, topGun, "Love it!", "One of my all-time favorites!", 5);
+        Review review10 = new Review(user5, topGun, "Not bad", "I'm not a big fan of action movies, but this one was okay.", 3);
 
 
         reviewRepository.save(review1);
@@ -164,6 +170,8 @@ public class DataLoader implements ApplicationRunner {
         reviewRepository.save(review6);
         reviewRepository.save(review7);
         reviewRepository.save(review8);
+        reviewRepository.save(review9);
+        reviewRepository.save(review10);
 
         // Calculate the average rating for the movies with new reviews
         movie1 = movieRepository.findById(1L).get();
@@ -228,6 +236,10 @@ public class DataLoader implements ApplicationRunner {
         MovieList movieList11 = new MovieList(user10, "Worst List");
         movieList11.addMovie(gladiator);
         movieListRepository.save(movieList11);
+
+        MovieList movieList12 = new MovieList(user1, "Favorite Movies");
+        movieList12.addMovie(topGun);
+        movieListRepository.save(movieList12);
 
     }
 }
