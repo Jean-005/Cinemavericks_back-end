@@ -111,7 +111,7 @@ public class DataLoader implements ApplicationRunner {
 
         Movie hoodWinked = new Movie("Hoodwinked", 2005 ,genres1,"Cory Edwards", 80);
         Movie whipLash = new Movie("Whiplash", 2014,genres2, "Damien Chazelle",  107);
-        Movie thisIsMeNow = new Movie("This is Me Now", 2024,genres1,"Dave Mayers",  65);
+        Movie thisIsMeNow = new Movie("This Is Me Now", 2024,genres1,"Dave Mayers",  65);
         Movie scottPilgrimVsTheWorld = new Movie("Scott Pilgrim Vs The World", 2010,genres2,"Edgar Wright",  112);
         Movie gladiator = new Movie("Gladiator", 2000, genres14, "Ridley Scott", 155);
         Movie anchorMan = new Movie("Anchorman: The Legend of Ron Burgundy", 2004, genres15, "Adam McKay", 94);
