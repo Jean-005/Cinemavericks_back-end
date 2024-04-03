@@ -113,7 +113,6 @@ public class DataLoader implements ApplicationRunner {
         Movie whipLash = new Movie("Whiplash", 2014,genres2, "Damien Chazelle",  107);
         Movie thisIsMeNow = new Movie("This is Me Now", 2024,genres1,"Dave Mayers",  65);
         Movie scottPilgrimVsTheWorld = new Movie("Scott Pilgrim Vs The World", 2010,genres2,"Edgar Wright",  112);
-        Movie naruto = new Movie("Naruto: Shippuden", 2007, genres13, "Hayato Date", 500);
         Movie gladiator = new Movie("Gladiator", 2000, genres14, "Ridley Scott", 155);
         Movie anchorMan = new Movie("Anchorman: The Legend of Ron Burgundy", 2004, genres15, "Adam McKay", 94);
         Movie scream = new Movie("Scream", 1996, genres16, "Wes Craven", 111);
@@ -144,7 +143,6 @@ public class DataLoader implements ApplicationRunner {
         movieRepository.save(movie8);
         movieRepository.save(movie9);
         movieRepository.save(movie10);
-        movieRepository.save(naruto);
         movieRepository.save(gladiator);
         movieRepository.save(anchorMan);
         movieRepository.save(scream);
@@ -155,7 +153,6 @@ public class DataLoader implements ApplicationRunner {
         Review review3 = new Review(user6, movie2, "Don't even","Don't.", 1);
         Review review4 = new Review(user7, movie1, "A classic", "One of the best movies of all time", 5);
         Review review5 = new Review(user8, movie10, "Awesome!", "The special effects are amazing!", 4.5);
-        Review review6 = new Review(user9, naruto, "Great!", "I love anime!", 4);
         Review review7 = new Review(user10, gladiator, "Good", "A bit too long but still a good watch", 3.5);
         Review review8 = new Review(user11, anchorMan, "Okay...", "Not a big fan of comedies", 2.5);
         Review review9 = new Review(user1, topGun, "Love it!", "One of my all-time favorites!", 5);
@@ -167,7 +164,6 @@ public class DataLoader implements ApplicationRunner {
         reviewRepository.save(review3);
         reviewRepository.save(review4);
         reviewRepository.save(review5);
-        reviewRepository.save(review6);
         reviewRepository.save(review7);
         reviewRepository.save(review8);
         reviewRepository.save(review9);
@@ -228,10 +224,6 @@ public class DataLoader implements ApplicationRunner {
         MovieList movieList9 = new MovieList(user8, "Best List");
         movieList9.addMovie(movie10);
         movieListRepository.save(movieList9);
-
-        MovieList movieList10 = new MovieList(user9, "Watch List");
-        movieList10.addMovie(naruto);
-        movieListRepository.save(movieList10);
 
         MovieList movieList11 = new MovieList(user10, "Worst List");
         movieList11.addMovie(gladiator);
