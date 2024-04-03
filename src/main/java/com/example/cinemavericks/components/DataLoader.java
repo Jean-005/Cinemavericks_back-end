@@ -233,5 +233,52 @@ public class DataLoader implements ApplicationRunner {
         movieList12.addMovie(topGun);
         movieListRepository.save(movieList12);
 
+        List<Genre> genres18 = new ArrayList<>();
+        List<Genre> genres19 = new ArrayList<>();
+        List<Genre> genres20 = new ArrayList<>();
+        List<Genre> genres21 = new ArrayList<>();
+
+// Add genres to the new movies
+        genres18.add(action);
+        genres18.add(scifi);
+        genres19.add(adventure);
+        genres21.add(anime);
+        genres21.add(action);
+
+        Movie terminator = new Movie("The Terminator", 1984, genres18, "James Cameron", 107);
+        Movie titanic = new Movie("The Titanic", 1997, genres19, "James Cameron", 194);
+        Movie smurfs = new Movie("The Smurfs", 2011, genres20, "Raja Gosnell", 103);
+        Movie naruto = new Movie("Naruto Shippuden The Movie", 2007, genres21, "Hayato Date", 94);
+
+        movieRepository.save(terminator);
+        movieRepository.save(titanic);
+        movieRepository.save(smurfs);
+        movieRepository.save(naruto);
+
+        Review review11 = new Review(user4, titanic, "Epic", "One of the most epic love stories ever", 5);
+        Review review12 = new Review(user6, terminator, "Interesting", "It was an interesting movie with good action", 4);
+        Review review13 = new Review(user5, smurfs, "Cute", "Cute little creatures, fun for the kids", 3);
+        Review review14 = new Review(user2, naruto, "Entertaining", "Nice anime movie with good animation", 4.5);
+
+        reviewRepository.save(review11);
+        reviewRepository.save(review12);
+        reviewRepository.save(review13);
+        reviewRepository.save(review14);
+
+        movieList1 = movieListRepository.findById(1L).get();
+        movieList1.addMovie(terminator);
+        movieListRepository.save(movieList1);
+
+        movieList2 = movieListRepository.findById(2L).get();
+        movieList2.addMovie(titanic);
+        movieListRepository.save(movieList2);
+
+        movieList3 = movieListRepository.findById(3L).get();
+        movieList3.addMovie(smurfs);
+        movieListRepository.save(movieList3);
+
+        movieList4 = movieListRepository.findById(4L).get();
+        movieList4.addMovie(naruto);
+        movieListRepository.save(movieList4);
     }
 }
