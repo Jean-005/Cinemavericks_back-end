@@ -193,8 +193,6 @@ public class DataLoader implements ApplicationRunner {
         MovieList movieList2 = new MovieList(user2,"Worst List");
         MovieList movieList3 = new MovieList(user3,"Cry List");
         MovieList movieList4 = new MovieList(user4,"Sad List");
-        MovieList movieList5 = new MovieList(user5,"Horror List");
-        MovieList movieList6 = new MovieList(user6,"Watch List");
         MovieList movieList7 = new MovieList(user2, "Best List");
 
         movieList1.addMovie(scottPilgrimVsTheWorld);
@@ -212,8 +210,6 @@ public class DataLoader implements ApplicationRunner {
         movieListRepository.save(movieList2);
         movieListRepository.save(movieList3);
         movieListRepository.save(movieList4);
-        movieListRepository.save(movieList5);
-        movieListRepository.save(movieList6);
         movieListRepository.save(movieList7);
 
         MovieList movieList8 = new MovieList(user7, "Fav List");
