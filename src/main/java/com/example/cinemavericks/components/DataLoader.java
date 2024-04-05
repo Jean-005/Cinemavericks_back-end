@@ -275,5 +275,10 @@ public class DataLoader implements ApplicationRunner {
         movieList4 = movieListRepository.findById(4L).get();
         movieList4.addMovie(naruto);
         movieListRepository.save(movieList4);
+
+        Review review15 = new Review(user11, naruto, "Action-packed", "Nice anime movie with good animation", 5);
+        Review review16 = new Review(user11, titanic, "Very sad", "This movie had me in tears", 4);
+        reviewRepository.save(review15);
+        reviewRepository.save(review16);
     }
 }
