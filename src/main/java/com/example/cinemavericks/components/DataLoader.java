@@ -104,7 +104,6 @@ public class DataLoader implements ApplicationRunner {
         genres15.add(comedy);
         genres15.add(action);
         genres16.add(horror);
-        genres16.add(romance);
         genres17.add(action);
         genres17.add(romance);
 
