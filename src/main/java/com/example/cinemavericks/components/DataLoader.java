@@ -149,12 +149,12 @@ public class DataLoader implements ApplicationRunner {
         movieRepository.save(topGun);
 
         Review review1 = new Review(user3, scottPilgrimVsTheWorld, "wow so cool","FILM SO GOOD WOW WOOOOOOO!", 5);
-        Review review2 = new Review(user5, movie2, "Not Great","Hmmm, it was okay. Not the best but not bad.", 2.5);
+        Review review2 = new Review(user5, movie2, "Not Great","Hmmm, it was okay. Not the best but not bad.", 2);
         Review review3 = new Review(user6, movie2, "Don't even","Don't.", 1);
         Review review4 = new Review(user7, movie1, "A classic", "One of the best movies of all time", 5);
-        Review review5 = new Review(user8, movie10, "Awesome!", "The special effects are amazing!", 4.5);
-        Review review7 = new Review(user10, gladiator, "Good", "A bit too long but still a good watch", 3.5);
-        Review review8 = new Review(user11, anchorMan, "Okay...", "Not a big fan of comedies", 2.5);
+        Review review5 = new Review(user8, movie10, "Awesome!", "The special effects are amazing!", 4);
+        Review review7 = new Review(user10, gladiator, "Good", "A bit too long but still a good watch", 3);
+        Review review8 = new Review(user11, anchorMan, "Okay...", "Not a big fan of comedies", 2);
         Review review9 = new Review(user1, topGun, "Love it!", "One of my all-time favorites!", 5);
         Review review10 = new Review(user5, topGun, "Not bad", "I'm not a big fan of action movies, but this one was okay.", 3);
 
@@ -254,7 +254,7 @@ public class DataLoader implements ApplicationRunner {
         Review review11 = new Review(user4, titanic, "Epic", "One of the most epic love stories ever", 5);
         Review review12 = new Review(user6, terminator, "Interesting", "It was an interesting movie with good action", 4);
         Review review13 = new Review(user5, smurfs, "Cute", "Cute little creatures, fun for the kids", 3);
-        Review review14 = new Review(user2, naruto, "Entertaining", "Nice anime movie with good animation", 4.5);
+        Review review14 = new Review(user2, naruto, "Entertaining", "Nice anime movie with good animation", 4);
 
         reviewRepository.save(review11);
         reviewRepository.save(review12);
