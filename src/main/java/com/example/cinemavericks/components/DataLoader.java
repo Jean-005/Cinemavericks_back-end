@@ -295,6 +295,7 @@ public class DataLoader implements ApplicationRunner {
         movieListRepository.save(movieList14);
 
         movieList8.addMovie(movie2);
+        movieList8.removeMovie(titanic);
         movieListRepository.save(movieList8);
     }
 }
