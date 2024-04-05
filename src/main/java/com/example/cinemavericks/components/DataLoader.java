@@ -280,5 +280,18 @@ public class DataLoader implements ApplicationRunner {
         Review review16 = new Review(user11, titanic, "Very sad", "This movie had me in tears", 4);
         reviewRepository.save(review15);
         reviewRepository.save(review16);
+
+        MovieList movieList13 = new MovieList(user11, "Favorite Movies");
+        movieList13.addMovie(topGun);
+        movieList13.addMovie(smurfs);
+        movieList13.addMovie(terminator);
+        movieList13.addMovie(anchorMan);
+        movieListRepository.save(movieList13);
+
+        MovieList movieList14 = new MovieList(user11, "Ok Movies");
+        movieList14.addMovie(hoodWinked);
+        movieList14.addMovie(movie8);
+        movieList14.addMovie(thisIsMeNow);
+        movieListRepository.save(movieList14);
     }
 }
